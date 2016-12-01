@@ -15,6 +15,7 @@ namespace MAPapp
         //List<Label> labels = new List<Label>() { label1, label2, label3, label4, label5, label6, label7, label8, label9, label10, label11};
 		public PokerPage ()
 		{
+            BackgroundColor = Color.White;
             var grid = new Grid();
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -32,11 +33,11 @@ namespace MAPapp
             grid.Children.Add(label9 = new ClickableLabel(OnLabelClicked,20) { Text = " 9 " }, 8, 5);
             grid.Children.Add(label10 = new ClickableLabel(OnLabelClicked,20) { Text = " 10 " }, 9, 5);
             grid.Children.Add(label11 = new ClickableLabel(OnLabelClicked,20) { Text = " ? " }, 10, 5);
-            label12 = new Label();
-            label12.HorizontalOptions = LayoutOptions.CenterAndExpand;
-            label12.VerticalOptions = LayoutOptions.CenterAndExpand;
-            label12.FontSize = 80;
-            
+            label12 = new Label { HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                FontSize = 80,
+                TextColor = Color.Black
+        };    
             Content = new StackLayout {
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,

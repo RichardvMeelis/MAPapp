@@ -9,6 +9,7 @@ namespace MAPapp
     {
         public ClickableLabel(Action<String> myMethodName)
         {
+            TextColor = Color.Black;
             this.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = new Command(() => myMethodName(this.Text)),
@@ -16,6 +17,7 @@ namespace MAPapp
         }
         public ClickableLabel(Action<String> myMethodName, int size)
         {
+            TextColor = Color.Black;
             this.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = new Command(() => myMethodName(this.Text)),
