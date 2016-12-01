@@ -14,5 +14,13 @@ namespace MAPapp
                 Command = new Command(() => myMethodName(this.Text)),
             });
         }
+        public ClickableLabel(Action<String> myMethodName, int size)
+        {
+            this.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => myMethodName(this.Text)),
+            });
+            FontSize = size;
+        }
     }
 }

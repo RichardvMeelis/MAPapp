@@ -20,25 +20,27 @@ namespace MAPapp
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            grid.Children.Add(label12 = new Label() {  }, 6, 0);
-            grid.Children.Add(label1 = new ClickableLabel(OnLabelClicked) { Text = "1" }, 0, 5);
-            grid.Children.Add(label2 = new ClickableLabel(OnLabelClicked) { Text = "2" }, 1, 5);
-            grid.Children.Add(label3 = new ClickableLabel(OnLabelClicked) { Text = "3" }, 2, 5);
-            grid.Children.Add(label4 = new ClickableLabel(OnLabelClicked) { Text = "4" }, 3, 5);
-            grid.Children.Add(label5 = new ClickableLabel(OnLabelClicked) { Text = "5" }, 4, 5);
-            grid.Children.Add(label6 = new ClickableLabel(OnLabelClicked) { Text = "6" }, 5, 5);
-            grid.Children.Add(label7 = new ClickableLabel(OnLabelClicked) { Text = "7" }, 6, 5);
-            grid.Children.Add(label8 = new ClickableLabel(OnLabelClicked) { Text = "8" }, 7, 5);
-            grid.Children.Add(label9 = new ClickableLabel(OnLabelClicked) { Text = "9" }, 8, 5);
-            grid.Children.Add(label10 = new ClickableLabel(OnLabelClicked) { Text = "10" }, 9, 5);
-            grid.Children.Add(label11 = new ClickableLabel(OnLabelClicked) { Text = "?" }, 10, 5);
-
-            label12.FontSize = 40;
+            //grid.Children.Add(label12 = new Label() {  }, 6, 0);
+            grid.Children.Add(label1 = new ClickableLabel(OnLabelClicked,20) { Text = " 1 " }, 0, 5);
+            grid.Children.Add(label2 = new ClickableLabel(OnLabelClicked,20) { Text = " 2 " }, 1, 5);
+            grid.Children.Add(label3 = new ClickableLabel(OnLabelClicked,20) { Text = " 3 " }, 2, 5);
+            grid.Children.Add(label4 = new ClickableLabel(OnLabelClicked,20) { Text = " 4 " }, 3, 5);
+            grid.Children.Add(label5 = new ClickableLabel(OnLabelClicked,20) { Text = " 5 " }, 4, 5);
+            grid.Children.Add(label6 = new ClickableLabel(OnLabelClicked,20) { Text = " 6 " }, 5, 5);
+            grid.Children.Add(label7 = new ClickableLabel(OnLabelClicked,20) { Text = " 7 " }, 6, 5);
+            grid.Children.Add(label8 = new ClickableLabel(OnLabelClicked,20) { Text = " 8 " }, 7, 5);
+            grid.Children.Add(label9 = new ClickableLabel(OnLabelClicked,20) { Text = " 9 " }, 8, 5);
+            grid.Children.Add(label10 = new ClickableLabel(OnLabelClicked,20) { Text = " 10 " }, 9, 5);
+            grid.Children.Add(label11 = new ClickableLabel(OnLabelClicked,20) { Text = " ? " }, 10, 5);
+            label12 = new Label();
+            label12.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            label12.VerticalOptions = LayoutOptions.CenterAndExpand;
+            label12.FontSize = 80;
             
             Content = new StackLayout {
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,
-                Children = {grid}
+                Children = {label12,grid}
 			};
 		}
 
