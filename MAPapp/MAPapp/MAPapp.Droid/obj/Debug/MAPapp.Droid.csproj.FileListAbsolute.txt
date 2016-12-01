@@ -30,6 +30,7 @@ C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\R.cs.flag
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\uploadflags.txt
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.csprojResolveAssemblyReference.cache
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Java.Interop.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Mono.Android.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\mscorlib.dll.mdb

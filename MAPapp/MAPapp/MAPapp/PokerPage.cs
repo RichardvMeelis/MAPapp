@@ -15,6 +15,7 @@ namespace MAPapp
         //List<Label> labels = new List<Label>() { label1, label2, label3, label4, label5, label6, label7, label8, label9, label10, label11};
 		public PokerPage ()
 		{
+           // NavigationPage.SetHasNavigationBar(this, false);
             BackgroundColor = Color.White;
             var grid = new Grid();
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });

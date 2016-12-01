@@ -7,6 +7,11 @@ namespace MAPapp
 {
     class ClickableLabel : Label
     {
+        public ClickableLabel(int size)
+        {
+            TextColor = Color.Black;
+            FontSize = size;
+        }
         public ClickableLabel(Action<String> myMethodName)
         {
             TextColor = Color.Black;
