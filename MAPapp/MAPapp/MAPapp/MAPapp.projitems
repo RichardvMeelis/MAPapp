@@ -10,18 +10,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ClickableLabel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)HomePage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PokerPage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Project.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Task.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\ClickableLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Project.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Task.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\HomePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\PokerPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)LoginPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
