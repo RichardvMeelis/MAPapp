@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)PokerPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Task.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />

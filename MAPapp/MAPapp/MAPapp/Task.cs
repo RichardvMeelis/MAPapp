@@ -12,6 +12,7 @@ namespace MAPapp
         int difficultyPoints;
         int importancePoints;
         Boolean changed;
+        User user;
         
         public Task(DateTime completedDate, String name, String description, int difficultyPoints,int importancePoints, Boolean changed )
         {
@@ -44,6 +45,11 @@ namespace MAPapp
         {
             get { return importancePoints; }
             set { importancePoints = value; }
+        }
+        public User User
+        {
+            get { return user; }
+            set { user = value; }
         }
     }
 }

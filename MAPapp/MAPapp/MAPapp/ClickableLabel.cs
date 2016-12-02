@@ -29,5 +29,6 @@ namespace MAPapp
             });
             FontSize = size;
         }
+        
     }
 }

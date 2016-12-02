@@ -17,6 +17,7 @@ namespace MAPapp
         
         //Elk project heeft een lijst taken
         ICollection<Task> tasks;
+        ICollection<User> users;
         public Project(DateTime startingDate, DateTime endingDate, String name, String company, String description)
         {
             this.startingDate = startingDate;
@@ -48,6 +49,12 @@ namespace MAPapp
         {
             get { return tasks; }
             set { tasks = value; }
+        }
+        //Get of set de lijst met users
+        public ICollection<User> Users
+        {
+            get { return users; }
+            set { users = value; }
         }
     }
 }
