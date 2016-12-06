@@ -51,9 +51,9 @@ namespace MAPapp
             
         }
 
-        private void A_Clicked(object sender, EventArgs e)
+        private async void A_Clicked(object sender, EventArgs e)
         {
-            
+            await Navigation.PushAsync(new ProjectsPage());
         }
     }
 	}

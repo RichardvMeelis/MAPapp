@@ -22,15 +22,14 @@ C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.LoginPage.xaml.g.cs
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.pdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\bin\MAPapp.Droid.apk
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\icon.png
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\R.cs.flag
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\uploadflags.txt
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.Pages.LoginPage.xaml.g.cs
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.csprojResolveAssemblyReference.cache
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Java.Interop.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Mono.Android.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\mscorlib.dll.mdb
