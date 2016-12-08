@@ -9,6 +9,7 @@
     <Import_RootNamespace>MAPapp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AccountSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\ClickableLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Project.cs" />
