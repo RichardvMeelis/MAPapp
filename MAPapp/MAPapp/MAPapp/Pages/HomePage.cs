@@ -10,7 +10,7 @@ namespace MAPapp
 {
 	public class HomePage : ContentPage
 	{
-        Button a, b, c, d;
+        Button a, b, c, d, e;
 		public HomePage ()
 		{
 
@@ -24,10 +24,12 @@ namespace MAPapp
             grid.Children.Add(b = new Button() { Text = "Poker", BackgroundColor = Color.FromRgb(0, 192, 129) }, 0, 1);
             grid.Children.Add(c = new Button() { Text = "Accout Settings", BackgroundColor = Color.FromRgb(0, 192, 129) }, 1, 0);
             grid.Children.Add(d = new Button() { Text = "Settings", BackgroundColor = Color.FromRgb(0, 192, 129) }, 1, 1);
+            grid.Children.Add(e = new Button() { Text = "Informatie", BackgroundColor = Color.FromRgb(0, 192, 129) }, 1, 2);
             a.Clicked += A_Clicked;
             b.Clicked += B_Clicked;
             c.Clicked += C_Clicked;
             d.Clicked += D_Clicked;
+            e.Clicked += E_Clicked;
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
@@ -35,6 +37,12 @@ namespace MAPapp
                 Children = { grid }
             };
 			}
+
+        private async void E_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new InformationPage());
+
+        }
 
         private void D_Clicked(object sender, EventArgs e)
         {

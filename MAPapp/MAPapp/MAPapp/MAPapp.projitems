@@ -14,6 +14,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Task.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FivePointsMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InformationPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\HomePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\PokerPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectInfoPage.cs" />
