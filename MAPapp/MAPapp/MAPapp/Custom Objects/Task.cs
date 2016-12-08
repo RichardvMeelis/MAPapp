@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MAPapp
 {
-    class Task
+   public class Task
     {
         DateTime completedDate; //Null of datum
         String name;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MAPapp
 {
-    class Project
+    public class Project
     {
         //De begin- en einddatum
         DateTime startingDate;
@@ -16,8 +16,8 @@ namespace MAPapp
         String description;
         
         //Elk project heeft een lijst taken
-        ICollection<Task> tasks;
-        ICollection<User> users;
+        List<Task> tasks;
+        List<User> users;
         public Project(DateTime startingDate, DateTime endingDate, String name, String company, String description)
         {
             this.startingDate = startingDate;
@@ -45,16 +45,26 @@ namespace MAPapp
             set { description = value; }
         }
         //Get of set de lijst met taken
-        public ICollection<Task> Tasks
+        public List<Task> Tasks
         {
             get { return tasks; }
             set { tasks = value; }
         }
         //Get of set de lijst met users
-        public ICollection<User> Users
+        public List<User> Users
         {
             get { return users; }
             set { users = value; }
+        }
+        public DateTime StartingDate
+        {
+            get { return startingDate; }
+            set { startingDate = value; }
+        }
+        public DateTime EndingDate
+        {
+            get { return endingDate; }
+            set { endingDate = value; }
         }
     }
 }

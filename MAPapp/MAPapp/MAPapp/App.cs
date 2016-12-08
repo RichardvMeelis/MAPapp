@@ -9,10 +9,12 @@ namespace MAPapp
 {
 	public class App : Application
 	{
+       public  NavigationPage page;
 		public App ()
 		{
             // The root page of your application
-            MainPage = new NavigationPage(new HomePage()) {BarBackgroundColor = Color.FromRgb(0, 192, 129) };
+            
+            MainPage = page =new NavigationPage(new HomePage()) { BarBackgroundColor = Color.FromRgb(0, 192, 129), Title = "test", BarTextColor = Color.Black, };
 
 		}
 

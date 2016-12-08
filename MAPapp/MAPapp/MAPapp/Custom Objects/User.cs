@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MAPapp
 {
-    class User
+   public class User
     {
         String name;
         String email;
@@ -31,6 +31,22 @@ namespace MAPapp
         {
             get { return email; }
             set { email = value; }
+        }
+        public static String UserListToString(List<User> s)
+        {
+            if (s != null)
+            {
+                String res = "";
+                foreach (User b in s)
+                {
+                    if (res == "")
+                        res += b.Name + "";
+                    else
+                        res += "," + b.Name;
+                }
+                return res;
+            }
+            return "";
         }
     }
 }

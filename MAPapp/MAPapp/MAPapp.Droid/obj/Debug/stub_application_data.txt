@@ -1,2 +1,2 @@
 android.app.Application
-MAPapp.Droid
+MAPapp.MAPapp
