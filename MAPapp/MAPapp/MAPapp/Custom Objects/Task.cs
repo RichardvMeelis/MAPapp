@@ -2,33 +2,38 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MAPapp
-{
-   public class Task
-    {
+namespace MAPapp {
+   public class Task {
         DateTime completedDate; //Null of datum
         String name;
         String description;
-        int difficultyPoints;
-        int importancePoints;
+        int jobSize;
+        int userBusinessValue;
         Boolean changed;
         User user;
-        
-        public Task(DateTime completedDate, String name, String description, int difficultyPoints,int importancePoints, Boolean changed )
+        int timeCriticality;
+        int rroeValue;
+        int uncertainty;
+
+        public Task(DateTime completedDate, String name, String description, int difficultyPoints, int importancePoints, Boolean changed, User user, int timeCriticality, int rroeValue, int uncertainty)
         {
             this.completedDate = completedDate;
             this.name = name;
             this.description = description;
-            this.difficultyPoints = difficultyPoints;
-            this.importancePoints = importancePoints;
+            this.jobSize = difficultyPoints;
+            this.userBusinessValue = importancePoints;
             this.changed = changed;
+            this.uncertainty = uncertainty;
+            this.timeCriticality = timeCriticality;
+            this.rroeValue = rroeValue;
+            this.user = user;
         }
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-       
+
         //Get of set de description property
         public string Description
         {
@@ -36,15 +41,30 @@ namespace MAPapp
             set { description = value; }
         }
         //Get of set de lijst met taken
-        public int DifficultyPoints
+        public int JobSize
         {
-            get { return difficultyPoints; }
-            set { difficultyPoints = value; }
+            get { return jobSize; }
+            set { jobSize = value; }
         }
-        public int ImportancePoints
+        public int UserBusinessValue
         {
-            get { return importancePoints; }
-            set { importancePoints = value; }
+            get { return userBusinessValue; }
+            set { userBusinessValue = value; }
+        }
+        public int TimeCriticality
+        {
+            get { return timeCriticality; }
+            set { timeCriticality = value; }
+        }
+        public int RroeValue
+        {
+            get { return rroeValue; }
+            set { rroeValue = value; }
+        }
+        public int Uncertainty
+        {
+            get { return uncertainty; }
+            set { uncertainty = value; }
         }
         public User User
         {

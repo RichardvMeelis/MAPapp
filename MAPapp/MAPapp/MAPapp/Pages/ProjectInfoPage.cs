@@ -12,6 +12,8 @@ namespace MAPapp
 	{
 		public ProjectInfoPage (Project s)
 		{
+            Title = "Project information";
+            BackgroundColor = Color.White;
             List<Task> tasks = s.Tasks;
            // tasks.Sort();
             //   App.page.Title = "Projects";
@@ -26,25 +28,28 @@ namespace MAPapp
                 ItemTemplate = new DataTemplate(() =>
                 {
                     // Create views with bindings for displaying each property.
-
+                    
                     Label nameLabel = new Label();
                     nameLabel.SetBinding(Label.TextProperty, "Name");
                     nameLabel.FontSize = 20;
+                    nameLabel.TextColor = Color.Black;
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
                         new Binding("difficultyPoints", BindingMode.OneWay,
                             null, null, "difficultyPoints: {0:d}"));
+                    CompanyLabel.TextColor = Color.Black;
                     Label importancePointsLabel = new Label();
                     importancePointsLabel.SetBinding(Label.TextProperty,
                         new Binding("importancePoints", BindingMode.OneWay,
                             null, null, "importancePoints: {0:d}"));
-
+                    importancePointsLabel.TextColor = Color.Black;
                     Label birthdayLabel = new Label();
                     birthdayLabel.Text = "test";
-
+                    birthdayLabel.TextColor = Color.Black;
                     BoxView boxView = new BoxView();
+                    boxView.Color = Color.Black;
 
-                    
+
 
                     // Return an assembled ViewCell.
                     return new ViewCell
@@ -84,13 +89,19 @@ namespace MAPapp
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
-                Children = {  new Label {Text ="Startdatum: " +  s.StartingDate.ToString("dd/MM/yyyy ") },
-                                    new Label {Text ="Einddatum: " +  s.EndingDate.ToString("dd/MM/yyyy ") },
-                                    new Label {Text = "Users: " + User.UserListToString(s.Users) },
-                                    new Label {Text = "Beschrijving: " + s.Description },
+                Children = {  new Label {Text ="Startdatum: " +  s.StartingDate.ToString("dd/MM/yyyy "), TextColor = Color.Black },
+                                    new Label {Text ="Einddatum: " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor = Color.Black  },
+                                    new Label {Text = "Users: " + User.UserListToString(s.Users), TextColor = Color.Black  },
+                                    new Label {Text = "Beschrijving: " + s.Description, TextColor = Color.Black  },
                     new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand  }
                 }
             };
+            table.ItemTapped += Table_ItemTapped;
+        }
+
+        private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+           await Navigation.PushAsync(new TaskInfoPage((Task)e.Item));
         }
     }
 	}

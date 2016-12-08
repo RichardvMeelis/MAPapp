@@ -9,18 +9,21 @@
     <Import_RootNamespace>MAPapp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AccountSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\ClickableLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Task.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\User.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)FivePointsMenu.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)InformationPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Functions\GetFromDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Functions\Sort.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountSettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\FivePointsMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\HomePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\InformationPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\PokerPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\TaskInfoPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />
