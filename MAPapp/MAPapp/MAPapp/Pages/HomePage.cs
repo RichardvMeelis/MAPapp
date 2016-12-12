@@ -13,7 +13,7 @@ namespace MAPapp
         Button a, b, c, d, e;
 		public HomePage ()
 		{
-
+            Title = "Homepage";
             BackgroundColor = Color.White;
             var grid = new Grid();
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });

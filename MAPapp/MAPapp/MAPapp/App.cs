@@ -9,14 +9,17 @@ namespace MAPapp
 {
 	public class App : Application
 	{
-       public  NavigationPage page;
+
+        MasterDetailPage master;
+        NavigationPage navigation;
 		public App ()
 		{
             // The root page of your application
             
-            MainPage = page =new NavigationPage(new HomePage()) { BarBackgroundColor = Color.FromRgb(0, 192, 129), Title = "test", BarTextColor = Color.Black, };
-
-		}
+            MainPage = master = new MasterDetailPage() {Detail = navigation =  new NavigationPage(new HomePage()) { BarBackgroundColor = Color.FromRgb(0, 192, 129), Title = "test", BarTextColor = Color.Black }, Master = new ContentPage() {Title = "titel" } };
+            
+            
+        }
 
 		protected override void OnStart ()
 		{

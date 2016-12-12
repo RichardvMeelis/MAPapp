@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Xamarin.Forms;
 
 namespace MAPapp
@@ -13,6 +12,7 @@ namespace MAPapp
 		{
             Title = "Projects";
             BackgroundColor = Color.White;
+            
             List<Project> projects = new List<Project>();
             Random r = new Random();
             for (int i = 0; i < 50; i++)
@@ -79,23 +79,30 @@ namespace MAPapp
             };
 
             table.ItemTapped += Table_ItemTapped;
-            
 
+
+            Button b = new Button() {Text = "New Project" };
+            b.Clicked += B_Clicked;
             //  BackgroundColor = Color.White;
             Content = new StackLayout {
                 VerticalOptions = LayoutOptions.FillAndExpand,
-
-                Children = {
-                    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  }
+               
+                Children = {b,
+                    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  }, 
 				}
 			};
 		}
+
+        private async void B_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NewProjectPage());
+        }
 
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Project f = (Project)e.Item;
 
-            await Navigation.PushAsync(new CarouselPage() { Children = { new ProjectInfoPage(f), new ContentPage() } });
+            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } },Title = f.Name });
         }
     }
 }
