@@ -15,7 +15,7 @@ namespace MAPapp
 		public App ()
 		{
             // The root page of your application
-            
+            SaveTestData.CreateTestData();
             MainPage = master = new MasterDetailPage() {Detail = navigation =  new NavigationPage(new HomePage()) { BarBackgroundColor = Color.FromRgb(0, 192, 129), Title = "test", BarTextColor = Color.Black }, Master = new ContentPage() {Title = "titel" } };
             
             

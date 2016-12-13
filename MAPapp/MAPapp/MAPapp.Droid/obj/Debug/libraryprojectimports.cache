@@ -2,9 +2,9 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>C:\Users\samca\Source\Repos\MAPapp3\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Refractored.FloatingActionButton\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\samca\Source\Repos\MAPapp3\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Users\samca\Source\Repos\MAPapp3\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Refractored.FloatingActionButton\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\__library_projects__\Refractored.FloatingActionButton\library_project_imports\assets</ResolvedAssetDirectory>
@@ -13,8 +13,8 @@
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>C:\Users\samca\Source\Repos\MAPapp3\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Refractored.FloatingActionButton.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\samca\Source\Repos\MAPapp3\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Users\samca\Source\Repos\MAPapp3\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Refractored.FloatingActionButton.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>
