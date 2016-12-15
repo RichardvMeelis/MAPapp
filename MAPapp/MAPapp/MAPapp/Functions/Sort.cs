@@ -16,7 +16,7 @@ namespace MAPapp
         }
         public static List<Task> SortTasks(List<Task> t)
         {
-            t.Sort(delegate (Task c1, Task c2) { return CalculateValue(c1).CompareTo(CalculateValue(c2)); });
+            t.Sort(delegate (Task c1, Task c2) { return CalculateValue(c2).CompareTo(CalculateValue(c1)); });
             return t;
         }
         private static int CalculateValue(Task p)

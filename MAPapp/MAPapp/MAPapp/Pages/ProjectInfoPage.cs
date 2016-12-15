@@ -10,8 +10,10 @@ namespace MAPapp
 {
 	public class ProjectInfoPage : ContentPage
 	{
+        Project ding;
 		public ProjectInfoPage (Project s)
 		{
+            ding = s;
             Title = "Project information";
             BackgroundColor = Color.White;
             List<Task> tasks = s.Tasks;
@@ -83,8 +85,9 @@ namespace MAPapp
                 })
             };
 
-          
-
+            Button b = new Button();
+            b.Text = "New Task";
+            b.Clicked += B_Clicked;
 
             //  BackgroundColor = Color.White;
             Content = new StackLayout
@@ -95,10 +98,16 @@ namespace MAPapp
                                     new Label {Text ="Einddatum: " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor = Color.Black  },
                                     new Label {Text = "Users: " + User.UserListToString(s.Users), TextColor = Color.Black  },
                                     new Label {Text = "Beschrijving: " + s.Description, TextColor = Color.Black  },
-                    new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand  }
+                    new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand  }, b  
                 }
             };
             table.ItemTapped += Table_ItemTapped;
+        }
+
+       
+        private async void B_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NewTaskPage(ding));
         }
 
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)

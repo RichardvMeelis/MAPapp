@@ -33,22 +33,20 @@ namespace MAPapp
                     nameLabel.SetBinding(Label.TextProperty, "Name");
                     nameLabel.FontSize = 20;
                     nameLabel.TextColor = Color.Black;
-
+                   
+                    //Label met binding voor het bedrijf
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
                         new Binding("Company", BindingMode.OneWay,
                             null, null, "Company: {0:d}"));
                     CompanyLabel.TextColor = Color.Black;
-                    /*
-                                        Label birthdayLabel = new Label();
-                                        birthdayLabel.Text = "test";
-                                        birthdayLabel.TextColor = Color.Black;
-                                        */
-                    Label test = new Label();
-                    test.SetBinding(Label.TextProperty,
+                  
+                    //Label met binding voor de datum
+                    Label endingdateLabel = new Label();
+                    endingdateLabel.SetBinding(Label.TextProperty,
                         new Binding("EndingDate", BindingMode.OneWay,
-                            null, null, "EndingDate: {0: dd / MM / yyyy}"));
-                    test.TextColor = Color.Black;
+                            null, null, "Einddatum: {0: dd/MM/yyyy}"));
+                    endingdateLabel.TextColor = Color.Black;
                    
 
 
@@ -69,7 +67,7 @@ namespace MAPapp
                                         Children =
                                         {
                                             nameLabel,
-                                            test,
+                                            endingdateLabel,
                                             CompanyLabel,
                                             
                                         }
