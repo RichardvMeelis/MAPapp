@@ -15,7 +15,9 @@ namespace MAPapp
             Title = "Project information";
             BackgroundColor = Color.White;
             List<Task> tasks = s.Tasks;
-           // tasks.Sort();
+            // tasks.Sort();
+            if(tasks != null)
+            tasks =  Sort.SortTasks(tasks);
             //   App.page.Title = "Projects";
 
             ListView table = new ListView

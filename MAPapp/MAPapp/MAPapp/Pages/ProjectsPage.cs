@@ -16,7 +16,7 @@ namespace MAPapp
             
            
             
-            //   App.page.Title = "Projects";
+         
             SaveTestData.projects = Sort.SortProjects(SaveTestData.projects);
             ListView table = new ListView
             {
@@ -33,19 +33,25 @@ namespace MAPapp
                     nameLabel.SetBinding(Label.TextProperty, "Name");
                     nameLabel.FontSize = 20;
                     nameLabel.TextColor = Color.Black;
+
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
                         new Binding("Company", BindingMode.OneWay,
                             null, null, "Company: {0:d}"));
                     CompanyLabel.TextColor = Color.Black;
-                    Label birthdayLabel = new Label();
-                    birthdayLabel.Text = "test";
-                    birthdayLabel.TextColor = Color.Black;
-                    BoxView boxView = new BoxView();
-                    boxView.Color = Color.Black;
-              
+                    /*
+                                        Label birthdayLabel = new Label();
+                                        birthdayLabel.Text = "test";
+                                        birthdayLabel.TextColor = Color.Black;
+                                        */
+                    Label test = new Label();
+                    test.SetBinding(Label.TextProperty,
+                        new Binding("EndingDate", BindingMode.OneWay,
+                            null, null, "EndingDate: {0: dd / MM / yyyy}"));
+                    test.TextColor = Color.Black;
+                   
 
-                  
+
                     return new ViewCell
                     {
                         View = new StackLayout
@@ -55,7 +61,7 @@ namespace MAPapp
                             Orientation = StackOrientation.Horizontal,
                             Children =
                                 {
-                                    //boxView,
+                                 
                                     new StackLayout
                                     {
                                         VerticalOptions = LayoutOptions.FillAndExpand,
@@ -63,7 +69,7 @@ namespace MAPapp
                                         Children =
                                         {
                                             nameLabel,
-                                            birthdayLabel,
+                                            test,
                                             CompanyLabel,
                                             
                                         }
@@ -79,7 +85,7 @@ namespace MAPapp
 
             Button b = new Button() {Text = "New Project" };
             b.Clicked += B_Clicked;
-            //  BackgroundColor = Color.White;
+            
             Content = new StackLayout {
                 VerticalOptions = LayoutOptions.FillAndExpand,
                
@@ -98,7 +104,7 @@ namespace MAPapp
         {
             Project f = (Project)e.Item;
 
-            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } },Title = f.Name });
-        }
+            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f) , new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } },Title = f.Name });
+        }   
     }
 }

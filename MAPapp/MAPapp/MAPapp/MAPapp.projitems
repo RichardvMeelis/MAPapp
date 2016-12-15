@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Task.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GetFromDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Functions\SaveTestData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\Sort.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\FivePointsMenu.cs" />
@@ -25,7 +26,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectsPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TaskInfoPage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SaveTestData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />
