@@ -13,7 +13,7 @@ namespace MAPapp
 		{
 			Content = new StackLayout {
 				Children = {
-					new Label { Text = "Hello Page" }
+					new ScrollView() {Content = new StackLayout() {Children = { new Label {Text = s} } } }
 				}
 			};
 		}

@@ -10,11 +10,11 @@ namespace MAPapp
         List<string> fivePoints;
         string threeInfoPoint;
 
-        public InformationObject(List<string> threeInfoPoints, List<string> fivePoints, string textPage)
+        public InformationObject(List<string> textPages, List<string> fivePoints, string threeInfoPoint)
         {
-            this.textPages = threeInfoPoints;
+            this.textPages = textPages;
             this.fivePoints = fivePoints;
-            this.threeInfoPoint = textPage;
+            this.threeInfoPoint = threeInfoPoint;
         }
 
         public List<string> TextPages

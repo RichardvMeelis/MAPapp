@@ -21,7 +21,7 @@ namespace MAPapp
         }
         public InformationPage ()
 		{
-           
+            InfoObj = SaveTestData.info;
             StackLayout stack = new StackLayout();
             foreach (InformationObject b in InfoObj)
                 stack.Children.Add(new ClickableLabel(VolgendePagina) {Text = b.ThreeInfoPoint });
