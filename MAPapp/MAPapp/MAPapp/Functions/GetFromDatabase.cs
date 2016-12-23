@@ -57,7 +57,7 @@ namespace MAPapp
         }
         public List<Project> getProjects(String userName, String token)
         {
-
+            return new List<Project>();
         }
     }
 }
