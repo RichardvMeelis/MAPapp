@@ -13,13 +13,15 @@ namespace MAPapp
         Entry c;
         Entry d;
         Label z;
-
+        Button b;
         public Login ()
 		{
-            c = new Entry() { Text = "Email" };
-            d = new Entry() { Text = "Password" };
+            c = new Entry() { Placeholder = "Email" ,};
+            d = new Entry() { Placeholder = "Password", IsPassword = true };
+            c.TextChanged += EntryTextChanged;
+            d.TextChanged += EntryTextChanged;
             z = new Label() { TextColor = Color.Red, Text = "" };
-            Button b = new Button() { Text = "Signin" };
+             b = new Button() { Text = "Sign in",IsEnabled = false };
             b.Clicked += B_Clicked;
             Content = new StackLayout {
 				Children = {
@@ -27,6 +29,18 @@ namespace MAPapp
 				}
 			};
 		}
+
+        private void EntryTextChanged(object sender, TextChangedEventArgs e)
+        {
+           if(c.Text != null && d.Text != null && c.Text.Length >=3 && d.Text.Length >= 3)
+            {
+                b.IsEnabled = true;
+            }
+            else
+            {
+                b.IsEnabled = false;
+            }
+        }
 
         private void B_Clicked(object sender, EventArgs e)
         {
