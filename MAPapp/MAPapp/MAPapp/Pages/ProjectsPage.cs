@@ -13,16 +13,18 @@ namespace MAPapp
 		{
             Title = "Projects";
             BackgroundColor = GeneralSettings.backgroundColor;
-            
-           
-            
-         
-            SaveTestData.projects = Sort.SortProjects(SaveTestData.projects);
+
+
+
+           // String s = GetFromDatabase.SingIn("user%40test.com", "testtest");
+            //System.Diagnostics.Debug.WriteLine(s);
+               SaveTestData.projects = Sort.SortProjects(SaveTestData.projects);
             ListView table = new ListView
             {
                 
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                ItemsSource = SaveTestData.projects,
+                
+                ItemsSource = GetFromDatabase.getProjects(GetFromDatabase.Username,GetFromDatabase.token),
                 HasUnevenRows = true,
                 
                 ItemTemplate = new DataTemplate(() =>
@@ -30,14 +32,14 @@ namespace MAPapp
                     // Create views with bindings for displaying each property.
                     
                     Label nameLabel = new Label();
-                    nameLabel.SetBinding(Label.TextProperty, "Name");
+                    nameLabel.SetBinding(Label.TextProperty, "projectname");
                     nameLabel.FontSize = 20;
                     nameLabel.TextColor = GeneralSettings.textColor;
                    
                     //Label met binding voor het bedrijf
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
-                        new Binding("Company", BindingMode.OneWay,
+                        new Binding("company_companyid", BindingMode.OneWay,
                             null, null, "Company: {0:d}"));
                     CompanyLabel.TextColor = GeneralSettings.textColor;
 
@@ -102,7 +104,7 @@ namespace MAPapp
         {
             Project f = (Project)e.Item;
 
-            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f) , new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } },Title = f.Name });
+            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f) , new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } },Title = f.projectname });
         }   
     }
 }

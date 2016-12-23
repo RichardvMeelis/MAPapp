@@ -541,5 +541,11 @@ C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debu
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Microsoft.CSharp.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Mono.CSharp.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Mono.CSharp.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.mdb

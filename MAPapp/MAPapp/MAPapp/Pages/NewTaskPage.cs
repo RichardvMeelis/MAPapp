@@ -45,7 +45,7 @@ namespace MAPapp
             try
             {
                 saved.Tasks.Add(new Task(new DateTime(), nameEntry.Text, descriptionEntry.Text, int.Parse(jobSizeEntry.Text), int.Parse(userBusinessValueEntry.Text), false, null, int.Parse(timeCriticalityEntry.Text), int.Parse(rroeValueEntry.Text), int.Parse(userBusinessValueEntry.Text)));
-                await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(saved), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = saved.Name });
+                await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(saved), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = saved.projectname });
 
                 // Het verwijderen van de oude pages in de stack
                 for (int counter = 1; counter <= 2; counter++)

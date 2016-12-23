@@ -95,11 +95,11 @@ namespace MAPapp
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
-                Children = {  new Label {Text ="Startdatum: " +  s.StartingDate.ToString("dd/MM/yyyy "), TextColor = GeneralSettings.textColor
+                Children = {  new Label {Text ="Startdatum: " +  s.start_date.ToString("dd/MM/yyyy "), TextColor = GeneralSettings.textColor
         },
                                     new Label {Text ="Einddatum: " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor =  GeneralSettings.textColor  },
                                     new Label {Text = "Users: " + User.UserListToString(s.Users), TextColor =  GeneralSettings.textColor  },
-                                    new Label {Text = "Beschrijving: " + s.Description, TextColor =  GeneralSettings.textColor  },
+                                    new Label {Text = "Beschrijving: " + s.projectdescription, TextColor =  GeneralSettings.textColor  },
                     new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand  }, b  
                 }
             };

@@ -18,6 +18,9 @@ namespace MAPapp
         //Elk project heeft een lijst taken
         List<Task> tasks;
         List<User> users;
+
+        int projectId;
+        int companyId;
         public Project(DateTime startingDate, DateTime endingDate, String name, String company, String description)
         {
             this.startingDate = startingDate;
@@ -27,19 +30,19 @@ namespace MAPapp
             this.description = description;
         }
         //Get of set de name property
-        public string Name   
+        public string projectname   
         {
             get{return name;}
             set{name = value;}
         }
         //Get of set de company property
-        public string Company   
+        public int company_companyid   
         {
-            get { return company; }
-            set { company = value; }
+            get { return companyId; }
+            set { companyId = value; }
         }
         //Get of set de description property
-        public string Description   
+        public string projectdescription   
         {
             get { return description; }
             set { description = value; }
@@ -56,7 +59,7 @@ namespace MAPapp
             get { return users; }
             set { users = value; }
         }
-        public DateTime StartingDate
+        public DateTime start_date
         {
             get { return startingDate; }
             set { startingDate = value; }
@@ -65,6 +68,11 @@ namespace MAPapp
         {
             get { return endingDate; }
             set { endingDate = value; }
+        }
+        public int projectid
+        {
+            get { return projectId; }
+            set { projectId = value; }
         }
     }
 }
