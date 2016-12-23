@@ -9,14 +9,16 @@ namespace MAPapp
 {
 	public class App : Application
 	{
-
+       
         MasterDetailPage master;
         NavigationPage navigation;
 		public App ()
 		{
-            // The root page of your application
-            SaveTestData.CreateTestData();
-            MainPage = master = new MasterDetailPage() {Detail = navigation =  new NavigationPage(new HomePage()) { BarBackgroundColor = Color.FromRgb(0, 192, 129), Title = "test", BarTextColor = Color.Black }, Master = new ContentPage() {Title = "titel" } };
+            
+        // The root page of your application
+        SaveTestData.CreateTestData();
+            GeneralSettings.GetColors();
+            MainPage = master = new MasterDetailPage() {Detail = navigation =  new NavigationPage(new HomePage()) { BarBackgroundColor = GeneralSettings.mainColor, Title = "test", BarTextColor = GeneralSettings.textColor }, Master = new ContentPage() {Title = "titel" } };
             
             
         }

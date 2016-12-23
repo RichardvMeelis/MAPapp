@@ -12,7 +12,7 @@ namespace MAPapp
         public ProjectsPage ()
 		{
             Title = "Projects";
-            BackgroundColor = Color.White;
+            BackgroundColor = GeneralSettings.backgroundColor;
             
            
             
@@ -32,22 +32,22 @@ namespace MAPapp
                     Label nameLabel = new Label();
                     nameLabel.SetBinding(Label.TextProperty, "Name");
                     nameLabel.FontSize = 20;
-                    nameLabel.TextColor = Color.Black;
+                    nameLabel.TextColor = GeneralSettings.textColor;
                    
                     //Label met binding voor het bedrijf
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
                         new Binding("Company", BindingMode.OneWay,
                             null, null, "Company: {0:d}"));
-                    CompanyLabel.TextColor = Color.Black;
-                  
+                    CompanyLabel.TextColor = GeneralSettings.textColor;
+
                     //Label met binding voor de datum
                     Label endingdateLabel = new Label();
                     endingdateLabel.SetBinding(Label.TextProperty,
                         new Binding("EndingDate", BindingMode.OneWay,
                             null, null, "Einddatum: {0: dd/MM/yyyy}"));
-                    endingdateLabel.TextColor = Color.Black;
-                   
+                    endingdateLabel.TextColor = GeneralSettings.textColor;
+
 
 
                     return new ViewCell
@@ -81,7 +81,7 @@ namespace MAPapp
             table.ItemTapped += Table_ItemTapped;
 
 
-            Button b = new Button() {Text = "New Project" };
+            Button b = new Button() {Text = "New Project", BackgroundColor = GeneralSettings.mainColor};
             b.Clicked += B_Clicked;
             
             Content = new StackLayout {

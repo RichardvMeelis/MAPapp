@@ -9,12 +9,12 @@ namespace MAPapp
     {
         public ClickableLabel(int size)
         {
-            TextColor = Color.Black;
+            TextColor = GeneralSettings.textColor;
             FontSize = size;
         }
         public ClickableLabel(Action<String> myMethodName)
         {
-            TextColor = Color.Black;
+            TextColor = GeneralSettings.textColor;
             this.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = new Command(() => myMethodName(this.Text)),
@@ -22,7 +22,7 @@ namespace MAPapp
         }
         public ClickableLabel(Action<String> myMethodName, int size)
         {
-            TextColor = Color.Black;
+            TextColor = GeneralSettings.textColor;
             this.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = new Command(() => myMethodName(this.Text)),

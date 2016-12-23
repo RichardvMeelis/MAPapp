@@ -20,8 +20,8 @@ namespace MAPapp
 
         public NewProjectPage ()
 		{
-            BackgroundColor = Color.White;
-            ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label {Text = "Project Name:", TextColor = Color.Black },nameEntry,new Label {Text = "Descprition:", TextColor = Color.Black },descriptionEntry, new Label {Text = "Starting date:", TextColor = Color.Black },start,new Label {Text = "Ending date:", TextColor = Color.Black }, end } } };
+            BackgroundColor = GeneralSettings.backgroundColor;
+            ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label {Text = "Project Name:", TextColor = GeneralSettings.textColor },nameEntry,new Label {Text = "Descprition:", TextColor = GeneralSettings.textColor },descriptionEntry, new Label {Text = "Starting date:", TextColor = GeneralSettings.textColor },start,new Label {Text = "Ending date:", TextColor = GeneralSettings.textColor }, end } } };
             Button b = new Button() { Text = "Create", HorizontalOptions = LayoutOptions.Center };
             b.Clicked += B_Clicked;
             Content = new StackLayout {

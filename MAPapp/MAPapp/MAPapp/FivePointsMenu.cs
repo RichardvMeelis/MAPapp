@@ -25,6 +25,7 @@ namespace MAPapp
         }
         public FivePointsMenu(InformationObject b)
         {
+            BackgroundColor = GeneralSettings.backgroundColor;
             this.b = b;
             StackLayout stack = new StackLayout();
             if (b.FivePoints != null)

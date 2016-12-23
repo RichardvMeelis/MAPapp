@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GetFromDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\SaveTestData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\Sort.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GeneralSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InformationPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\HomePage.cs" />
@@ -28,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectsPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TaskInfoPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sprint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TextPageInformation.cs" />
   </ItemGroup>
   <ItemGroup>

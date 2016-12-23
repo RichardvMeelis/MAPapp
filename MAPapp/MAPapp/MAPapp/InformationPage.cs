@@ -21,10 +21,11 @@ namespace MAPapp
         }
         public InformationPage ()
 		{
+            BackgroundColor = GeneralSettings.backgroundColor;
             InfoObj = SaveTestData.info;
             StackLayout stack = new StackLayout();
             foreach (InformationObject b in InfoObj)
-                stack.Children.Add(new ClickableLabel(VolgendePagina) {Text = b.ThreeInfoPoint });
+                stack.Children.Add(new ClickableLabel(VolgendePagina) { Text = b.ThreeInfoPoint, TextColor = GeneralSettings.textColor });
             BackgroundColor = Color.White;
             Content = stack;
 			

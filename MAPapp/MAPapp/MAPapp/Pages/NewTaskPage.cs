@@ -26,7 +26,7 @@ namespace MAPapp
         {
             Title = "New Task";
             saved = f;
-            BackgroundColor = Color.White;
+            BackgroundColor = GeneralSettings.backgroundColor;
             ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label { Text = "TaskName:", TextColor = Color.Black }, nameEntry, new Label { Text = "Descprition:", TextColor = Color.Black }, descriptionEntry, new Label { Text = "Job size:", TextColor = Color.Black }, jobSizeEntry, new Label { Text = "User business value:", TextColor = Color.Black }, userBusinessValueEntry, new Label { Text = "time criticality:", TextColor = Color.Black }, timeCriticalityEntry, new Label { Text = "RROE value:", TextColor = Color.Black }, rroeValueEntry, new Label { Text = "Uncertainty:", TextColor = Color.Black }, uncertaintyEntry } } };
             Button b = new Button() { Text = "Create", HorizontalOptions = LayoutOptions.Center };
             b.Clicked += B_Clicked;

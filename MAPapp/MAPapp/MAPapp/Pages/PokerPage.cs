@@ -15,8 +15,8 @@ namespace MAPapp
         
 		public PokerPage ()
 		{
-           
-            BackgroundColor = Color.White;
+            Title = "Planningpoker";
+            BackgroundColor = GeneralSettings.backgroundColor;
             var grid = new Grid();
             //Grid defenitions toevoegen
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -41,7 +41,7 @@ namespace MAPapp
             label12 = new Label { HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 FontSize = 80,
-                TextColor = Color.Black
+                TextColor = GeneralSettings.textColor
             };
 
             Content = new StackLayout {

@@ -15,7 +15,7 @@ namespace MAPapp
 		{
             ding = s;
             Title = "Project information";
-            BackgroundColor = Color.White;
+            BackgroundColor = GeneralSettings.backgroundColor;
             List<Task> tasks = s.Tasks;
             // tasks.Sort();
             if(tasks != null)
@@ -36,17 +36,17 @@ namespace MAPapp
                     Label nameLabel = new Label();
                     nameLabel.SetBinding(Label.TextProperty, "Name");
                     nameLabel.FontSize = 20;
-                    nameLabel.TextColor = Color.Black;
+                    nameLabel.TextColor = GeneralSettings.textColor;
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
                         new Binding("difficultyPoints", BindingMode.OneWay,
                             null, null, "difficultyPoints: {0:d}"));
-                    CompanyLabel.TextColor = Color.Black;
+                    CompanyLabel.TextColor = GeneralSettings.textColor;
                     Label importancePointsLabel = new Label();
                     importancePointsLabel.SetBinding(Label.TextProperty,
                         new Binding("importancePoints", BindingMode.OneWay,
                             null, null, "importancePoints: {0:d}"));
-                    importancePointsLabel.TextColor = Color.Black;
+                    importancePointsLabel.TextColor = GeneralSettings.textColor;
                     Label birthdayLabel = new Label();
                     birthdayLabel.Text = "test";
                     birthdayLabel.TextColor = Color.Black;
@@ -85,7 +85,8 @@ namespace MAPapp
                 })
             };
 
-            Button b = new Button();
+            Button b = new Button() {BackgroundColor = GeneralSettings.mainColor
+        };
             b.Text = "New Task";
             b.Clicked += B_Clicked;
 
@@ -94,10 +95,11 @@ namespace MAPapp
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
-                Children = {  new Label {Text ="Startdatum: " +  s.StartingDate.ToString("dd/MM/yyyy "), TextColor = Color.Black },
-                                    new Label {Text ="Einddatum: " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor = Color.Black  },
-                                    new Label {Text = "Users: " + User.UserListToString(s.Users), TextColor = Color.Black  },
-                                    new Label {Text = "Beschrijving: " + s.Description, TextColor = Color.Black  },
+                Children = {  new Label {Text ="Startdatum: " +  s.StartingDate.ToString("dd/MM/yyyy "), TextColor = GeneralSettings.textColor
+        },
+                                    new Label {Text ="Einddatum: " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor =  GeneralSettings.textColor  },
+                                    new Label {Text = "Users: " + User.UserListToString(s.Users), TextColor =  GeneralSettings.textColor  },
+                                    new Label {Text = "Beschrijving: " + s.Description, TextColor =  GeneralSettings.textColor  },
                     new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand  }, b  
                 }
             };

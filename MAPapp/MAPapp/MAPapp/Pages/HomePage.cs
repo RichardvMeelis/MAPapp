@@ -14,7 +14,7 @@ namespace MAPapp
 		public HomePage ()
 		{
             Title = "Homepage";
-            BackgroundColor = Color.White;
+            BackgroundColor = GeneralSettings.backgroundColor;
             var grid = new Grid();
             // Grid defenities aangemaakt
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
@@ -23,11 +23,11 @@ namespace MAPapp
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             
             //Knoppen toevoegen aan de grid 
-            grid.Children.Add(projectButton = new Button() { Text = "Projecten", BackgroundColor = Color.FromRgb(0, 192, 129) },0,0);
-            grid.Children.Add(pokerButton = new Button() { Text = "Poker", BackgroundColor = Color.FromRgb(0, 192, 129) }, 0, 1);
-            grid.Children.Add(accountSettingsButton = new Button() { Text = "Account Settings", BackgroundColor = Color.FromRgb(0, 192, 129) }, 1, 0);
-            grid.Children.Add(settingsButton = new Button() { Text = "Settings", BackgroundColor = Color.FromRgb(0, 192, 129) }, 1, 1);
-            grid.Children.Add(informatieButton = new Button() { Text = "Informatie", BackgroundColor = Color.FromRgb(0, 192, 129) }, 0, 2);
+            grid.Children.Add(projectButton = new Button() { Text = "Projecten", BackgroundColor = GeneralSettings.mainColor},0,0);
+            grid.Children.Add(pokerButton = new Button() { Text = "Poker", BackgroundColor = GeneralSettings.mainColor }, 0, 1);
+            grid.Children.Add(accountSettingsButton = new Button() { Text = "Account Settings", BackgroundColor = GeneralSettings.mainColor }, 1, 0);
+            grid.Children.Add(settingsButton = new Button() { Text = "Settings", BackgroundColor = GeneralSettings.mainColor }, 1, 1);
+            grid.Children.Add(informatieButton = new Button() { Text = "Informatie", BackgroundColor = GeneralSettings.mainColor }, 0, 2);
 
             Grid.SetColumnSpan(informatieButton,2);
 
