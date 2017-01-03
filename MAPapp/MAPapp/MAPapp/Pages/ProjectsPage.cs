@@ -24,7 +24,7 @@ namespace MAPapp
                 
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 
-                ItemsSource = GetFromDatabase.getProjects(GetFromDatabase.Username,GetFromDatabase.token),
+                ItemsSource = GetFromDatabase.getProjects(GetFromDatabase.currentUserName,GetFromDatabase.currentToken),
                 HasUnevenRows = true,
                 
                 ItemTemplate = new DataTemplate(() =>
@@ -103,7 +103,7 @@ namespace MAPapp
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Project f = (Project)e.Item;
-
+            
             await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f) , new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } },Title = f.projectname });
         }   
     }

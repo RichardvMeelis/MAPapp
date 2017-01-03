@@ -6,31 +6,25 @@ namespace MAPapp
 {
     public class InformationObject
     {
-        List<string> textPages;
-        List<string> fivePoints;
-        string threeInfoPoint;
+        List<Tip> tips = new List<Tip>();
+        string layer;
 
-        public InformationObject(List<string> textPages, List<string> fivePoints, string threeInfoPoint)
+        public InformationObject(List<Tip> tips, string threeInfoPoint)
         {
-            this.textPages = textPages;
-            this.fivePoints = fivePoints;
-            this.threeInfoPoint = threeInfoPoint;
+            this.tips = tips;
+            this.layer = threeInfoPoint;
         }
 
-        public List<string> TextPages
+       
+        public List<Tip> Tips
         {
-            get { return textPages; }
-            set { textPages = value; }
-        }
-        public List<string> FivePoints
-        {
-            get { return fivePoints; }
-            set { fivePoints = value; }
+            get { return tips; }
+            set { tips = value; }
         }
         public string ThreeInfoPoint
         {
-            get { return threeInfoPoint; }
-            set { threeInfoPoint = value; }
+            get { return layer; }
+            set { layer = value; }
         }
 
         }

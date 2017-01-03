@@ -8,8 +8,8 @@ namespace MAPapp
 {
     class GetFromDatabase
     {
-        public static string token;
-        public static string Username;
+        public static string currentToken;
+        public static string currentUserName;
         private static String CreateURL(String userName, String passWord, String command, String token, String fName, String lName, String joincode)
         {
             string url = "https://apihost.nl/map/api.php?";
@@ -32,6 +32,10 @@ namespace MAPapp
             else if (command == "createNewUser")
             {
                 url += "_MAP_REST_REQUEST_=_MAP_INS_USER_&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord + "&_MAP_INS_FNAME_=" + fName + "&_MAP_INS_LNAME_=" + lName + "&_MAP_JOIN_CODE_=" + joincode;
+            }
+            else if (command == "getInformation")
+            {
+                url += "_MAP_REST_REQUEST_=_MAP_GET_COMPONENTS_&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token;
             }
             //  Console.WriteLine(url);
             return url;
@@ -72,6 +76,28 @@ namespace MAPapp
             string s = getJsonData(userName, password, "createNewUser", null, fName, lName, joincode);
            /// System.Diagnostics.Debug.WriteLine(s);
             return JsonConvert.DeserializeObject<String>(s);
+        }
+        public static List<InformationObject> GetInformation(String userName, String token)
+        {
+            string s = getJsonData(userName,null,"getInformation",token,null,null,null);
+            List<Tip> tips = JsonConvert.DeserializeObject<List<Tip>>(s);
+            List<InformationObject> info = new List<InformationObject>();
+            string stringetje = "";
+            int i = 0;
+            foreach(Tip t in tips)
+            {
+                if(t.layer != stringetje)
+                {
+                    info.Add(new InformationObject(new List<Tip> {t },t.layer));
+                    stringetje = t.layer;
+                    i++;
+                }
+                else
+                {
+                    info[i-1].Tips.Add(t);
+                }
+            }
+            return info;
         }
     }
 }
