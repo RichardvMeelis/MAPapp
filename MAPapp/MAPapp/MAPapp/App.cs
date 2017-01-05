@@ -10,8 +10,7 @@ namespace MAPapp
 	public class App : Application
 	{
        
-        MasterDetailPage master;
-        NavigationPage navigation;
+        
 		public App ()
 		{
             
@@ -25,8 +24,8 @@ namespace MAPapp
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
-		}
+           
+        }
 
 		protected override void OnSleep ()
 		{
