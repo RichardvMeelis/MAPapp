@@ -25,7 +25,7 @@ namespace MAPapp
             get { return tipText; }
             set { tipText = value; }
         }
-        public String layer
+        public String pname
         {
             get { return tipFirstPoint; }
             set { tipFirstPoint = value; }

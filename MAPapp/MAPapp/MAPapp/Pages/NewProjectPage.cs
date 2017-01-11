@@ -11,12 +11,12 @@ namespace MAPapp
 	public class NewProjectPage : ContentPage
 	{
         //Alle invoer velden voor de nieuwe project pagina
-        Entry nameEntry = new Entry() { BackgroundColor = Color.FromRgb(230, 230, 230), TextColor = Color.Black };
-        Entry descriptionEntry = new Entry() { BackgroundColor = Color.FromRgb(230, 230, 230), TextColor = Color.Black };
+        Entry nameEntry = new Entry() {  TextColor = GeneralSettings.textColor };
+        Entry descriptionEntry = new Entry() { TextColor = GeneralSettings.textColor };
        
         //Kiezen van begin en eind datums
-        DatePicker start = new DatePicker() { BackgroundColor = Color.FromRgb(230, 230, 230), };
-        DatePicker end = new DatePicker() { BackgroundColor = Color.FromRgb(230, 230, 230), };
+        DatePicker start = new DatePicker() ;
+        DatePicker end = new DatePicker() ;
 
         public NewProjectPage ()
 		{
@@ -35,7 +35,7 @@ namespace MAPapp
         {
             //Toevoegen van een nieuw project aan de test data (Tijdelijk/niet helemaal compleet)
             SaveTestData.projects.Add(new Project(start.Date, end.Date, nameEntry.Text, "Test Company", descriptionEntry.Text) { Users = new List<User> { new User("Sam", "test@test.com", "test") } });
-            await Navigation.PushAsync(new ProjectsPage(), false);
+            await Navigation.PushAsync(new ProjectsPage(GetFromDatabase.getProjects(GetFromDatabase.currentUserName, GetFromDatabase.currentToken)), false);
             
             // Het verwijderen van de oude pages in de stack
             for (int counter = 1; counter <= 2; counter++)

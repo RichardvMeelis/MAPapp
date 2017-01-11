@@ -22,7 +22,7 @@ namespace MAPapp
         private static int CalculateValue(Task p)
         {
             int res;
-            res = (p.UserBusinessValue + p.TimeCriticality + p.RroeValue) / (p.JobSize + p.Uncertainty);
+            res = (p.UBVPoints + p.TimeCriticality + p.RroeValue) / (p.JSPoints + p.Uncertainty);
             return res;
        
         }

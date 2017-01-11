@@ -34,18 +34,18 @@ namespace MAPapp
                     // Create views with bindings for displaying each property.
                     
                     Label nameLabel = new Label();
-                    nameLabel.SetBinding(Label.TextProperty, "Name");
+                    nameLabel.SetBinding(Label.TextProperty, "taskname");
                     nameLabel.FontSize = 20;
                     nameLabel.TextColor = GeneralSettings.textColor;
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
-                        new Binding("difficultyPoints", BindingMode.OneWay,
-                            null, null, "difficultyPoints: {0:d}"));
+                        new Binding("JSPoints", BindingMode.OneWay,
+                            null, null, "Job Size: {0:d}"));
                     CompanyLabel.TextColor = GeneralSettings.textColor;
                     Label importancePointsLabel = new Label();
                     importancePointsLabel.SetBinding(Label.TextProperty,
-                        new Binding("importancePoints", BindingMode.OneWay,
-                            null, null, "importancePoints: {0:d}"));
+                        new Binding("UBVPoints", BindingMode.OneWay,
+                            null, null, "User- business value: {0:d}"));
                     importancePointsLabel.TextColor = GeneralSettings.textColor;
                     Label birthdayLabel = new Label();
                     birthdayLabel.Text = "test";

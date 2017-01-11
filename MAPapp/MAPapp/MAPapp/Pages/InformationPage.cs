@@ -9,28 +9,30 @@ namespace MAPapp
 {
 	public class InformationPage : ContentPage
 	{
+        //Lijst met informatie voor de informatie paginas
         List<InformationObject> InfoObj;
+
         public async void VolgendePagina(string s)
-        {/*
-            if (s == InfoObj[0].ThreeInfoPoint)
-                await Navigation.PushAsync(new FivePointsMenu(InfoObj[0]));
-           else if (s == InfoObj[1].ThreeInfoPoint)
-                await Navigation.PushAsync(new FivePointsMenu(InfoObj[1]));
-           else if (s == InfoObj[2].ThreeInfoPoint)
-                await Navigation.PushAsync(new FivePointsMenu(InfoObj[2]));
-                */
+        {
             foreach (InformationObject b in InfoObj)
+                //Vergelijkt de meegegeven string met de "titel" van het infromatie object 
                 if (s == b.ThreeInfoPoint)
+                    //Zet de nieuwe pagina op de stack
                     await Navigation.PushAsync(new FivePointsMenu(b));
 
         }
         public InformationPage ()
 		{
             BackgroundColor = GeneralSettings.backgroundColor;
+            
+            //Haal de informatie op uit de database
             InfoObj = GetFromDatabase.GetInformation(GetFromDatabase.currentUserName,GetFromDatabase.currentToken);
-            StackLayout stack = new StackLayout();
+
+            StackLayout stack = new StackLayout() {VerticalOptions = LayoutOptions.Center };
+
+            //Maakt iteratief ClickableLabels aan
             foreach (InformationObject b in InfoObj)
-                stack.Children.Add(new ClickableLabel(VolgendePagina) { Text = b.ThreeInfoPoint, TextColor = GeneralSettings.textColor });
+                stack.Children.Add(new ClickableLabel(VolgendePagina,24) { Text = b.ThreeInfoPoint, TextColor = GeneralSettings.textColor, HorizontalOptions = LayoutOptions.CenterAndExpand });
            
             Content = stack;
 			

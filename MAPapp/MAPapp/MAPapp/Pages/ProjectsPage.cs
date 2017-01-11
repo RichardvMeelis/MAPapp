@@ -9,22 +9,22 @@ namespace MAPapp
 	public class ProjectsPage : ContentPage
 	{
       
-        public ProjectsPage ()
+        public ProjectsPage (List<Project> projects)
 		{
             Title = "Projects";
             BackgroundColor = GeneralSettings.backgroundColor;
+            System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
 
 
-
-           // String s = GetFromDatabase.SingIn("user%40test.com", "testtest");
+            // String s = GetFromDatabase.SingIn("user%40test.com", "testtest");
             //System.Diagnostics.Debug.WriteLine(s);
-               SaveTestData.projects = Sort.SortProjects(SaveTestData.projects);
+            //  SaveTestData.projects = Sort.SortProjects(SaveTestData.projects);
             ListView table = new ListView
             {
                 
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 
-                ItemsSource = GetFromDatabase.getProjects(GetFromDatabase.currentUserName,GetFromDatabase.currentToken),
+                ItemsSource = projects,
                 HasUnevenRows = true,
                 
                 ItemTemplate = new DataTemplate(() =>
@@ -103,8 +103,11 @@ namespace MAPapp
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Project f = (Project)e.Item;
-            
+          //  System.Diagnostics.Debug.WriteLine("BeforeGettingTask---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
+            f.Tasks = GetFromDatabase.GetTasks(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,f.projectid);
+          //  System.Diagnostics.Debug.WriteLine("AfterGettingTask---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
             await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f) , new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } },Title = f.projectname });
+          //  System.Diagnostics.Debug.WriteLine("AfterPushingInfoPage---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
         }   
     }
 }

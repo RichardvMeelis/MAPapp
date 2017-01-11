@@ -9,13 +9,13 @@ namespace MAPapp {
         String description;
         int jobSize;
         int userBusinessValue;
-        Boolean changed;
+        int changed;
         User user;
         int timeCriticality;
         int rroeValue;
         int uncertainty;
 
-        public Task(DateTime completedDate, String name, String description, int difficultyPoints, int importancePoints, Boolean changed, User user, int timeCriticality, int rroeValue, int uncertainty)
+        public Task(DateTime completedDate, String name, String description, int difficultyPoints, int importancePoints, int changed, User user, int timeCriticality, int rroeValue, int uncertainty)
         {
             this.completedDate = completedDate;
             this.name = name;
@@ -28,25 +28,25 @@ namespace MAPapp {
             this.rroeValue = rroeValue;
             this.user = user;
         }
-        public string Name
+        public string taskname
         {
             get { return name; }
             set { name = value; }
         }
 
         //Get of set de description property
-        public string Description
+        public string taskdescription
         {
             get { return description; }
             set { description = value; }
         }
-        //Get of set de lijst met taken
-        public int JobSize
+        
+        public int JSPoints
         {
             get { return jobSize; }
             set { jobSize = value; }
         }
-        public int UserBusinessValue
+        public int UBVPoints
         {
             get { return userBusinessValue; }
             set { userBusinessValue = value; }
