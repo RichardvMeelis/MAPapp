@@ -17,7 +17,9 @@ namespace MAPapp.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-			LoadApplication (new MAPapp.App ());
+            OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
+
+            LoadApplication (new MAPapp.App ());
 		}
 	}
 }

@@ -103,6 +103,8 @@ class MonoPackageManager_Resources {
 		"Newtonsoft.Json.dll",
 		"OxyPlot.dll",
 		"OxyPlot.Xamarin.Android.dll",
+		"OxyPlot.Xamarin.Forms.dll",
+		"OxyPlot.Xamarin.Forms.Platform.Android.dll",
 		"PCLCrypto.Abstractions.dll",
 		"PCLCrypto.dll",
 		"Refractored.FloatingActionButton.dll",
@@ -149,5 +151,5 @@ class MonoPackageManager_Resources {
 	};
 	public static final String[] Dependencies = new String[]{
 	};
-	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_23";
+	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_24";
 }
