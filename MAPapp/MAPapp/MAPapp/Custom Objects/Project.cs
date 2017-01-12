@@ -19,6 +19,8 @@ namespace MAPapp
         List<Task> tasks;
         List<User> users;
 
+        Sprint sprint;
+
         int projectId;
         int companyId;
         public Project(DateTime startingDate, DateTime endingDate, String name, String company, String description)
@@ -74,5 +76,12 @@ namespace MAPapp
             get { return projectId; }
             set { projectId = value; }
         }
+
+        public Sprint CurrentSprint
+        {
+            get { return sprint; }
+            set { sprint = value; }
+        }
+
     }
 }

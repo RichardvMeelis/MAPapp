@@ -6,7 +6,7 @@ using System.Net;
 
 namespace MAPapp
 {
-    class Sprint
+   public class Sprint
     {
         List<Task> sprintTasks = new List<Task>();
         int pointTarget;
