@@ -2,6 +2,10 @@ MAPapp.Droid.MainActivity, MAPapp.Droid;md556a6d8ffd005082619d8375fbf79a99b.Main
 MAPapp.Droid.MainActivity, MAPapp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md556a6d8ffd005082619d8375fbf79a99b.MainActivity
 MAPapp.Droid.MainActivity;md556a6d8ffd005082619d8375fbf79a99b.MainActivity
 mapapp.droid.MainActivity;md556a6d8ffd005082619d8375fbf79a99b.MainActivity
+OxyPlot.Xamarin.Android.PlotView, OxyPlot.Xamarin.Android;md5299a304c8be8cf3eb65572c1cb1ae9a4.PlotView
+OxyPlot.Xamarin.Android.PlotView, OxyPlot.Xamarin.Android, Version=2015.1.741.0, Culture=neutral, PublicKeyToken=null;md5299a304c8be8cf3eb65572c1cb1ae9a4.PlotView
+OxyPlot.Xamarin.Android.PlotView;md5299a304c8be8cf3eb65572c1cb1ae9a4.PlotView
+oxyplot.xamarin.android.PlotView;md5299a304c8be8cf3eb65572c1cb1ae9a4.PlotView
 com.refractored.fab.AbsListViewScrollDetector, Refractored.FloatingActionButton;md59838dde1dfda7c80f6571ec8454ca90e.AbsListViewScrollDetector
 com.refractored.fab.AbsListViewScrollDetector, Refractored.FloatingActionButton, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59838dde1dfda7c80f6571ec8454ca90e.AbsListViewScrollDetector
 com.refractored.fab.AbsListViewScrollDetector;md59838dde1dfda7c80f6571ec8454ca90e.AbsListViewScrollDetector

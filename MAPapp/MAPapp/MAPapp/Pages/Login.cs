@@ -41,7 +41,7 @@ namespace MAPapp {
             var filename = Path.Combine(documents, "MySettings.txt");
 
             rememberMe = new Switch();
-            System.Diagnostics.Debug.WriteLine(File.ReadAllText(filename));
+           // System.Diagnostics.Debug.WriteLine(File.ReadAllText(filename));
             
             try
             {
@@ -61,7 +61,7 @@ namespace MAPapp {
             signIn.Clicked += SignInClicked;
             
             //Button inschakelen na ophalen wachtwoorden
-            if (password.Text.Length > 3 && userName.Text.Length > 3)
+            if( password.Text != null && userName.Text != null && password.Text.Length > 3 && userName.Text.Length > 3)
             {
                 signIn.IsEnabled = true;
             }
