@@ -25,6 +25,7 @@ namespace MAPapp
             Button b = new Button() { Text = "Create", HorizontalOptions = LayoutOptions.Center };
             b.Clicked += B_Clicked;
             Content = new StackLayout {
+                Margin = GeneralSettings.pageMargin,
 				Children = {
 					scroll, b
 				}

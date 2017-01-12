@@ -37,21 +37,23 @@ namespace MAPapp
                     nameLabel.SetBinding(Label.TextProperty, "taskname");
                     nameLabel.FontSize = 20;
                     nameLabel.TextColor = GeneralSettings.textColor;
+
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
                         new Binding("JSPoints", BindingMode.OneWay,
                             null, null, "Job Size: {0:d}"));
                     CompanyLabel.TextColor = GeneralSettings.textColor;
+
                     Label importancePointsLabel = new Label();
                     importancePointsLabel.SetBinding(Label.TextProperty,
                         new Binding("UBVPoints", BindingMode.OneWay,
                             null, null, "User- business value: {0:d}"));
                     importancePointsLabel.TextColor = GeneralSettings.textColor;
-                    Label birthdayLabel = new Label();
-                    birthdayLabel.Text = "test";
-                    birthdayLabel.TextColor = Color.Black;
-                    BoxView boxView = new BoxView();
-                    boxView.Color = Color.Black;
+
+                    //Label birthdayLabel = new Label();
+                    //birthdayLabel.Text = "test";
+                    //birthdayLabel.TextColor = Color.Black;
+                   
 
 
 
@@ -60,7 +62,7 @@ namespace MAPapp
                     {
                         View = new StackLayout
                         {
-
+                            Margin = GeneralSettings.pageMargin,
                             Padding = new Thickness(0, 2),
                             Orientation = StackOrientation.Horizontal,
                             Children =
@@ -74,7 +76,7 @@ namespace MAPapp
                                         Children =
                                         {
                                             nameLabel,
-                                            birthdayLabel,
+                                            //birthdayLabel,
                                             CompanyLabel,importancePointsLabel,
 
                                         }

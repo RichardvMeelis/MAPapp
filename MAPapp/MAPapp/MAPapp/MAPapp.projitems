@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Sprint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Task.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Tip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GeneralSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GetFromDatabase.cs" />
@@ -34,7 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectsPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TaskInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TextPageInformation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tip.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SprintPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />

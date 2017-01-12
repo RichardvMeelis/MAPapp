@@ -14,6 +14,7 @@ namespace MAPapp {
         int timeCriticality;
         int rroeValue;
         int uncertainty;
+        int sprintID;
 
         public Task(DateTime completedDate, String name, String description, int difficultyPoints, int importancePoints, int changed, User user, int timeCriticality, int rroeValue, int uncertainty)
         {
@@ -70,6 +71,11 @@ namespace MAPapp {
         {
             get { return user; }
             set { user = value; }
+        }
+        public int sprintid
+        {
+            get { return sprintID; }
+            set { sprintID = value; }
         }
     }
 }

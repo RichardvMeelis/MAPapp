@@ -12,7 +12,7 @@ namespace MAPapp
         public static string currentToken;
         public static string currentUserName;
         static Stopwatch s = new Stopwatch();
-        private static String CreateURL(String userName, String passWord, String command, String token, String fName, String lName, String joincode, int projectId)
+        private static String CreateURL(String userName, String passWord, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID)
         {
             
             string url = "https://apihost.nl/map/api.php?";
@@ -44,13 +44,17 @@ namespace MAPapp
             {
                 url += "_MAP_REST_REQUEST_=_MAP_GET_TASKS_&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token + "&_MAP_PROJECT_ID_=" + projectId;
             }
-            
+            else if (command == "getSprint")
+            {
+                url += "_MAP_REST_REQUEST_=_MAP_GET_SPRINT_&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token + "&_MAP_SPRINT_ID_=" + sprintID + "&_MAP_PROJECT_ID_=" + projectId;
+            }
+
             return url;
         }
 
-        private static String getJsonData(String username, String password, String command, String token, String fName, String lName, String joincode, int projectId)
+        private static String getJsonData(String username, String password, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID)
         {
-            string url = CreateURL(username, password, command, token, fName, lName, joincode,projectId);
+            string url = CreateURL(username, password, command, token, fName, lName, joincode,projectId, sprintID);
             System.Diagnostics.Debug.WriteLine(url);
             
             WebRequest request = WebRequest.Create(url);
@@ -77,25 +81,25 @@ namespace MAPapp
         public static List<Project> getProjects(String userName, String token)
         {
 
-            List < Project > s = JsonConvert.DeserializeObject<List<Project>>(getJsonData(userName,null, "getProjectsUser", token,null,null,null,0));
+            List < Project > s = JsonConvert.DeserializeObject<List<Project>>(getJsonData(userName,null, "getProjectsUser", token,null,null,null,0,0));
             return s;
         }
         public static String SingIn(String userName, String password)
         {
            // s.Start();
-            String z = JsonConvert.DeserializeObject<String>(getJsonData(userName, password, "signIn", null, null, null, null, 0));
+            String z = JsonConvert.DeserializeObject<String>(getJsonData(userName, password, "signIn", null, null, null, null, 0,0));
            
             return z;
         }
         public static String CreateUser(String userName, String password, String fName, String lName, String joincode)
         {
-            string s = getJsonData(userName, password, "createNewUser", null, fName, lName, joincode,0);
+            string s = getJsonData(userName, password, "createNewUser", null, fName, lName, joincode,0,0);
            /// System.Diagnostics.Debug.WriteLine(s);
             return JsonConvert.DeserializeObject<String>(s);
         }
         public static List<InformationObject> GetInformation(String userName, String token)
         {
-            string s = getJsonData(userName,null,"getInformation",token,null,null,null,0);
+            string s = getJsonData(userName,null,"getInformation",token,null,null,null,0,0);
             List<Tip> tips = JsonConvert.DeserializeObject<List<Tip>>(s);
             List<InformationObject> info = new List<InformationObject>();
             string stringetje = "";
@@ -112,12 +116,17 @@ namespace MAPapp
                 {
                     info[i-1].Tips.Add(t);
                 }
-            }
+            } 
             return info;
         }
         public static List<Task>  GetTasks(String userName, String token, int projectId)
         {
-            return JsonConvert.DeserializeObject<List<Task>>(getJsonData(userName,null,"getTasks",token,null,null,null,projectId));
+            return JsonConvert.DeserializeObject<List<Task>>(getJsonData(userName,null,"getTasks",token,null,null,null,projectId,0));
+        }
+        public static Sprint GetSprint(String userName, String token, int projectID, int sprintID)
+        {
+
+            return JsonConvert.DeserializeObject<Sprint>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, sprintID));
         }
     }
 }

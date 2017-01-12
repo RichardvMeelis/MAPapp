@@ -45,6 +45,7 @@ namespace MAPapp
             {
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,
+                Margin = GeneralSettings.pageMargin,
                 Children = { grid,ai }
             };
 			}

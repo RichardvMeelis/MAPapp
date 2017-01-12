@@ -67,7 +67,7 @@ namespace MAPapp {
             }
 
             Content = new StackLayout
-            {
+            {Margin = GeneralSettings.pageMargin,
                 Children = {
                     //De aangemaakt elementen worden toegevoegd aan de stacklayout
                     new Label { Text = "Username" }, userName, new Label {Text = "Password" },password ,signIn ,new StackLayout {Children = { new Label {Text = "Remember me" },rememberMe },Orientation = StackOrientation.Horizontal },new ClickableLabel(NewAccountClicked) {Text = "New Account" },warning,working

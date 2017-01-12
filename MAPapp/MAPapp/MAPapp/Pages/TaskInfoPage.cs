@@ -16,6 +16,7 @@ namespace MAPapp
             StackLayout stack;
             BackgroundColor = GeneralSettings.backgroundColor;
 			Content = stack = new StackLayout {
+                Margin = GeneralSettings.pageMargin,
 				Children = {
 
 					new Label { Text = t.taskname, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center,TextColor =  GeneralSettings.textColor },

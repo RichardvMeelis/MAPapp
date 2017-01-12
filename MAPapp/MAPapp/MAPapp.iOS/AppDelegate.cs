@@ -22,7 +22,8 @@ namespace MAPapp.iOS
 		//
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			global::Xamarin.Forms.Forms.Init ();
+            App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
+            global::Xamarin.Forms.Forms.Init ();
             OxyPlot.Xamarin.Forms.Platform.iOS.PlotViewRenderer.Init();
             LoadApplication (new MAPapp.App ());
 

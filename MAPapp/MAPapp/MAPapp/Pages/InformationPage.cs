@@ -28,7 +28,7 @@ namespace MAPapp
             //Haal de informatie op uit de database
             InfoObj = GetFromDatabase.GetInformation(GetFromDatabase.currentUserName,GetFromDatabase.currentToken);
 
-            StackLayout stack = new StackLayout() {VerticalOptions = LayoutOptions.Center };
+            StackLayout stack = new StackLayout() {VerticalOptions = LayoutOptions.Center,Margin = GeneralSettings.pageMargin };
 
             //Maakt iteratief ClickableLabels aan
             foreach (InformationObject b in InfoObj)

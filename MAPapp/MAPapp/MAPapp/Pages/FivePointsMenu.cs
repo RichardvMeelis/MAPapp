@@ -23,7 +23,7 @@ namespace MAPapp
             BackgroundColor = GeneralSettings.backgroundColor;
             this.b = b;
             //Maak een nieuwe Stacklayout
-            StackLayout stack = new StackLayout();
+            StackLayout stack = new StackLayout() {Margin = GeneralSettings.pageMargin };
             if (b.Tips != null)
             {
                //Creërt ClickableLabels. Hierdoor kan er zelf bepaald worden hoeveel tips er zijn. 

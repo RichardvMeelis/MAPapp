@@ -56,7 +56,7 @@ namespace MAPapp
                     {
                         View = new StackLayout
                         {
-                            
+                            Margin = GeneralSettings.pageMargin,
                             Padding = new Thickness(0, 2),
                             Orientation = StackOrientation.Horizontal,
                             Children =
@@ -103,11 +103,28 @@ namespace MAPapp
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Project f = (Project)e.Item;
-          //  System.Diagnostics.Debug.WriteLine("BeforeGettingTask---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
-            f.Tasks = GetFromDatabase.GetTasks(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,f.projectid);
-          //  System.Diagnostics.Debug.WriteLine("AfterGettingTask---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
-            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f) , new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } },Title = f.projectname });
-          //  System.Diagnostics.Debug.WriteLine("AfterPushingInfoPage---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
+            await System.Threading.Tasks.Task.Run(() =>
+            {
+                f.Tasks = GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                int i = 0;
+                foreach (Task t in f.Tasks)
+                {
+                    if(t.sprintid >= i)
+                    {
+                        i = t.sprintid;
+                    }
+                }
+
+                f.CurrentSprint = GetFromDatabase.GetSprint(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,f.projectid,i);
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
+
+                });
+            });
+           
+             
         }   
     }
 }

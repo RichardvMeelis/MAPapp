@@ -28,6 +28,7 @@ namespace MAPapp
             createNewUser = new Button() { Text = "Create", IsEnabled = false };
             createNewUser.Clicked += B_Clicked;
 			Content = new StackLayout {
+                Margin = GeneralSettings.pageMargin,
 				Children = {
                     //De elementen worden toegevoegd aan de stacklayout
 					new Label { Text = "Username/ Email:" },username,new Label {Text = "password:" },password,passwordReEnter,new Label {Text = "First Name:" },fName,new Label {Text = "Last Name:" },lName,new Label {Text = "Joincode:" },joincode,createNewUser,warning

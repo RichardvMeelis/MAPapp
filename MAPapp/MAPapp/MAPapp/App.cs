@@ -9,9 +9,9 @@ namespace MAPapp
 {
 	public class App : Application
 	{
-       
-        
-		public App ()
+
+        static public int ScreenWidth;
+        public App ()
 		{
             
         // The root page of your application

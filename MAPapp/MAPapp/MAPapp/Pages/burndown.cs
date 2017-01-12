@@ -17,7 +17,7 @@ namespace MAPapp
 		{
             var plotModel = new PlotModel { Title = "OxyPlot Demo" };
 
-            plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom });
+            plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom,  });
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Maximum = 10, Minimum = 0 });
 
             var series1 = new LineSeries
@@ -39,7 +39,7 @@ namespace MAPapp
 
             PlotView plot = new PlotView() {Model = plotModel,
                 VerticalOptions = LayoutOptions.Fill,
-                HorizontalOptions = LayoutOptions.Fill,
+                HorizontalOptions = LayoutOptions.Fill, 
             };
             Content = plot;
 		

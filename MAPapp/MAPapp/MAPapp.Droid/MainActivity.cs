@@ -14,7 +14,9 @@ namespace MAPapp.Droid
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
-			base.OnCreate (bundle);
+            App.ScreenWidth = Resources.DisplayMetrics.WidthPixels;
+
+            base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
             OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();

@@ -12,7 +12,8 @@ namespace MAPapp
 		public AccountSettings ()
 
 		{
-			Content = new StackLayout {
+			Content = new StackLayout { 
+                Margin = GeneralSettings.pageMargin,
 				Children = {
 					new Label { Text = "Wachtwoord" }
                     

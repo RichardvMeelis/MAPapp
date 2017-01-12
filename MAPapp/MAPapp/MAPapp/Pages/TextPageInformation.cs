@@ -13,6 +13,7 @@ namespace MAPapp
 		{
             BackgroundColor = GeneralSettings.backgroundColor;
 			Content = new StackLayout {
+                Margin = GeneralSettings.pageMargin,
 				Children = {
 					new ScrollView() {Content = new StackLayout() {Children = { new Label {Text = s} } } }
 				}
