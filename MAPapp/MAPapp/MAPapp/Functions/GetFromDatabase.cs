@@ -137,7 +137,7 @@ namespace MAPapp
 
             try
             {
-                return JsonConvert.DeserializeObject<Sprint>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, sprintID));
+                return JsonConvert.DeserializeObject<List<Sprint>>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, sprintID))[0];
             }
             catch { return null; }
         }

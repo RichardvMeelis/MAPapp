@@ -30,8 +30,8 @@ namespace MAPapp
                 foreach (Tip s in b.Tips)
                     stack.Children.Add(new ClickableLabel(VolgendePagina,24) { Text = s.ACName, VerticalOptions = LayoutOptions.Center, HorizontalOptions = LayoutOptions.Center });
             }
-                
-            Content = stack;
+            ScrollView scroll = new ScrollView() {Content = stack };
+            Content = scroll;
             
         }
 	}

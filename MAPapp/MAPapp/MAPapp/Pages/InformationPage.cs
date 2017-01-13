@@ -27,14 +27,14 @@ namespace MAPapp
             
             //Haal de informatie op uit de database
             InfoObj = GetFromDatabase.GetInformation(GetFromDatabase.currentUserName,GetFromDatabase.currentToken);
-
+            
             StackLayout stack = new StackLayout() {VerticalOptions = LayoutOptions.Center,Margin = GeneralSettings.pageMargin };
-
+            
             //Maakt iteratief ClickableLabels aan
             foreach (InformationObject b in InfoObj)
                 stack.Children.Add(new ClickableLabel(VolgendePagina,24) { Text = b.ThreeInfoPoint, TextColor = GeneralSettings.textColor, HorizontalOptions = LayoutOptions.CenterAndExpand });
-           
-            Content = stack;
+            ScrollView scroll = new ScrollView() { Content = stack };
+            Content = scroll;
 			
 		}
 	} 
