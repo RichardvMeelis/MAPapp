@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
-namespace MAPapp
-{
-	public class ProjectsPage : ContentPage
-	{
-      
-        public ProjectsPage (List<Project> projects)
-		{
+namespace MAPapp {
+    public class ProjectsPage : ContentPage {
+
+        public ProjectsPage(List<Project> projects)
+        {
             Title = "Projects";
             BackgroundColor = GeneralSettings.backgroundColor;
             System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
@@ -21,21 +19,21 @@ namespace MAPapp
             //  SaveTestData.projects = Sort.SortProjects(SaveTestData.projects);
             ListView table = new ListView
             {
-                
+
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                
+
                 ItemsSource = projects,
                 HasUnevenRows = true,
-                
+
                 ItemTemplate = new DataTemplate(() =>
                 {
                     // Create views with bindings for displaying each property.
-                    
+
                     Label nameLabel = new Label();
                     nameLabel.SetBinding(Label.TextProperty, "projectname");
                     nameLabel.FontSize = 20;
                     nameLabel.TextColor = GeneralSettings.textColor;
-                   
+
                     //Label met binding voor het bedrijf
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
@@ -61,7 +59,7 @@ namespace MAPapp
                             Orientation = StackOrientation.Horizontal,
                             Children =
                                 {
-                                 
+
                                     new StackLayout
                                     {
                                         VerticalOptions = LayoutOptions.FillAndExpand,
@@ -71,7 +69,7 @@ namespace MAPapp
                                             nameLabel,
                                             endingdateLabel,
                                             CompanyLabel,
-                                            
+
                                         }
                                         }
                                 }
@@ -83,16 +81,18 @@ namespace MAPapp
             table.ItemTapped += Table_ItemTapped;
 
 
-            Button b = new Button() {Text = "New Project", BackgroundColor = GeneralSettings.mainColor};
+            Button b = new Button() { Text = "New Project", BackgroundColor = GeneralSettings.mainColor };
             b.Clicked += B_Clicked;
-            
-            Content = new StackLayout {
+
+            Content = new StackLayout
+            {
                 VerticalOptions = LayoutOptions.FillAndExpand,
-               
-                Children = {    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  }, b 
-				}
-			};
-		}
+
+                Children = {b,
+                    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  },
+                }
+            };
+        }
 
         private async void B_Clicked(object sender, EventArgs e)
         {
@@ -108,27 +108,33 @@ namespace MAPapp
                 int i = 0;
                 foreach (Task t in f.Tasks)
                 {
-                    if(t.sprintid >= i)
+                    if (t.sprintid > i)
                     {
                         i = t.sprintid;
                     }
                 }
 
-                f.CurrentSprint = GetFromDatabase.GetSprint(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,f.projectid,i);
-
+                Sprint s = GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
+                List < Task > tasks = new List<Task>();
+                foreach (Task t in f.Tasks)
+                {
+                    System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------TASKSPRINTID  "  + t.sprintid);
+                    System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------" + s.tpoints + " " + s.sprint_start_date + " " + s.project_projectid + " "+ s.sprintname +" " + s.sprintid);
+                    if (t.sprintid == s.sprintid)
+                    {
+                        tasks.Add( t);
+                    }
+                }
+                s.Sprinttasks = tasks;
+                f.CurrentSprint = s;
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    if(f.Tasks[0].HasAccess)
                     Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
-                    else
-                    {
-                       Navigation.PushAsync( new JoinProjectPage(f));
-                        DisplayAlert("Error", "U bent niet aangemeld voor dit project.", "OK");
-                    }
+
                 });
             });
-           
-             
-        }   
+
+
+        }
     }
 }

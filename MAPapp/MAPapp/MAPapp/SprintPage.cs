@@ -6,12 +6,10 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace MAPapp
-{
-	public class SprintPage : ContentPage
-	{
-		public SprintPage (Sprint s)
-		{
+namespace MAPapp {
+    public class SprintPage : ContentPage {
+        public SprintPage(Sprint s)
+        {
             List<Task> tasks = new List<Task>();
             Title = "Current Sprint";
             tasks = s.Sprinttasks;
@@ -87,20 +85,25 @@ namespace MAPapp
                 BackgroundColor = GeneralSettings.mainColor
             };
             b.Text = "New Task";
-          //  b.Clicked += B_Clicked;
+            //  b.Clicked += B_Clicked;
 
             //  BackgroundColor = Color.White;
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
-                Children = { 
-       
-                         new Label {Text = "WRM KAN IK MIJN SHIT NIET ZIEN" },         
+                Children = {
+
+                         new Label {Text = s.sprintid.ToString() },
                     new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand  }, b
                 }
             };
-         //   table.ItemTapped += Table_ItemTapped;
+            table.ItemTapped += Table_ItemTapped;
         }
-	}
+
+        private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            await Navigation.PushAsync(new TaskInfoPage((Task) e.Item));
+        }
+    }
 }

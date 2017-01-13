@@ -8,7 +8,7 @@ namespace MAPapp
 {
    public class Sprint
     {
-        List<Task> sprintTasks = new List<Task>();
+        List<Task> sprintTasks;
         int pointTarget;
         int sprintID;
         int projectID;
@@ -23,14 +23,10 @@ namespace MAPapp
             this.sprintDayDuration = sprintDayDuration;
             this.sprintName = sprintName;
             this.projectID = projectID;
-
+            sprintTasks = new List<Task>();
         }
 
-        public int sprintid
-        {
-            get { return sprintID; }
-            set { sprintID = value; }
-        }
+        
         public int project_projectid
         {
             get { return projectID; }
@@ -55,6 +51,11 @@ namespace MAPapp
         {
             get { return sprintName; }
             set { sprintName = value; }
+        }
+        public int sprintid
+        {
+            get { return sprintID; }
+            set { sprintID = value; }
         }
         public List<Task> Sprinttasks
         {

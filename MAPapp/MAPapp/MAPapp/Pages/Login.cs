@@ -30,10 +30,10 @@ namespace MAPapp {
             password.Text = Password;
            
             /////////////////////////////////
-            working.IsRunning = true;
+           // working.IsRunning = true;
             working.IsEnabled = true;
             working.BindingContext = this;
-            working.SetBinding(ActivityIndicator.IsVisibleProperty, "IsBusy");
+          //  working.SetBinding(ActivityIndicator.IsVisibleProperty, "IsBusy");
             /////////////////////////////////
             
             //Path voor het opslaan van de switch stand
@@ -92,8 +92,8 @@ namespace MAPapp {
         private async void SignInClicked(object sender, EventArgs e)
         {
 
-            //   working.IsRunning = true;
-            this.IsBusy = true;
+               working.IsRunning = true;
+          //  this.IsBusy = true;
             //De workload verdelen over meerdere Threads
             await System.Threading.Tasks.Task.Run(() =>
             {
