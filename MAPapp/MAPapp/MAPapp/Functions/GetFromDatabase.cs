@@ -48,6 +48,10 @@ namespace MAPapp
             {
                 url += "_MAP_REST_REQUEST_=_MAP_GET_SPRINT_&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token + "&_MAP_SPRINT_ID_=" + sprintID + "&_MAP_PROJECT_ID_=" + projectId;
             }
+            else if (command == "joinProject")
+            {
+                url += "_MAP_JOIN_PROJECT_=_MAP_AUTH_TOKEN_=" + token + "_MAP_USERNAME_=" + userName + "_MAP_PROJECT_ID_=" + projectId; 
+            }
 
             return url;
         }
@@ -121,12 +125,21 @@ namespace MAPapp
         }
         public static List<Task>  GetTasks(String userName, String token, int projectId)
         {
-            return JsonConvert.DeserializeObject<List<Task>>(getJsonData(userName,null,"getTasks",token,null,null,null,projectId,0));
+            try
+            {
+                return JsonConvert.DeserializeObject<List<Task>>(getJsonData(userName, null, "getTasks", token, null, null, null, projectId, 0));
+            }
+            catch { return new List<Task>() { new Task(new DateTime(), null, null, 0, 0, 0, null, 0, 0, 0) {HasAccess = false } };
+                    }
         }
         public static Sprint GetSprint(String userName, String token, int projectID, int sprintID)
         {
 
-            return JsonConvert.DeserializeObject<Sprint>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, sprintID));
+            try
+            {
+                return JsonConvert.DeserializeObject<Sprint>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, sprintID));
+            }
+            catch { return null; }
         }
     }
 }

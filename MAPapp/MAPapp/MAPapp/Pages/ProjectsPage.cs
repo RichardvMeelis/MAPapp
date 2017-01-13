@@ -89,8 +89,7 @@ namespace MAPapp
             Content = new StackLayout {
                 VerticalOptions = LayoutOptions.FillAndExpand,
                
-                Children = {b,
-                    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  }, 
+                Children = {    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  }, b 
 				}
 			};
 		}
@@ -119,8 +118,13 @@ namespace MAPapp
 
                 Device.BeginInvokeOnMainThread(() =>
                 {
+                    if(f.Tasks[0].HasAccess)
                     Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
-
+                    else
+                    {
+                       Navigation.PushAsync( new JoinProjectPage(f));
+                        DisplayAlert("Error", "U bent niet aangemeld voor dit project.", "OK");
+                    }
                 });
             });
            

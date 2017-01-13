@@ -15,6 +15,7 @@ namespace MAPapp {
         int rroeValue;
         int uncertainty;
         int sprintID;
+        Boolean hasAccess = true;
 
         public Task(DateTime completedDate, String name, String description, int difficultyPoints, int importancePoints, int changed, User user, int timeCriticality, int rroeValue, int uncertainty)
         {
@@ -76,6 +77,11 @@ namespace MAPapp {
         {
             get { return sprintID; }
             set { sprintID = value; }
+        }
+        public Boolean HasAccess
+        {
+            get { return hasAccess; }
+            set { hasAccess = value; }
         }
     }
 }

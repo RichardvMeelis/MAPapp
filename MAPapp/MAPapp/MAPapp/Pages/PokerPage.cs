@@ -15,7 +15,7 @@ namespace MAPapp
         
 		public PokerPage ()
 		{
-            int fontSize = App.ScreenWidth / 38;
+            int fontSize = App.ScreenWidth / 60;
             Title = "Planningpoker";
             BackgroundColor = GeneralSettings.backgroundColor;
             var grid = new Grid();
@@ -37,11 +37,11 @@ namespace MAPapp
             grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 9 " }, 8, 5);
             grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 10 "}, 9, 5);
             grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " ? " }, 10,5);
-            
+
             //Label voor output definiëren
             label12 = new Label { HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                FontSize = 80,
+                FontSize = App.ScreenWidth/5,
                 TextColor = GeneralSettings.textColor
             };
 
