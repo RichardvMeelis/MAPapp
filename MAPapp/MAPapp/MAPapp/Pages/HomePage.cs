@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
 using System.Text;
-
 using Xamarin.Forms;
 
 namespace MAPapp
@@ -25,9 +24,9 @@ namespace MAPapp
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            
+
             //Knoppen toevoegen aan de grid 
-            grid.Children.Add(projectButton = new Button() { Text = "Projecten", BackgroundColor = GeneralSettings.mainColor},0,0);
+            grid.Children.Add(projectButton = new Button() { Text = "Projecten", BackgroundColor = GeneralSettings.mainColor }, 0, 0);
             grid.Children.Add(pokerButton = new Button() { Text = "Poker", BackgroundColor = GeneralSettings.mainColor }, 0, 1);
             grid.Children.Add(accountSettingsButton = new Button() { Text = "Account Settings", BackgroundColor = GeneralSettings.mainColor }, 1, 1);
             grid.Children.Add(settingsButton = new Button() { Text = "Settings", BackgroundColor = GeneralSettings.mainColor }, 1, 2);

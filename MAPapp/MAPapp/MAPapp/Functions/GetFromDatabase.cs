@@ -50,7 +50,7 @@ namespace MAPapp
             }
             else if (command == "joinProject")
             {
-                url += "_MAP_JOIN_PROJECT_=_MAP_AUTH_TOKEN_=" + token + "_MAP_USERNAME_=" + userName + "_MAP_PROJECT_ID_=" + projectId; 
+                url += "_MAP_REST_REQUEST_=_MAP_JOIN_PROJECT_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_PROJECT_ID_=" + projectId; 
             }
 
             return url;
@@ -140,6 +140,11 @@ namespace MAPapp
                 return JsonConvert.DeserializeObject<Sprint>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, sprintID));
             }
             catch { return null; }
+        }
+        public static string JoinProject(String userName, String token, int projectID)
+        {
+            return JsonConvert.DeserializeObject<string>(getJsonData(userName, null, "joinProject", token, null, null, null, projectID, 0));
+
         }
     }
 }
