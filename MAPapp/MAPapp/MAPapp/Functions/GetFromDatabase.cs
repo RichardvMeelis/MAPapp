@@ -98,7 +98,6 @@ namespace MAPapp
         public static String CreateUser(String userName, String password, String fName, String lName, String joincode)
         {
             string s = getJsonData(userName, password, "createNewUser", null, fName, lName, joincode,0,0);
-           /// System.Diagnostics.Debug.WriteLine(s);
             return JsonConvert.DeserializeObject<String>(s);
         }
         public static List<InformationObject> GetInformation(String userName, String token)
@@ -134,7 +133,6 @@ namespace MAPapp
         }
         public static Sprint GetSprint(String userName, String token, int projectID, int sprintID)
         {
-
             try
             {
                 return JsonConvert.DeserializeObject<List<Sprint>>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, sprintID))[0];

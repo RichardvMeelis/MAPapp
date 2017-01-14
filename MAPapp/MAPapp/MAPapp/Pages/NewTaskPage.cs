@@ -22,7 +22,7 @@ namespace MAPapp
         //Project waaraan de taak wordt toegevoegd 
         Project saved;
 
-
+        Button b;
         public NewTaskPage(Project f)
         {
             Title = "New Task";
@@ -33,7 +33,7 @@ namespace MAPapp
 
             //Er wordt een nieuwe scrollview gemaakt en de gemaakt elementen worden toegevoegd
             ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label { Text = "TaskName:", TextColor = Color.Black }, nameEntry, new Label { Text = "Descprition:", TextColor = Color.Black }, descriptionEntry, new Label { Text = "Job size:", TextColor = Color.Black }, jobSizeEntry, new Label { Text = "User business value:", TextColor = Color.Black }, userBusinessValueEntry, new Label { Text = "time criticality:", TextColor = Color.Black }, timeCriticalityEntry, new Label { Text = "RROE value:", TextColor = Color.Black }, rroeValueEntry, new Label { Text = "Uncertainty:", TextColor = Color.Black }, uncertaintyEntry } } };
-            Button b = new Button() { Text = "Create", HorizontalOptions = LayoutOptions.Center };
+            b = new Button() { Text = "Create", HorizontalOptions = LayoutOptions.Center };
             b.Clicked += B_Clicked;
             Content = new StackLayout
             {
@@ -46,7 +46,7 @@ namespace MAPapp
 
         private async void B_Clicked(object sender, EventArgs e)
         {
-
+            b.IsEnabled = false;
             //Toevoegen van een nieuw project aan de test data (Tijdelijk/niet helemaal compleet)
             try
             {
@@ -61,7 +61,7 @@ namespace MAPapp
             }
             catch
             {
-
+                b.IsEnabled = true;
             }
         }
     }

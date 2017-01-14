@@ -13,7 +13,9 @@ namespace MAPapp
         //Alle invoer velden voor de nieuwe project pagina
         Entry nameEntry = new Entry() {  TextColor = GeneralSettings.textColor };
         Entry descriptionEntry = new Entry() { TextColor = GeneralSettings.textColor };
-       
+
+        Button b;
+
         //Kiezen van begin en eind datums
         DatePicker start = new DatePicker() ;
         DatePicker end = new DatePicker() ;
@@ -22,7 +24,7 @@ namespace MAPapp
 		{
             BackgroundColor = GeneralSettings.backgroundColor;
             ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label {Text = "Project Name:", TextColor = GeneralSettings.textColor },nameEntry,new Label {Text = "Descprition:", TextColor = GeneralSettings.textColor },descriptionEntry, new Label {Text = "Starting date:", TextColor = GeneralSettings.textColor },start,new Label {Text = "Ending date:", TextColor = GeneralSettings.textColor }, end } } };
-            Button b = new Button() { Text = "Create", HorizontalOptions = LayoutOptions.Center };
+            b = new Button() { Text = "Create", HorizontalOptions = LayoutOptions.Center };
             b.Clicked += B_Clicked;
             Content = new StackLayout {
                 Margin = GeneralSettings.pageMargin,
@@ -34,6 +36,7 @@ namespace MAPapp
 
         private async void B_Clicked(object sender, EventArgs e)
         {
+            b.IsEnabled = false;
             //Toevoegen van een nieuw project aan de test data (Tijdelijk/niet helemaal compleet)
             SaveTestData.projects.Add(new Project(start.Date, end.Date, nameEntry.Text, "Test Company", descriptionEntry.Text) { Users = new List<User> { new User("Sam", "test@test.com", "test") } });
             await Navigation.PushAsync(new ProjectsPage(GetFromDatabase.getProjects(GetFromDatabase.currentUserName, GetFromDatabase.currentToken)), false);

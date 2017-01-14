@@ -28,15 +28,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\InformationPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\JoinProjectPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Login.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\MasterPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\newAccount.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\NewProjectPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\NewTaskPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\PokerPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\SprintPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TaskInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TextPageInformation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SprintPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />

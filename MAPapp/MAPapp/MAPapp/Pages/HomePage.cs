@@ -15,7 +15,7 @@ namespace MAPapp
         ActivityIndicator ai = new ActivityIndicator() {Color = GeneralSettings.mainColor };
 		public HomePage ()
 		{
-
+           
             Title = "Homepage";
             BackgroundColor = GeneralSettings.backgroundColor;
             var grid = new Grid();
@@ -35,11 +35,11 @@ namespace MAPapp
             Grid.SetColumnSpan(projectButton,2);
 
             //Eventhandlers toewijzen aan de knoppen
-            projectButton.Clicked += A_Clicked;
-            pokerButton.Clicked += B_Clicked;
-            accountSettingsButton.Clicked += C_Clicked;
-            settingsButton.Clicked += D_Clicked;
-            informatieButton.Clicked += E_Clicked;
+            projectButton.Clicked += ProjectButtonClicked;
+            pokerButton.Clicked += PokerButtonClicked;
+            accountSettingsButton.Clicked += AccountSettingButtonClicked;
+            settingsButton.Clicked += SettingsButtonClicked;
+            informatieButton.Clicked += InformationButtonClicked;
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
@@ -49,38 +49,41 @@ namespace MAPapp
             };
 			}
 
-        private async void E_Clicked(object sender, EventArgs e)
+        private async void InformationButtonClicked(object sender, EventArgs e)
         {
-            
+            informatieButton.IsEnabled = false;
             //Zet de nieuwe pagina op de stack.
             await Navigation.PushAsync(new InformationPage());
-          
+            informatieButton.IsEnabled = true;
+
         }
 
-        private async void D_Clicked(object sender, EventArgs e)
+        private async void SettingsButtonClicked(object sender, EventArgs e)
         {
+            settingsButton.IsEnabled = false;
             await Navigation.PushAsync(new burndown());
-            
+            settingsButton.IsEnabled = true;
         }
 
-        private async void C_Clicked(object sender, EventArgs e)
+        private async void AccountSettingButtonClicked(object sender, EventArgs e)
         {
-            
+            accountSettingsButton.IsEnabled = false;
             //Zet de nieuwe pagina op de stack.
             await Navigation.PushAsync(new AccountSettings());
-           
+            accountSettingsButton.IsEnabled = true;
         }
 
-        private async void B_Clicked(object sender, EventArgs e)
+        private async void PokerButtonClicked(object sender, EventArgs e)
         {
-            
+            pokerButton.IsEnabled = false;
             //Zet de nieuwe pagina op de stack.
             await Navigation.PushAsync(new PokerPage());
-            
+            pokerButton.IsEnabled = true;
         }
 
-        private async void A_Clicked(object sender, EventArgs e)
+        private async void ProjectButtonClicked(object sender, EventArgs e)
         {
+            projectButton.IsEnabled = false;
             ai.IsRunning = true;
             //Zet de nieuwe pagina op de stack.
             await System.Threading.Tasks.Task.Run(() =>
@@ -91,6 +94,7 @@ namespace MAPapp
                 Device.BeginInvokeOnMainThread(() =>
                 {
                      Navigation.PushAsync(new ProjectsPage(s));
+                    projectButton.IsEnabled = true;
                     ai.IsRunning = false;
                 });
             });

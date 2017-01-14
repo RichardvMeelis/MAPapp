@@ -47,6 +47,7 @@ namespace MAPapp
         //De data wordt opgestuurd en de ouput vergeleken
         private void B_Clicked(object sender, EventArgs e)
         {
+            createNewUser.IsEnabled = false;
            if (GetFromDatabase.CreateUser(username.Text, password.Text, fName.Text, lName.Text, joincode.Text) == "NEW_USER_SUCCESS")
             {
                 Navigation.PopAsync();
@@ -55,6 +56,7 @@ namespace MAPapp
             {
                 warning.Text = "Creating new user failed";
             }
+            createNewUser.IsEnabled = true;
         }
     }
 }

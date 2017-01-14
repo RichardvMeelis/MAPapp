@@ -8,10 +8,12 @@ using Xamarin.Forms;
 
 namespace MAPapp
 {
-	public class ProjectInfoPage : ContentPage
-	{
+	public class ProjectInfoPage : ContentPage {
+        ListView table;
         Project ding;
-		public ProjectInfoPage (Project s)
+        Button b;
+
+        public ProjectInfoPage (Project s)
 		{
             ding = s;
             Title = "Project information";
@@ -22,7 +24,7 @@ namespace MAPapp
             tasks =  Sort.SortTasks(tasks);
             //   App.page.Title = "Projects";
 
-            ListView table = new ListView
+             table = new ListView
             {
 
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -38,11 +40,11 @@ namespace MAPapp
                     nameLabel.FontSize = 20;
                     nameLabel.TextColor = GeneralSettings.textColor;
 
-                    Label CompanyLabel = new Label();
-                    CompanyLabel.SetBinding(Label.TextProperty,
+                    Label JSLabel = new Label();
+                    JSLabel.SetBinding(Label.TextProperty,
                         new Binding("JSPoints", BindingMode.OneWay,
                             null, null, "Job Size: {0:d}"));
-                    CompanyLabel.TextColor = GeneralSettings.textColor;
+                    JSLabel.TextColor = GeneralSettings.textColor;
 
                     Label importancePointsLabel = new Label();
                     importancePointsLabel.SetBinding(Label.TextProperty,
@@ -77,7 +79,7 @@ namespace MAPapp
                                         {
                                             nameLabel,
                                             //birthdayLabel,
-                                            CompanyLabel,importancePointsLabel,
+                                            JSLabel,importancePointsLabel,
 
                                         }
                                         }
@@ -87,7 +89,7 @@ namespace MAPapp
                 })
             };
 
-            Button b = new Button() {BackgroundColor = GeneralSettings.mainColor
+            b = new Button() {BackgroundColor = GeneralSettings.mainColor
         };
             b.Text = "New Task";
             b.Clicked += B_Clicked;
@@ -112,12 +114,16 @@ namespace MAPapp
        
         private async void B_Clicked(object sender, EventArgs e)
         {
+            b.IsEnabled = false;
             await Navigation.PushAsync(new NewTaskPage(ding));
+            b.IsEnabled = true;
         }
 
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            table.IsEnabled = false;
            await Navigation.PushAsync(new TaskInfoPage((Task)e.Item));
+            table.IsEnabled = true;
         }
     }
 	}

@@ -10,6 +10,7 @@ namespace MAPapp
 {
     public class JoinProjectPage : ContentPage
     {
+        Button b;
         Project ding;
         Boolean test = true;
         Label warning = new Label() { TextColor = Color.Red };
@@ -25,7 +26,7 @@ namespace MAPapp
             //   App.page.Title = "Projects";
 
 
-            Button b = new Button()
+           b = new Button()
             {
                 BackgroundColor = GeneralSettings.mainColor
             };
@@ -51,6 +52,7 @@ namespace MAPapp
 
         private async void B_Clicked(object sender, EventArgs e)
         {
+            b.IsEnabled = false;
             string userName = GetFromDatabase.currentUserName;
             string token = GetFromDatabase.currentToken;
             int projectID = ding.projectid;
@@ -75,11 +77,15 @@ namespace MAPapp
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         if (f.Tasks[0].HasAccess)
+                        {
                             Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
+                            b.IsEnabled = true;
+                        }
                         else
                         {
                             Navigation.PushAsync(new JoinProjectPage(f));
                             DisplayAlert("Error", "U bent niet aangemeld voor dit project.", "OK");
+                            b.IsEnabled = true;
                         }
                     });
                 });
@@ -87,6 +93,7 @@ namespace MAPapp
             else
             {
                 await DisplayAlert("Join", "Failed to join", "OK");
+                b.IsEnabled = true;
             }
         }
 

@@ -6,18 +6,18 @@ using Xamarin.Forms;
 
 namespace MAPapp {
     public class ProjectsPage : ContentPage {
-
+        ListView table;
         public ProjectsPage(List<Project> projects)
         {
             Title = "Projects";
             BackgroundColor = GeneralSettings.backgroundColor;
             System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
-
+           
 
             // String s = GetFromDatabase.SingIn("user%40test.com", "testtest");
             //System.Diagnostics.Debug.WriteLine(s);
             //  SaveTestData.projects = Sort.SortProjects(SaveTestData.projects);
-            ListView table = new ListView
+            table = new ListView
             {
 
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -37,7 +37,7 @@ namespace MAPapp {
                     //Label met binding voor het bedrijf
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
-                        new Binding("company_companyid", BindingMode.OneWay,
+                        new Binding("companyname", BindingMode.OneWay,
                             null, null, "Company: {0:d}"));
                     CompanyLabel.TextColor = GeneralSettings.textColor;
 
@@ -77,7 +77,7 @@ namespace MAPapp {
                     };
                 })
             };
-
+            
             table.ItemTapped += Table_ItemTapped;
 
 
@@ -101,6 +101,7 @@ namespace MAPapp {
 
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            table.IsEnabled = false;
             Project f = (Project)e.Item;
             await System.Threading.Tasks.Task.Run(() =>
             {
@@ -113,9 +114,9 @@ namespace MAPapp {
                         i = t.sprintid;
                     }
                 }
-
+                
                 Sprint s = GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
-                List < Task > tasks = new List<Task>();
+                List < Task > tasks = new List<Task>() ;
                 foreach (Task t in f.Tasks)
                 {
                     System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------TASKSPRINTID  "  + t.sprintid);
@@ -125,16 +126,21 @@ namespace MAPapp {
                         tasks.Add( t);
                     }
                 }
-                s.Sprinttasks = tasks;
-                f.CurrentSprint = s;
+                if (s != null)
+                {
+                    s.Sprinttasks = tasks;
+                    f.CurrentSprint = s;
+                }
+
+
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
-
+                    Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint)}, Title = f.projectname });
+                    
                 });
             });
 
-
+            table.IsEnabled = true;
         }
     }
 }

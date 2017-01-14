@@ -91,7 +91,7 @@ namespace MAPapp {
         //Eventhandler voor de signIn button
         private async void SignInClicked(object sender, EventArgs e)
         {
-
+            signIn.IsEnabled = false;
                working.IsRunning = true;
           //  this.IsBusy = true;
             //De workload verdelen over meerdere Threads
@@ -121,11 +121,12 @@ namespace MAPapp {
                     {
                         GetFromDatabase.currentToken = s1;
                         GetFromDatabase.currentUserName = userName.Text;
-                        Application.Current.MainPage = new MasterDetailPage() { Detail = new NavigationPage(new HomePage()) { BarBackgroundColor = GeneralSettings.mainColor, Title = "test", BarTextColor = GeneralSettings.textColor }, Master = new ContentPage() { Title = "titel" } };
+                        Application.Current.MainPage = new MasterDetailPage() { Detail = new NavigationPage(new HomePage()) { BarBackgroundColor = GeneralSettings.mainColor, Title = "test", BarTextColor = GeneralSettings.textColor }, Master = new MasterPage() { Title = "titel" } };
                         //this.working.IsRunning = false;
                     }
                     else
                     {
+                        signIn.IsEnabled = true;
                         warning.Text = "Wrong username or password";
                         this.IsBusy = false;
                     }

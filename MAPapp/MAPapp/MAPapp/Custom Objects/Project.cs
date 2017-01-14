@@ -82,6 +82,11 @@ namespace MAPapp
             get { return sprint; }
             set { sprint = value; }
         }
+        public String companyname
+        {
+            get { return company; }
+            set { company = value; }
+        }
 
     }
 }

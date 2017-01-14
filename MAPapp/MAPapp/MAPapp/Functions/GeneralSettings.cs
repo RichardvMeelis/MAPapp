@@ -13,6 +13,7 @@ namespace MAPapp
         public static Color backgroundColor = new Color();
         public static Color textColor = new Color();
         public static Color entryColor = new Color();
+        public static Color warningColor = new Color();
         public static int pageMargin;
         public static void GetColors()
         {
@@ -21,6 +22,7 @@ namespace MAPapp
             backgroundColor = Color.FromRgb(34,34,34);
             textColor = Color.White;
             entryColor = Color.FromRgb(260,142,45);
+            warningColor = Color.Red;
             pageMargin = 5;
         }
        
