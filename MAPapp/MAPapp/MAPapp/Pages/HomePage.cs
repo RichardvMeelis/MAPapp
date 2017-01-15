@@ -10,8 +10,9 @@ namespace MAPapp
 	public class HomePage : ContentPage
 	{
         //Alle buttons die op het homescreen staan
-        Button projectButton, pokerButton, accountSettingsButton, settingsButton, informatieButton;
-       public static Stopwatch stopwatch = new Stopwatch();
+        Button  pokerButton, accountSettingsButton, settingsButton, informatieButton;
+        Button projectButton;
+        public static Stopwatch stopwatch = new Stopwatch();
         ActivityIndicator ai = new ActivityIndicator() {Color = GeneralSettings.mainColor };
 		public HomePage ()
 		{
@@ -33,7 +34,7 @@ namespace MAPapp
             grid.Children.Add(informatieButton = new Button() { Text = "Informatie", BackgroundColor = GeneralSettings.mainColor }, 0, 2);
             
             Grid.SetColumnSpan(projectButton,2);
-
+           
             //Eventhandlers toewijzen aan de knoppen
             projectButton.Clicked += ProjectButtonClicked;
             pokerButton.Clicked += PokerButtonClicked;
@@ -61,7 +62,8 @@ namespace MAPapp
         private async void SettingsButtonClicked(object sender, EventArgs e)
         {
             settingsButton.IsEnabled = false;
-            await Navigation.PushAsync(new burndown());
+            // await Navigation.PushAsync(new burndown());
+            await Navigation.PushAsync(new TestPage());
             settingsButton.IsEnabled = true;
         }
 

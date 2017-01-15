@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\ClickableLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\CustomRendererNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\InformationObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Sprint.cs" />
@@ -38,6 +39,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\SprintPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TaskInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TextPageInformation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />

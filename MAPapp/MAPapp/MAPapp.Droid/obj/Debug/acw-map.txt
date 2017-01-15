@@ -1,3 +1,7 @@
+MAPapp.Droid.CustomButtonRenderer, MAPapp.Droid;md556a6d8ffd005082619d8375fbf79a99b.CustomButtonRenderer
+MAPapp.Droid.CustomButtonRenderer, MAPapp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md556a6d8ffd005082619d8375fbf79a99b.CustomButtonRenderer
+MAPapp.Droid.CustomButtonRenderer;md556a6d8ffd005082619d8375fbf79a99b.CustomButtonRenderer
+mapapp.droid.CustomButtonRenderer;md556a6d8ffd005082619d8375fbf79a99b.CustomButtonRenderer
 MAPapp.Droid.MainActivity, MAPapp.Droid;md556a6d8ffd005082619d8375fbf79a99b.MainActivity
 MAPapp.Droid.MainActivity, MAPapp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md556a6d8ffd005082619d8375fbf79a99b.MainActivity
 MAPapp.Droid.MainActivity;md556a6d8ffd005082619d8375fbf79a99b.MainActivity
