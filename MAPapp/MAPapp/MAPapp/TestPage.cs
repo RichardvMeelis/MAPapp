@@ -16,7 +16,7 @@ namespace MAPapp
       
 		public TestPage ()
 		{
-            b = new ImageButton() { BorderColor = Color.Red, BorderWidth = 10, BorderRadius = 10, Text = "dit is een test1" };
+            b = new ImageButton() { BorderColor = Color.Red, BorderWidth = 10, BorderRadius = 10, Text = "dit is een test1",Image  = "Icon.png" };
             c = new Xamarin.Forms.Button() { BorderColor = Color.Blue, BorderWidth = 10, BorderRadius = 10, Text = "Dit is een test2", Image ="Icon.png"};
             b.CompleteImage = new Image {Source = "Icon.png" };
             Content = new StackLayout {

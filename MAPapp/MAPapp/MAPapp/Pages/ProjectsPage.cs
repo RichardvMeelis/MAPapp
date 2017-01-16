@@ -11,7 +11,6 @@ namespace MAPapp {
         {
             Title = "Projects";
             BackgroundColor = GeneralSettings.backgroundColor;
-            System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------------------------------------------------------" + HomePage.stopwatch.ElapsedMilliseconds);
            
 
             // String s = GetFromDatabase.SingIn("user%40test.com", "testtest");
@@ -119,9 +118,9 @@ namespace MAPapp {
                 List < Task > tasks = new List<Task>() ;
                 foreach (Task t in f.Tasks)
                 {
-                    System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------TASKSPRINTID  "  + t.sprintid);
-                    System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------" + s.tpoints + " " + s.sprint_start_date + " " + s.project_projectid + " "+ s.sprintname +" " + s.sprintid);
-                    if (t.sprintid == s.sprintid)
+                    //System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------TASKSPRINTID  "  + t.sprintid);
+                    //System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------" + s.tpoints + " " + s.sprint_start_date + " " + s.project_projectid + " "+ s.sprintname +" " + s.sprintid);
+                    if (s!= null && t.sprintid == s.sprintid)
                     {
                         tasks.Add( t);
                     }
@@ -135,8 +134,20 @@ namespace MAPapp {
 
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint)}, Title = f.projectname });
+                    List < Task > t = f.Tasks;
+                    if (f.Tasks.Count != 0)
+                    {
+                        if (f.Tasks[0].HasAccess)
+                            Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
+                        else
+                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
+                    }
+                    else
                     
+                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
+
+                    
+
                 });
             });
 

@@ -31,7 +31,7 @@ namespace MAPapp.Droid {
             //  s.SetBitmap();
             s.DrawColor(Android.Graphics.Color.Blue);
             base.OnElementChanged(e);
-           
+           // await TryGetWritePermission();
             if (Control != null)
             {
                 
@@ -58,14 +58,14 @@ namespace MAPapp.Droid {
                 _pressed.SetStroke((int)button.BorderWidth, button.BorderColor.ToAndroid());
                 _pressed.SetCornerRadius(button.BorderRadius);
                 //   _normal.Draw(s);
-                //Bitmap bitmap = Bitmap.CreateBitmap(1000, 1000, Bitmap.Config.Argb8888);
+                Bitmap bitmap = Bitmap.CreateBitmap(1000, 1000, Bitmap.Config.Argb8888);
                 // System.Diagnostics.Debug.WriteLine(button.Text);
                
                 
-                //bitmap = BitmapFactory.DecodeFile("@drawable/icon");
+                bitmap = BitmapFactory.DecodeFile(button.Image);
 
                 // bitmap = ImageSource.FromFile("@drawable / icon");
-                Bitmap bitmap = await GetBitmap(button.CompleteImage);
+             //   Bitmap bitmap = await GetBitmap(button.CompleteImage);
                 d = new BitmapDrawable(bitmap);
               //  Canvas s = new Canvas(bitmap);
                 //   Paint p = new Paint { Color = Android.Graphics.Color.Red };
@@ -83,6 +83,22 @@ namespace MAPapp.Droid {
             var handler = new ImageLoaderSourceHandler();
             return handler.LoadImageAsync(image.Source,Context);
         }
+/*
+        async Task TryGetWritePermission()
+        {
+           
+                if ((int)Build.VERSION.SdkInt < 23)
+                {
+                   
+                    return;
+                }
+
+            // await GetLocationPermissionAsync();
+       const String permission = Manifest.Permission.READ_EXTERNAL_STORAGE;
+            System.Diagnostics.Debug.WriteLine("--------------------------------------------------------------------------------"+CheckSelfPermission(permission));
+
+        }
+        */
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
