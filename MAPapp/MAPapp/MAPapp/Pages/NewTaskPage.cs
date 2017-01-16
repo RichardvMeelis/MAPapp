@@ -25,15 +25,15 @@ namespace MAPapp
         Button b;
         public NewTaskPage(Project f)
         {
-            Title = "New Task";
+            Title = Globals.paginanieuwetaak;
             
             //Member variabele wordt gelijk gemaakt aan de parameter
             saved = f;
             BackgroundColor = GeneralSettings.backgroundColor;
 
             //Er wordt een nieuwe scrollview gemaakt en de gemaakt elementen worden toegevoegd
-            ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label { Text = "TaskName:", TextColor = Color.Black }, nameEntry, new Label { Text = "Descprition:", TextColor = Color.Black }, descriptionEntry, new Label { Text = "Job size:", TextColor = Color.Black }, jobSizeEntry, new Label { Text = "User business value:", TextColor = Color.Black }, userBusinessValueEntry, new Label { Text = "time criticality:", TextColor = Color.Black }, timeCriticalityEntry, new Label { Text = "RROE value:", TextColor = Color.Black }, rroeValueEntry, new Label { Text = "Uncertainty:", TextColor = Color.Black }, uncertaintyEntry } } };
-            b = new Button() { Text = "Create", HorizontalOptions = LayoutOptions.Center };
+            ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label { Text = Globals.taaknaam, TextColor = Color.Black }, nameEntry, new Label { Text = Globals.beschrijving, TextColor = Color.Black }, descriptionEntry, new Label { Text = Globals.jobsize, TextColor = Color.Black }, jobSizeEntry, new Label { Text = Globals.ubv, TextColor = Color.Black }, userBusinessValueEntry, new Label { Text = Globals.timecrit, TextColor = Color.Black }, timeCriticalityEntry, new Label { Text = Globals.rroe, TextColor = Color.Black }, rroeValueEntry, new Label { Text = Globals.uncertainty, TextColor = Color.Black }, uncertaintyEntry } } };
+            b = new Button() { Text = Globals.knopaanmaken, HorizontalOptions = LayoutOptions.Center };
             b.Clicked += B_Clicked;
             Content = new StackLayout
             {

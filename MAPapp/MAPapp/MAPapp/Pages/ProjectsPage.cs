@@ -9,7 +9,7 @@ namespace MAPapp {
         ListView table;
         public ProjectsPage(List<Project> projects)
         {
-            Title = "Projects";
+            Title = Globals.paginaprojecten;
             BackgroundColor = GeneralSettings.backgroundColor;
            
 
@@ -37,14 +37,14 @@ namespace MAPapp {
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
                         new Binding("companyname", BindingMode.OneWay,
-                            null, null, "Company: {0:d}"));
+                            null, null, Globals.bedrijf + ": {0:d}"));
                     CompanyLabel.TextColor = GeneralSettings.textColor;
 
                     //Label met binding voor de datum
                     Label endingdateLabel = new Label();
                     endingdateLabel.SetBinding(Label.TextProperty,
                         new Binding("EndingDate", BindingMode.OneWay,
-                            null, null, "Einddatum: {0: dd/MM/yyyy}"));
+                            null, null, Globals.datumeind + ": {0: dd/MM/yyyy}"));
                     endingdateLabel.TextColor = GeneralSettings.textColor;
 
 
@@ -80,15 +80,15 @@ namespace MAPapp {
             table.ItemTapped += Table_ItemTapped;
 
 
-            Button b = new Button() { Text = "New Project", BackgroundColor = GeneralSettings.mainColor };
+            Button b = new Button() { Text = Globals.knopnieuwproject, BackgroundColor = GeneralSettings.mainColor };
             b.Clicked += B_Clicked;
 
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
-                Children = {b,
-                    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  },
+                Children = {
+                    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  }, b
                 }
             };
         }

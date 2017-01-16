@@ -17,7 +17,7 @@ namespace MAPapp
         public JoinProjectPage(Project s)
         {
             ding = s;
-            Title = "Project information";
+            Title = Globals.tabprojectinfo;
             BackgroundColor = GeneralSettings.backgroundColor;
             List<Task> tasks = s.Tasks;
             // tasks.Sort();
@@ -30,7 +30,7 @@ namespace MAPapp
             {
                 BackgroundColor = GeneralSettings.mainColor
             };
-            b.Text = "Join Project";
+            b.Text = Globals.paginajoinproject;
             b.Clicked += B_Clicked;
 
             //  BackgroundColor = Color.White;
@@ -39,10 +39,10 @@ namespace MAPapp
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
                 Children = { 
-                                    new Label {Text ="Startdatum: " +  s.start_date.ToString("dd/MM/yyyy "), TextColor = GeneralSettings.textColor},
-                                    new Label {Text ="Einddatum: " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor =  GeneralSettings.textColor  },
-                                    new Label {Text = "Users: " + User.UserListToString(s.Users), TextColor =  GeneralSettings.textColor  },
-                                    new Label {Text = "Beschrijving: " + s.projectdescription, TextColor =  GeneralSettings.textColor },
+                                    new Label {Text =  Globals.datumbegin + " " +  s.start_date.ToString("dd/MM/yyyy "), TextColor = GeneralSettings.textColor},
+                                    new Label {Text =  Globals.datumeind + " " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor =  GeneralSettings.textColor  },
+                                    new Label {Text =  Globals.deelnemers + " " + User.UserListToString(s.Users), TextColor =  GeneralSettings.textColor  },
+                                    new Label {Text =  Globals.beschrijving + " " + s.projectdescription, TextColor =  GeneralSettings.textColor },
                                     b, warning
                                     
                 }
@@ -56,9 +56,9 @@ namespace MAPapp
             string userName = GetFromDatabase.currentUserName;
             string token = GetFromDatabase.currentToken;
             int projectID = ding.projectid;
-            if (GetFromDatabase.JoinProject(userName, token, projectID) == "JOIN_PROJECT_SUCCESS")
+            if ((string)GetFromDatabase.JoinProject(userName, token, projectID) == "JOIN_PROJECT_SUCCESS")
             {
-                await DisplayAlert("Join", "Aanmelden succesvol. U bent nu aangemeld voor het project.", "OK");
+                await DisplayAlert(Globals.joinpassname, Globals.joinpass, Globals.okknop);
                 Project f = ding;
                 await System.Threading.Tasks.Task.Run(() =>
                 {
@@ -86,7 +86,7 @@ namespace MAPapp
                             else
                             {
                                 Navigation.PushAsync(new JoinProjectPage(f));
-                                DisplayAlert("Error", "U bent niet aangemeld voor dit project.", "OK");
+                                DisplayAlert(Globals.error, Globals.nojoin, Globals.okknop);
                                 b.IsEnabled = true;
                             }
                         }
@@ -96,7 +96,7 @@ namespace MAPapp
             }
             else
             {
-                await DisplayAlert("Join", "Failed to join", "OK");
+                await DisplayAlert(Globals.error, Globals.joinfail, Globals.okknop);
                 b.IsEnabled = true;
             }
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
