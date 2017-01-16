@@ -11,10 +11,14 @@ namespace MAPapp {
         int userBusinessValue;
         int changed;
         User user;
+        String doneByFirstName;
+        String doneByLastName;
         int timeCriticality;
         int rroeValue;
         int uncertainty;
         int sprintID;
+        int projectID;
+        int taskID;
         Boolean hasAccess = true;
 
         public Task(DateTime completedDate, String name, String description, int difficultyPoints, int importancePoints, int changed, User user, int timeCriticality, int rroeValue, int uncertainty)
@@ -82,6 +86,27 @@ namespace MAPapp {
         {
             get { return hasAccess; }
             set { hasAccess = value; }
+        }
+        public int taskid
+        {
+            get { return taskID; }
+            set { taskID = value; }
+        }
+        public String firstname
+        {
+            get { return doneByFirstName; }
+            set { doneByFirstName = value; }
+        }
+
+        public String lastname
+        {
+            get { return doneByLastName; }
+            set { doneByLastName = value; }
+        }
+        public int projectid
+        {
+            get { return projectID; }
+            set { projectID = value; }
         }
     }
 }

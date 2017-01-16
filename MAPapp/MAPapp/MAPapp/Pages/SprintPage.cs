@@ -9,9 +9,12 @@ using Xamarin.Forms;
 namespace MAPapp {
     public class SprintPage : ContentPage {
         ListView table;
-
-        public SprintPage(Sprint s)
+        Sprint givenSprint;
+        List<Task> givenTasks = new List<Task>();
+        public SprintPage(Sprint s, List<Task> projectTasks)
         {
+            givenTasks = projectTasks;
+            givenSprint = s;
             List<Task> tasks = new List<Task>();
             Title = "Current Sprint";
 
@@ -82,9 +85,10 @@ namespace MAPapp {
             Button b = new Button()
             {
                 BackgroundColor = GeneralSettings.mainColor
+
             };
-            b.Text = "New Task";
-            //  b.Clicked += B_Clicked;
+            b.Text = "Add Task";
+            b.Clicked += B_Clicked;
 
             //  BackgroundColor = Color.White;]
             Label sprintName, sprintStartDate, sprintDuration, sprintTimeRemaining;
@@ -117,6 +121,12 @@ namespace MAPapp {
             };
             table.ItemTapped += Table_ItemTapped;
         }
+
+        private async void B_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddTaskToSprintPage(givenSprint,givenTasks));
+        }
+
         public int TimeRemaining(DateTime startDate, int duration)
         {
             startDate.AddDays(duration);

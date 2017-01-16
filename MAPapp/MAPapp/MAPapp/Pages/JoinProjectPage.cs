@@ -56,7 +56,7 @@ namespace MAPapp
             string userName = GetFromDatabase.currentUserName;
             string token = GetFromDatabase.currentToken;
             int projectID = ding.projectid;
-            if (GetFromDatabase.JoinProject(userName, token, projectID) == "JOIN_PROJECT_SUCCESS")
+            if ((string)GetFromDatabase.JoinProject(userName, token, projectID) == "JOIN_PROJECT_SUCCESS")
             {
                 await DisplayAlert("Join", "Aanmelden succesvol. U bent nu aangemeld voor het project.", "OK");
                 Project f = ding;
@@ -80,7 +80,7 @@ namespace MAPapp
                         {
                             if (f.Tasks[0].HasAccess)
                             {
-                                Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
+                                Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
                                 b.IsEnabled = true;
                             }
                             else
@@ -90,7 +90,7 @@ namespace MAPapp
                                 b.IsEnabled = true;
                             }
                         }
-                        else Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
+                        else Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
                     });
                 });
             }

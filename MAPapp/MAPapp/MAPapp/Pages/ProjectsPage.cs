@@ -104,37 +104,40 @@ namespace MAPapp {
             Project f = (Project)e.Item;
             await System.Threading.Tasks.Task.Run(() =>
             {
-                try
-                {
-                    f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
-                    int i = 0;
+
+
+                try { 
+                f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                int i = 0;
                     foreach (Task t in f.Tasks)
                     {
                         if (t.sprintid > i)
                         {
                             i = t.sprintid;
                         }
-                    }   
-                
-                    Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
-                    List<Task> tasks = new List<Task>();
-                    foreach (Task t in f.Tasks)
+                    }
+                    try
                     {
-                        if (s != null && t.sprintid == s.sprintid)
+                        Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
+                        List<Task> tasks = new List<Task>();
+                        foreach (Task t in f.Tasks)
                         {
-                            tasks.Add(t);
+                            if (s != null && t.sprintid == s.sprintid)
+                            {
+                                tasks.Add(t);
+                            }
+                        }
+                        if (s != null)
+                        {
+                            s.Sprinttasks = tasks;
+                            f.CurrentSprint = s;
                         }
                     }
-                    if (s != null)
-                    {
-                        s.Sprinttasks = tasks;
-                        f.CurrentSprint = s;
-                    }
-
+                    catch { }
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                       List<Task> t = f.Tasks;
-                       Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
+                     //  List<Task> t = f.Tasks;
+                       Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks) }, Title = f.projectname });
                     });
                 }
                 catch {
@@ -142,7 +145,7 @@ namespace MAPapp {
                     {
                         if ((string)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid) == " \"NO_PERMISSION\"") //Spatie voor\ is nodig
                         {    
-                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
+                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint,f.Tasks) }, Title = f.projectname });
                         }
                     });
                 }

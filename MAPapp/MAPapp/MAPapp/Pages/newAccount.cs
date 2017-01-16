@@ -48,7 +48,7 @@ namespace MAPapp
         private void B_Clicked(object sender, EventArgs e)
         {
             createNewUser.IsEnabled = false;
-           if (GetFromDatabase.CreateUser(username.Text, password.Text, fName.Text, lName.Text, joincode.Text) == "NEW_USER_SUCCESS")
+           if ((string)GetFromDatabase.CreateUser(username.Text, password.Text, fName.Text, lName.Text, joincode.Text) == "NEW_USER_SUCCESS")
             {
                 Navigation.PopAsync();
             }
