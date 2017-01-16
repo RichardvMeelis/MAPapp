@@ -124,11 +124,13 @@ namespace MAPapp
         }
         public static object  GetTasks(String userName, String token, int projectId)
         {
+            string s = getJsonData(userName, null, "getTasks", token, null, null, null, projectId, 0);
             try
             {
-                return JsonConvert.DeserializeObject<List<Task>>(getJsonData(userName, null, "getTasks", token, null, null, null, projectId, 0));
+                return JsonConvert.DeserializeObject<List<Task>>(s);
             }
-            catch { return new List<Task>() { new Task(new DateTime(), null, null, 0, 0, 0, null, 0, 0, 0) {HasAccess = false } };
+            catch {
+                return s;//return new List<Task>() { new Task(new DateTime(), null, null, 0, 0, 0, null, 0, 0, 0) {HasAccess = false } };
                     }
         }
         public static object GetSprint(String userName, String token, int projectID, int sprintID)

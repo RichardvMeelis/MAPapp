@@ -104,53 +104,49 @@ namespace MAPapp {
             Project f = (Project)e.Item;
             await System.Threading.Tasks.Task.Run(() =>
             {
-                f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
-                int i = 0;
-                foreach (Task t in f.Tasks)
+                try
                 {
-                    if (t.sprintid > i)
+                    f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                    int i = 0;
+                    foreach (Task t in f.Tasks)
                     {
-                        i = t.sprintid;
-                    }
-                }
+                        if (t.sprintid > i)
+                        {
+                            i = t.sprintid;
+                        }
+                    }   
                 
-                Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
-                List < Task > tasks = new List<Task>() ;
-                foreach (Task t in f.Tasks)
-                {
-                    //System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------TASKSPRINTID  "  + t.sprintid);
-                    //System.Diagnostics.Debug.WriteLine("---------------------------------------------------------------" + s.tpoints + " " + s.sprint_start_date + " " + s.project_projectid + " "+ s.sprintname +" " + s.sprintid);
-                    if (s!= null && t.sprintid == s.sprintid)
+                    Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
+                    List<Task> tasks = new List<Task>();
+                    foreach (Task t in f.Tasks)
                     {
-                        tasks.Add( t);
+                        if (s != null && t.sprintid == s.sprintid)
+                        {
+                            tasks.Add(t);
+                        }
                     }
-                }
-                if (s != null)
-                {
-                    s.Sprinttasks = tasks;
-                    f.CurrentSprint = s;
-                }
-
-
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    List < Task > t = f.Tasks;
-                    if (f.Tasks.Count != 0)
+                    if (s != null)
                     {
-                        if (f.Tasks[0].HasAccess)
-                            Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
-                        else
-                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
+                        s.Sprinttasks = tasks;
+                        f.CurrentSprint = s;
                     }
-                    else
-                    
+
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                       List<Task> t = f.Tasks;
                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
-
-                    
-
-                });
+                    });
+                }
+                catch {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        if ((string)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid) == " \"NO_PERMISSION\"") //Spatie voor\ is nodig
+                        {    
+                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
+                        }
+                    });
+                }
             });
-
             table.IsEnabled = true;
         }
     }
