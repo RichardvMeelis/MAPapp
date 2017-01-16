@@ -87,8 +87,8 @@ namespace MAPapp {
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
-                Children = {b,
-                    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  },
+                Children = {
+                    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  }, b
                 }
             };
         }
@@ -140,7 +140,7 @@ namespace MAPapp {
                         if (f.Tasks[0].HasAccess)
                             Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
                         else
-                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
+                            Navigation.PushAsync(new JoinProjectPage(f));
                     }
                     else
                     
