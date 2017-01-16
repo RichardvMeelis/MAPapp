@@ -16,7 +16,7 @@ namespace MAPapp {
             givenTasks = projectTasks;
             givenSprint = s;
             List<Task> tasks = new List<Task>();
-            Title = "Current Sprint";
+            Title = Globals.paginasprint;
 
             if (s != null && s.Sprinttasks != null)
             {

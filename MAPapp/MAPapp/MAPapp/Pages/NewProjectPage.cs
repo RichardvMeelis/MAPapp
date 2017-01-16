@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using System.Text;
 
 using Xamarin.Forms;
@@ -23,8 +22,8 @@ namespace MAPapp
         public NewProjectPage ()
 		{
             BackgroundColor = GeneralSettings.backgroundColor;
-            ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label {Text = "Project Name:", TextColor = GeneralSettings.textColor },nameEntry,new Label {Text = "Descprition:", TextColor = GeneralSettings.textColor },descriptionEntry, new Label {Text = "Starting date:", TextColor = GeneralSettings.textColor },start,new Label {Text = "Ending date:", TextColor = GeneralSettings.textColor }, end } } };
-            b = new Button() { Text = "Create", HorizontalOptions = LayoutOptions.Center };
+            ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label {Text = Globals.projnaam, TextColor = GeneralSettings.textColor },nameEntry,new Label {Text = Globals.beschrijving, TextColor = GeneralSettings.textColor },descriptionEntry, new Label {Text = Globals.datumbegin, TextColor = GeneralSettings.textColor },start,new Label {Text = Globals.datumeind, TextColor = GeneralSettings.textColor }, end } } };
+            b = new Button() { Text = Globals.knopaanmaken, HorizontalOptions = LayoutOptions.Center };
             b.Clicked += B_Clicked;
             Content = new StackLayout {
                 Margin = GeneralSettings.pageMargin,

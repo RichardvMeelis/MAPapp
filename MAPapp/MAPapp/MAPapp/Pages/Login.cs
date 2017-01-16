@@ -57,7 +57,7 @@ namespace MAPapp {
             password.TextChanged += EntryTextChanged;
 
             warning = new Label() { TextColor = Color.Red, Text = "" };
-            signIn = new Button() { Text = "Sign in", IsEnabled = false };
+            signIn = new Button() { Text = Globals.login, IsEnabled = false };
             signIn.Clicked += SignInClicked;
             
             //Button inschakelen na ophalen wachtwoorden
@@ -70,7 +70,7 @@ namespace MAPapp {
             {Margin = GeneralSettings.pageMargin,
                 Children = {
                     //De aangemaakt elementen worden toegevoegd aan de stacklayout
-                    new Label { Text = "Username" }, userName, new Label {Text = "Password" },password ,signIn ,new StackLayout {Children = { new Label {Text = "Remember me" },rememberMe },Orientation = StackOrientation.Horizontal },new ClickableLabel(NewAccountClicked) {Text = "New Account" },warning,working
+                    new Label { Text = Globals.mail }, userName, new Label {Text = Globals.wachtwoord},password ,signIn ,new StackLayout {Children = { new Label {Text = Globals.onthouden },rememberMe },Orientation = StackOrientation.Horizontal },new ClickableLabel(NewAccountClicked) {Text = Globals.nieuwacc },warning,working
                 }
             };
         }
@@ -127,7 +127,7 @@ namespace MAPapp {
                     else
                     {
                         signIn.IsEnabled = true;
-                        warning.Text = "Wrong username or password";
+                        warning.Text = Globals.warnlogin;
                         this.IsBusy = false;
                     }
                 });

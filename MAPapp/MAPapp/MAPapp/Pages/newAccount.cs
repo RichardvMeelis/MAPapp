@@ -12,7 +12,7 @@ namespace MAPapp
 	{
         
         //Invoervelden voor het aanmaken van een account
-        Entry username = new Entry() {Placeholder = "Email" },password = new Entry() {Placeholder = "Password", IsPassword = true  }, passwordReEnter = new Entry() { Placeholder = "Repeat password", IsPassword = true }, fName = new Entry() { Placeholder = "First name" }, lName = new Entry() { Placeholder = "Last name" }, joincode = new Entry() { Placeholder = "Joincode" };
+        Entry username = new Entry() {Placeholder = Globals.mail },password = new Entry() {Placeholder = Globals.wachtwoord, IsPassword = true  }, passwordReEnter = new Entry() { Placeholder = Globals.herhwachtwoord, IsPassword = true }, fName = new Entry() { Placeholder = Globals.voornaam }, lName = new Entry() { Placeholder = Globals.achternaam }, joincode = new Entry() { Placeholder = Globals.joincode};
         Label warning = new Label() {TextColor = Color.Red };
         Button createNewUser;
 
@@ -25,13 +25,13 @@ namespace MAPapp
             lName.TextChanged += TextChanged;
             joincode.TextChanged += TextChanged;
 
-            createNewUser = new Button() { Text = "Create", IsEnabled = false };
+            createNewUser = new Button() { Text = Globals.knopaanmaken, IsEnabled = false };
             createNewUser.Clicked += B_Clicked;
 			Content = new StackLayout {
                 Margin = GeneralSettings.pageMargin,
 				Children = {
                     //De elementen worden toegevoegd aan de stacklayout
-					new Label { Text = "Username/ Email:" },username,new Label {Text = "password:" },password,passwordReEnter,new Label {Text = "First Name:" },fName,new Label {Text = "Last Name:" },lName,new Label {Text = "Joincode:" },joincode,createNewUser,warning
+					new Label { Text = Globals.mail },username,new Label {Text = Globals.wachtwoord },password,passwordReEnter,new Label {Text = Globals.voornaam },fName,new Label {Text = Globals.achternaam },lName,new Label {Text = Globals.joincode },joincode,createNewUser,warning
                 }
 			};
 		}
@@ -54,7 +54,7 @@ namespace MAPapp
             }
             else
             {
-                warning.Text = "Creating new user failed";
+                warning.Text = Globals.nieuwaccfail;
             }
             createNewUser.IsEnabled = true;
         }

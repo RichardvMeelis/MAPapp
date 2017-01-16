@@ -16,7 +16,7 @@ namespace MAPapp
         public ProjectInfoPage (Project s)
 		{
             ding = s;
-            Title = "Project information";
+            Title = Globals.tabprojectinfo;
             BackgroundColor = GeneralSettings.backgroundColor;
             List<Task> tasks = s.Tasks;
             // tasks.Sort();
@@ -43,13 +43,13 @@ namespace MAPapp
                     Label JSLabel = new Label();
                     JSLabel.SetBinding(Label.TextProperty,
                         new Binding("JSPoints", BindingMode.OneWay,
-                            null, null, "Job Size: {0:d}"));
+                            null, null, Globals.jobsize + ": {0:d}"));
                     JSLabel.TextColor = GeneralSettings.textColor;
 
                     Label importancePointsLabel = new Label();
                     importancePointsLabel.SetBinding(Label.TextProperty,
                         new Binding("UBVPoints", BindingMode.OneWay,
-                            null, null, "User- business value: {0:d}"));
+                            null, null, Globals.ubv + ": {0:d}"));
                     importancePointsLabel.TextColor = GeneralSettings.textColor;
 
                     //Label birthdayLabel = new Label();
@@ -91,7 +91,7 @@ namespace MAPapp
 
             b = new Button() {BackgroundColor = GeneralSettings.mainColor
         };
-            b.Text = "New Task";
+            b.Text = Globals.knopnieuwetaak;
             b.Clicked += B_Clicked;
 
             //  BackgroundColor = Color.White;
@@ -99,12 +99,12 @@ namespace MAPapp
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
-                Children = {  new Label {Text ="Startdatum: " +  s.start_date.ToString("dd/MM/yyyy "), TextColor = GeneralSettings.textColor
+                Children = {  new Label {Text = Globals.datumbegin + " " +  s.start_date.ToString("dd/MM/yyyy "), TextColor = GeneralSettings.textColor
         },
-                                    new Label {Text ="Einddatum: " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor =  GeneralSettings.textColor  },
-                                    new Label {Text = "Users: " + User.UserListToString(s.Users), TextColor =  GeneralSettings.textColor  },
+                                    new Label {Text = Globals.datumeind + " " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor =  GeneralSettings.textColor  },
+                                    new Label {Text = Globals.deelnemers + " " + User.UserListToString(s.Users), TextColor =  GeneralSettings.textColor  },
 
-                    new ScrollView() {Content = new Label {Text = "Beschrijving: " + s.projectdescription, TextColor =  GeneralSettings.textColor}},
+                    new ScrollView() {Content = new Label {Text = Globals.beschrijving + " " + s.projectdescription, TextColor =  GeneralSettings.textColor}},
                     new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand  }, b  
                 }
             };

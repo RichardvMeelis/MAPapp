@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Task.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\Tip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Functions\Globals.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GeneralSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GetFromDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\SaveTestData.cs" />

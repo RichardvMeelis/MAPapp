@@ -41,17 +41,17 @@ namespace MAPapp
             grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "?" }, 10,5);
             */
             StackLayout stack = new StackLayout { Orientation = StackOrientation.Horizontal };
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 1 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 2 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 3 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 4 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 5 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 6 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 7 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 8 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 9 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " 10 " });
-            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = " ? " });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp1 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp2 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp3 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp4 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp5 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp6 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp7 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp8 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp9 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp10 });
+            stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp11 });
             //Label voor output definiëren
             label12 = new Label { HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
