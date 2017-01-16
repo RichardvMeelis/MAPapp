@@ -104,7 +104,7 @@ namespace MAPapp {
             Project f = (Project)e.Item;
             await System.Threading.Tasks.Task.Run(() =>
             {
-                f.Tasks = GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
                 int i = 0;
                 foreach (Task t in f.Tasks)
                 {
@@ -114,7 +114,7 @@ namespace MAPapp {
                     }
                 }
                 
-                Sprint s = GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
+                Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
                 List < Task > tasks = new List<Task>() ;
                 foreach (Task t in f.Tasks)
                 {
@@ -144,7 +144,7 @@ namespace MAPapp {
                     }
                     else
                     
-                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
+                       Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint) }, Title = f.projectname });
 
                     
 

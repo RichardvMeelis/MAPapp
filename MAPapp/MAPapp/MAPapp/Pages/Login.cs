@@ -112,7 +112,7 @@ namespace MAPapp {
                 var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 var filename = Path.Combine(documents, "MySettings.txt");
                 File.WriteAllText(filename, this.rememberMe.IsToggled.ToString());
-                string s1 = GetFromDatabase.SingIn(userName.Text, password.Text);
+                string s1 = (string)GetFromDatabase.SingIn(userName.Text, password.Text);
 
                 Device.BeginInvokeOnMainThread(() =>
                 {
