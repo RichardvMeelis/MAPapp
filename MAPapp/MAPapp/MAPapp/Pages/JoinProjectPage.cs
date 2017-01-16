@@ -58,7 +58,7 @@ namespace MAPapp
             int projectID = ding.projectid;
             if (GetFromDatabase.JoinProject(userName, token, projectID) == "JOIN_PROJECT_SUCCESS")
             {
-               await DisplayAlert("Join", "Aanmelden succesvol. U bent nu aangemeld voor het project.", "OK");
+                await DisplayAlert("Join", "Aanmelden succesvol. U bent nu aangemeld voor het project.", "OK");
                 Project f = ding;
                 await System.Threading.Tasks.Task.Run(() =>
                 {
@@ -76,17 +76,21 @@ namespace MAPapp
 
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        if (f.Tasks[0].HasAccess)
+                        if (f.Tasks.Count != 0)
                         {
-                            Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
-                            b.IsEnabled = true;
+                            if (f.Tasks[0].HasAccess)
+                            {
+                                Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
+                                b.IsEnabled = true;
+                            }
+                            else
+                            {
+                                Navigation.PushAsync(new JoinProjectPage(f));
+                                DisplayAlert("Error", "U bent niet aangemeld voor dit project.", "OK");
+                                b.IsEnabled = true;
+                            }
                         }
-                        else
-                        {
-                            Navigation.PushAsync(new JoinProjectPage(f));
-                            DisplayAlert("Error", "U bent niet aangemeld voor dit project.", "OK");
-                            b.IsEnabled = true;
-                        }
+                        else Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
                     });
                 });
             }
@@ -95,6 +99,7 @@ namespace MAPapp
                 await DisplayAlert("Join", "Failed to join", "OK");
                 b.IsEnabled = true;
             }
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
