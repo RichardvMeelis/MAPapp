@@ -82,25 +82,25 @@ namespace MAPapp
             }
             catch { return "error"; }
         }
-        public static List<Project> getProjects(String userName, String token)
+        public static object getProjects(String userName, String token)
         {
 
             List < Project > s = JsonConvert.DeserializeObject<List<Project>>(getJsonData(userName,null, "getProjectsUser", token,null,null,null,0,0));
             return s;
         }
-        public static String SingIn(String userName, String password)
+        public static object SingIn(String userName, String password)
         {
            // s.Start();
             String z = JsonConvert.DeserializeObject<String>(getJsonData(userName, password, "signIn", null, null, null, null, 0,0));
            
             return z;
         }
-        public static String CreateUser(String userName, String password, String fName, String lName, String joincode)
+        public static object CreateUser(String userName, String password, String fName, String lName, String joincode)
         {
             string s = getJsonData(userName, password, "createNewUser", null, fName, lName, joincode,0,0);
             return JsonConvert.DeserializeObject<String>(s);
         }
-        public static List<InformationObject> GetInformation(String userName, String token)
+        public static object GetInformation(String userName, String token)
         {
             string s = getJsonData(userName,null,"getInformation",token,null,null,null,0,0);
             List<Tip> tips = JsonConvert.DeserializeObject<List<Tip>>(s);
@@ -122,7 +122,7 @@ namespace MAPapp
             } 
             return info;
         }
-        public static List<Task>  GetTasks(String userName, String token, int projectId)
+        public static object  GetTasks(String userName, String token, int projectId)
         {
             try
             {
@@ -131,7 +131,7 @@ namespace MAPapp
             catch { return new List<Task>() { new Task(new DateTime(), null, null, 0, 0, 0, null, 0, 0, 0) {HasAccess = false } };
                     }
         }
-        public static Sprint GetSprint(String userName, String token, int projectID, int sprintID)
+        public static object GetSprint(String userName, String token, int projectID, int sprintID)
         {
             try
             {
@@ -139,10 +139,12 @@ namespace MAPapp
             }
             catch { return null; }
         }
-        public static string JoinProject(String userName, String token, int projectID)
+        public static object JoinProject(String userName, String token, int projectID)
         {
             return JsonConvert.DeserializeObject<string>(getJsonData(userName, null, "joinProject", token, null, null, null, projectID, 0));
 
         }
+
+        
     }
 }

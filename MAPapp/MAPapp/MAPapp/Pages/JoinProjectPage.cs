@@ -62,7 +62,7 @@ namespace MAPapp
                 Project f = ding;
                 await System.Threading.Tasks.Task.Run(() =>
                 {
-                    f.Tasks = GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                    f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
                     int i = 0;
                     foreach (Task t in f.Tasks)
                     {
@@ -72,7 +72,7 @@ namespace MAPapp
                         }
                     }
 
-                    f.CurrentSprint = GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
+                    f.CurrentSprint = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
 
                     Device.BeginInvokeOnMainThread(() =>
                     {

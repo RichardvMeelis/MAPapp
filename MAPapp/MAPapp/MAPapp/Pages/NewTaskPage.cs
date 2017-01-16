@@ -56,6 +56,7 @@ namespace MAPapp
                 // Het verwijderen van de oude pages in de stack
                 for (int counter = 1; counter <= 2; counter++)
                 {
+                    
                     Navigation.RemovePage(Navigation.NavigationStack[2]);
                 }
             }
