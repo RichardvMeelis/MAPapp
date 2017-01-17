@@ -11,10 +11,12 @@ namespace MAPapp {
         ListView table;
         Sprint givenSprint;
         List<Task> givenTasks = new List<Task>();
-        public SprintPage(Sprint s, List<Task> projectTasks)
+        Project f;
+        public SprintPage(Sprint s, List<Task> projectTasks,Project project)
         {
             givenTasks = projectTasks;
             givenSprint = s;
+            this.f = project;
             List<Task> tasks = new List<Task>();
             Title = Globals.paginasprint;
 
@@ -87,7 +89,7 @@ namespace MAPapp {
                 BackgroundColor = GeneralSettings.mainColor
 
             };
-            b.Text = "Add Task";
+            b.Text = Globals.knoptaaktoevoegen;
             b.Clicked += B_Clicked;
 
             //  BackgroundColor = Color.White;]
@@ -124,7 +126,7 @@ namespace MAPapp {
 
         private async void B_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddTaskToSprintPage(givenSprint,givenTasks));
+            await Navigation.PushAsync(new AddTaskToSprintPage(givenSprint,givenTasks, f));
         }
 
         public int TimeRemaining(DateTime startDate, int duration)

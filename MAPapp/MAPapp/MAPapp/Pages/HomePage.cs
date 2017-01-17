@@ -90,7 +90,7 @@ namespace MAPapp
             //Zet de nieuwe pagina op de stack.
             await System.Threading.Tasks.Task.Run(() =>
             {
-                List<Project> s = (List<Project>)GetFromDatabase.getProjects(GetFromDatabase.currentUserName, GetFromDatabase.currentToken);
+                List<Project> s = (List<Project>)GetFromDatabase.GetProjects(GetFromDatabase.currentUserName, GetFromDatabase.currentToken);
 
 
                 Device.BeginInvokeOnMainThread(() =>

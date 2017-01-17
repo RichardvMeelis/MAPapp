@@ -38,7 +38,7 @@ namespace MAPapp
             b.IsEnabled = false;
             //Toevoegen van een nieuw project aan de test data (Tijdelijk/niet helemaal compleet)
             SaveTestData.projects.Add(new Project(start.Date, end.Date, nameEntry.Text, "Test Company", descriptionEntry.Text) { Users = new List<User> { new User("Sam", "test@test.com", "test") } });
-            await Navigation.PushAsync(new ProjectsPage((List<Project>)GetFromDatabase.getProjects(GetFromDatabase.currentUserName, GetFromDatabase.currentToken)), false);
+            await Navigation.PushAsync(new ProjectsPage((List<Project>)GetFromDatabase.GetProjects(GetFromDatabase.currentUserName, GetFromDatabase.currentToken)), false);
             
             // Het verwijderen van de oude pages in de stack
             for (int counter = 1; counter <= 2; counter++)

@@ -10,10 +10,12 @@ namespace MAPapp
 	public class AddTaskToSprintPage : ContentPage
 	{
         ListView table;
-        Button addTask = new Button();
+        Button addTask = new Button() {Text = Globals.knoptaaktoevoegenfinal };
         Sprint sprint;
-		public AddTaskToSprintPage (Sprint givenSprint, List<Task> projectTasks)
+        Project f;
+		public AddTaskToSprintPage (Sprint givenSprint, List<Task> projectTasks, Project project)
 		{
+            this.f = project;
             sprint = givenSprint;
             addTask.Clicked += AddTaskClicked;
             List<Task> tasks = new List<Task>();
@@ -82,15 +84,36 @@ namespace MAPapp
                     };
                 })
             };
+            addTask.IsEnabled = false;
+            table.ItemTapped += Table_ItemTapped;
             Content = new StackLayout { Children = { new ScrollView {Content = table },addTask } };
 
         }
 
-        private void AddTaskClicked(object sender, EventArgs e)
+        private void Table_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            addTask.IsEnabled = true;
+        }
+
+        private async void AddTaskClicked(object sender, EventArgs e)
         {
             Task s = (Task)table.SelectedItem;
             GetFromDatabase.addTaskToSprint(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,s.taskid,s.projectid,sprint.sprintid);
-            Navigation.PopAsync();
+            f.CurrentSprint = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+            f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+           await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname });
+            int BackCount = 2;
+            for (var counter = 1; counter < BackCount; counter++)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
+            await Navigation.PopAsync();
+            /*for (int i = 0; i < 2; i++)
+            {
+                int x = Navigation.NavigationStack.Count;
+                Navigation.RemovePage(Navigation.NavigationStack[x-2]);
+            }
+            */
         }
     }
 }

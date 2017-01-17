@@ -72,6 +72,10 @@ namespace MAPapp
         public static string pp11 = "?";
         //Sprint Pagina
         public static string paginasprint = "Huidige Sprint";
+        public static string knoptaaktoevoegen = "Taak toevoegen";
+
+        //Taak aan sprint pagina
+        public static string knoptaaktoevoegenfinal = "Taak toevoegen";
         
     }
 }

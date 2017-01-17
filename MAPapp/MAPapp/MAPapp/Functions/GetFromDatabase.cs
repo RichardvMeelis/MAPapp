@@ -16,7 +16,7 @@ namespace MAPapp
         private static String CreateURL(String userName, String passWord, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID, int taskid)
         {
             
-            string url = "https://apihost.nl/map/api.php?";
+            string url = "https://apihost.nl/map/api.php/?";
             if (command == "signIn")
             {
                 url += "_MAP_REST_REQUEST_=_MAP_AUTH_" + "&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord;
@@ -65,6 +65,10 @@ namespace MAPapp
             {
                 url += "_MAP_REST_REQUEST_=_MAP_ADD_TO_SPRINT_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_PROJECT_ID_=" + projectId + "&_MAP_TASK_ID_=" + taskid + "&_MAP_SPRINT_ID_=" + sprintID;
             }
+            else if (command == "getUserInfo")
+            {
+                url += "_MAP_REST_REQUEST_=_MAP_GET_USER_INFO_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName;
+            }
 
             return url;
         }
@@ -76,26 +80,22 @@ namespace MAPapp
             
             WebRequest request = WebRequest.Create(url);
             request.Proxy = null;
-           
-            
-            
             WebResponse ws = request.GetResponse();
             
             try
             {
                 Stream ReceiveStream = ws.GetResponseStream();
-
                 Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
-
+                
                 // Pipe the stream to a higher level stream reader with the required encoding format. 
                 StreamReader readStream = new StreamReader(ReceiveStream, encode);
-
                 String s = readStream.ReadToEnd();
                 return s;
             }
             catch { return "error"; }
         }
-        public static object getProjects(String userName, String token)
+
+        public static object GetProjects(String userName, String token)
         {
 
             List < Project > s = JsonConvert.DeserializeObject<List<Project>>(getJsonData(userName,null, "getProjectsUser", token,null,null,null,0,0,0));
@@ -146,11 +146,11 @@ namespace MAPapp
                 return s;//return new List<Task>() { new Task(new DateTime(), null, null, 0, 0, 0, null, 0, 0, 0) {HasAccess = false } };
                 }
         }
-        public static object GetSprint(String userName, String token, int projectID, int sprintID)
+        public static object GetSprint(String userName, String token, int projectID)
         {
             try
             {
-                return JsonConvert.DeserializeObject<List<Sprint>>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, sprintID,0))[0];
+                return JsonConvert.DeserializeObject<List<Sprint>>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, 0,0))[0];
             }
             catch { return null; }
         }

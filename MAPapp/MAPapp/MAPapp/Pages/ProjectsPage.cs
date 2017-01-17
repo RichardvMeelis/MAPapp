@@ -108,7 +108,8 @@ namespace MAPapp {
 
                 try { 
                 f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
-                int i = 0;
+                    /*
+                    int i = 0;
                     foreach (Task t in f.Tasks)
                     {
                         if (t.sprintid > i)
@@ -116,9 +117,10 @@ namespace MAPapp {
                             i = t.sprintid;
                         }
                     }
+                    */
                     try
                     {
-                        Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid, i);
+                        Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
                         List<Task> tasks = new List<Task>();
                         foreach (Task t in f.Tasks)
                         {
@@ -137,7 +139,7 @@ namespace MAPapp {
                     Device.BeginInvokeOnMainThread(() =>
                     {
                      //  List<Task> t = f.Tasks;
-                       Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks) }, Title = f.projectname });
+                       Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f) }, Title = f.projectname });
                     });
                 }
                 catch {
@@ -145,7 +147,7 @@ namespace MAPapp {
                     {
                         if ((string)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid) == " \"NO_PERMISSION\"") //Spatie voor\ is nodig
                         {    
-                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint,f.Tasks) }, Title = f.projectname });
+                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f) }, Title = f.projectname });
                         }
                     });
                 }

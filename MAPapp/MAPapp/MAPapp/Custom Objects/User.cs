@@ -15,6 +15,7 @@ namespace MAPapp
             this.email = email;
             this.company = company;
         }
+
         //Get of set de name property
         public string Name
         {
