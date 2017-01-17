@@ -101,13 +101,33 @@ namespace MAPapp
             GetFromDatabase.addTaskToSprint(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,s.taskid,s.projectid,sprint.sprintid);
             f.CurrentSprint = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
             f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
-           await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname });
-            int BackCount = 2;
-            for (var counter = 1; counter < BackCount; counter++)
+             
+            List<Task> tasks2 = new List<Task>();
+            foreach (Task t in f.Tasks)
             {
-                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                if (s != null && t.sprintid == f.CurrentSprint.sprintid)
+                {
+                    tasks2.Add(t);
+                }
             }
-            await Navigation.PopAsync();
+            if (s != null)
+            {
+                f.CurrentSprint.Sprinttasks = tasks2;
+                
+            }
+      //      await Navigation.PopAsync(false);
+            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname });
+            /*
+             int i = Navigation.NavigationStack.Count;
+                 Navigation.RemovePage(Navigation.NavigationStack[3]);
+              int x = Navigation.NavigationStack.Count;
+              Navigation.RemovePage(Navigation.NavigationStack[3]);
+              */
+            for (int counter = 1; counter <= 2; counter++)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[2]);
+            }
+            // await Navigation.PopAsync();
             /*for (int i = 0; i < 2; i++)
             {
                 int x = Navigation.NavigationStack.Count;

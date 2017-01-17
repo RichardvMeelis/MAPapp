@@ -4,6 +4,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Text;
 using Xamarin.Forms;
+using System.Threading;
 
 namespace MAPapp
 {
@@ -88,6 +89,7 @@ namespace MAPapp
             projectButton.IsEnabled = false;
             ai.IsRunning = true;
             //Zet de nieuwe pagina op de stack.
+            var tokenSource2 = new CancellationTokenSource();
             await System.Threading.Tasks.Task.Run(() =>
             {
                 List<Project> s = (List<Project>)GetFromDatabase.GetProjects(GetFromDatabase.currentUserName, GetFromDatabase.currentToken);
@@ -99,8 +101,8 @@ namespace MAPapp
                     projectButton.IsEnabled = true;
                     ai.IsRunning = false;
                 });
-            });
-            
+            },tokenSource2.Token);
+            tokenSource2.Cancel();
             
         }
     }

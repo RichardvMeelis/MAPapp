@@ -5,7 +5,7 @@ using Xamarin.Auth;
 using System.Text;
 using System.IO;
 using Xamarin.Forms;
-
+using System.Threading;
 
 namespace MAPapp {
     public class Login : ContentPage {
@@ -93,8 +93,9 @@ namespace MAPapp {
         {
             signIn.IsEnabled = false;
                working.IsRunning = true;
-          //  this.IsBusy = true;
+            //  this.IsBusy = true;
             //De workload verdelen over meerdere Threads
+            var tokenSource2 = new CancellationTokenSource();
             await System.Threading.Tasks.Task.Run(() =>
             {
 
@@ -131,9 +132,9 @@ namespace MAPapp {
                         this.IsBusy = false;
                     }
                 });
-            });
+            },tokenSource2.Token);
 
-
+            tokenSource2.Cancel();
 
 
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Xamarin.Forms;
 
 namespace MAPapp {
@@ -102,12 +103,14 @@ namespace MAPapp {
         {
             table.IsEnabled = false;
             Project f = (Project)e.Item;
+            var tokenSource2 = new CancellationTokenSource();
             await System.Threading.Tasks.Task.Run(() =>
             {
 
 
-                try { 
-                f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                try
+                {
+                    f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
                     /*
                     int i = 0;
                     foreach (Task t in f.Tasks)
@@ -138,20 +141,23 @@ namespace MAPapp {
                     catch { }
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                     //  List<Task> t = f.Tasks;
-                       Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f) }, Title = f.projectname });
+                        //  List<Task> t = f.Tasks;
+                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname });
                     });
                 }
-                catch {
+                catch
+                {
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         if ((string)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid) == " \"NO_PERMISSION\"") //Spatie voor\ is nodig
-                        {    
-                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f) }, Title = f.projectname });
+                        {
+                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname });
                         }
                     });
                 }
-            });
+
+            }, tokenSource2.Token);
+            tokenSource2.Cancel();
             table.IsEnabled = true;
         }
     }
