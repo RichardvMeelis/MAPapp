@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace MAPapp {
-   public class Task {
+    public class Task {
         DateTime completedDate; //Null of datum
         String name;
         String description;
@@ -46,7 +46,7 @@ namespace MAPapp {
             get { return description; }
             set { description = value; }
         }
-        
+
         public int JSPoints
         {
             get { return jobSize; }
@@ -67,7 +67,7 @@ namespace MAPapp {
             get { return rroeValue; }
             set { rroeValue = value; }
         }
-        public int Uncertainty
+        public int UCValue
         {
             get { return uncertainty; }
             set { uncertainty = value; }

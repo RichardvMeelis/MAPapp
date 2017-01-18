@@ -12,11 +12,12 @@ namespace MAPapp {
         {
             Title = Globals.paginaprojecten;
             BackgroundColor = GeneralSettings.backgroundColor;
-           
+
 
             // String s = GetFromDatabase.SingIn("user%40test.com", "testtest");
             //System.Diagnostics.Debug.WriteLine(s);
             //  SaveTestData.projects = Sort.SortProjects(SaveTestData.projects);
+
             table = new ListView
             {
 
@@ -49,6 +50,12 @@ namespace MAPapp {
                     endingdateLabel.TextColor = GeneralSettings.textColor;
 
 
+                    System.Diagnostics.Debug.WriteLine("-------------------------------------------------------------------------------------------------------" + endingdateLabel.Text);
+                    if (nameLabel.Text == "Project 1 - Blink")
+                    {
+                        BackgroundColor = Color.Gray;
+                    }
+
 
                     return new ViewCell
                     {
@@ -77,9 +84,8 @@ namespace MAPapp {
                     };
                 })
             };
-            
-            table.ItemTapped += Table_ItemTapped;
 
+            table.ItemTapped += Table_ItemTapped;
 
             Button b = new Button() { Text = Globals.knopnieuwproject, BackgroundColor = GeneralSettings.mainColor };
             b.Clicked += B_Clicked;
