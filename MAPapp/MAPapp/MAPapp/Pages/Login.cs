@@ -70,7 +70,7 @@ namespace MAPapp {
             {Margin = GeneralSettings.pageMargin,
                 Children = {
                     //De aangemaakt elementen worden toegevoegd aan de stacklayout
-                    new Label { Text = Globals.mail }, userName, new Label {Text = Globals.wachtwoord},password ,signIn ,new StackLayout {Children = { new Label {Text = Globals.onthouden },rememberMe },Orientation = StackOrientation.Horizontal },new ClickableLabel(NewAccountClicked) {Text = Globals.nieuwacc },warning,working
+                    new Label { Text = Globals.mail }, userName, new Label {Text = Globals.wachtwoord},password ,signIn ,new StackLayout {Children = { new Label {Text = Globals.onthouden },rememberMe },Orientation = StackOrientation.Horizontal },new ClickableLabel(NewAccountClicked) {Text = Globals.nieuwacc },warning,working, new ClickableLabel(AccountRecoveryClicked) {Text = Globals.accounntrecovery }
                 }
             };
         }
@@ -134,11 +134,7 @@ namespace MAPapp {
                 });
             },tokenSource2.Token);
 
-            tokenSource2.Cancel();
-
-
-
-          
+            tokenSource2.Cancel();  
             
         }
 
@@ -146,6 +142,12 @@ namespace MAPapp {
         public async void NewAccountClicked(String s)
         {
             await Navigation.PushAsync(new newAccount());
+        }
+
+        //Eventhandler Wachtwoord vergeten
+        public async void AccountRecoveryClicked(String s)
+        {
+            await Navigation.PushAsync(new AccountRecoveryPage());
         }
 
         //Het opslaan van signIn gegevens

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace MAPapp
 {
+    //Hierin staat alle tekst die in de app wordt weergegeven. 
     public static class Globals
     {
         //Login
@@ -13,12 +14,15 @@ namespace MAPapp
         public static string nieuwacc = "Nieuw Account";
         public static string onthouden = "Wachtwoord onthouden";
         public static string warnlogin = "Verkeerde wachtwoord of gebruikersnaam, probeer het opnieuw. Indien u nog geen account heeft, kunt u er via \"Nieuw Account\" een aanmaken";
+        public static string accounntrecovery = "Wachtworod vergeten?";
         //Nieuw Account
         public static string joincode = "Joincode";
         public static string herhwachtwoord = "Herhaal wachtwoord";
         public static string voornaam = "Voornaam";
         public static string achternaam = "Achternaam";
         public static string nieuwaccfail = "Aanmaken niet gelukt.";
+        public static string nieuwaccountsuccesMessageTitle = "Nieuw account succesvol aangemaakt";
+        public static string ass = "";
         //Home
         public static string paginahome = "Home";
         public static string knopprojecten = "Projecten";

@@ -12,7 +12,7 @@ namespace MAPapp
 	{
         
         //Invoervelden voor het aanmaken van een account
-        Entry username = new Entry() {Placeholder = Globals.mail },password = new Entry() {Placeholder = Globals.wachtwoord, IsPassword = true  }, passwordReEnter = new Entry() { Placeholder = Globals.herhwachtwoord, IsPassword = true }, fName = new Entry() { Placeholder = Globals.voornaam }, lName = new Entry() { Placeholder = Globals.achternaam }, joincode = new Entry() { Placeholder = Globals.joincode};
+        Entry username = new Entry() {Placeholder = Globals.mail,Keyboard = Keyboard.Email },password = new Entry() {Placeholder = Globals.wachtwoord, IsPassword = true  }, passwordReEnter = new Entry() { Placeholder = Globals.herhwachtwoord, IsPassword = true }, fName = new Entry() { Placeholder = Globals.voornaam }, lName = new Entry() { Placeholder = Globals.achternaam }, joincode = new Entry() { Placeholder = Globals.joincode};
         Label warning = new Label() {TextColor = Color.Red };
         Button createNewUser;
 
@@ -50,6 +50,7 @@ namespace MAPapp
             createNewUser.IsEnabled = false;
            if ((string)GetFromDatabase.CreateUser(username.Text, password.Text, fName.Text, lName.Text, joincode.Text) == "NEW_USER_SUCCESS")
             {
+                DisplayAlert("New user succes", "het is gelukt","jaja");
                 Navigation.PopAsync();
             }
             else
