@@ -14,7 +14,7 @@ namespace MAPapp
             Random r = new Random();
             for (int i = 0; i < 50; i++)
             {
-               projects.Add(new Project(DateTime.Today, new DateTime(2016, r.Next(1, 12), r.Next(1, 30)), "Project " + i, "BlinkLaneMAPapp", "testproject") { Users = new List<User> { new User("Sam", "test@test.com", "test") }, Tasks = new List<Task> { new Task(new DateTime(), "Taak 1", "Beschrijving", r.Next(0, 15), r.Next(0, 15), 0, new User("Sam", "test@test.com", "test"), r.Next(1, 12), r.Next(1, 21), r.Next(1, 5)), new Task(new DateTime(), "Taak 2", "Beschrijving", r.Next(0, 15), r.Next(0, 15), 0, new User("Sam", "test@test.com", "test"), r.Next(1, 12), r.Next(1, 21), r.Next(1, 5)) } });
+               projects.Add(new Project(DateTime.Today, new DateTime(2016, r.Next(1, 12), r.Next(1, 30)), "Project " + i, "BlinkLaneMAPapp", "testproject") { Users = new List<User> { new User("Sam", "test@test.com", "test","test") }, Tasks = new List<Task> { new Task(new DateTime(), "Taak 1", "Beschrijving", r.Next(0, 15), r.Next(0, 15), 0, new User("Sam", "test@test.com", "test", "test"), r.Next(1, 12), r.Next(1, 21), r.Next(1, 5)), new Task(new DateTime(), "Taak 2", "Beschrijving", r.Next(0, 15), r.Next(0, 15), 0, new User("Sam", "test@test.com", "test", "test"), r.Next(1, 12), r.Next(1, 21), r.Next(1, 5)) } });
 
             }
 

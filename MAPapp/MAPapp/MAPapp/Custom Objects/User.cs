@@ -4,31 +4,40 @@ using System.Text;
 
 namespace MAPapp
 {
-   public class User
+    public class User
     {
         String name;
+        String LastName;
         String email;
         String company;
-        public User(String name, String email, String company)
+        public User(String name, String lastname, String email, String company)
         {
             this.name = name;
+            this.LastName = lastname;
             this.email = email;
             this.company = company;
         }
 
         //Get of set de name property
-        public string Name
+        public string firstname
         {
             get { return name; }
             set { name = value; }
         }
+        // Get of set de lastname property
+        public string lastname
+        {
+            get { return LastName; }
+            set { LastName = value; }
+        }
+
         //Get of set de company property
-        public string Company
+        public string companyname
         {
             get { return company; }
             set { company = value; }
         }
-        public string Email
+        public string username
         {
             get { return email; }
             set { email = value; }
@@ -41,9 +50,9 @@ namespace MAPapp
                 foreach (User b in s)
                 {
                     if (res == "")
-                        res += b.Name + "";
+                        res += b.firstname + "";
                     else
-                        res += "," + b.Name;
+                        res += "," + b.firstname;
                 }
                 return res;
             }

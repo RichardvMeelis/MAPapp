@@ -69,6 +69,10 @@ namespace MAPapp
             {
                 url += "_MAP_REST_REQUEST_=_MAP_GET_USER_INFO_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName;
             }
+            else if (command == "getUserInfo")
+            {
+                url += "_MAP_REST_REQUEST_=_MAP_GET_USER_INFO_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName;
+            }
 
             return url;
         }
@@ -167,7 +171,11 @@ namespace MAPapp
         {
             return JsonConvert.DeserializeObject<String>(getJsonData(userName,null,"addTaskToSprint",token,null,null,null,projectid,sprintid,taskid));
         }
+        public static object GetUserInfo(String userName, String token)
+        {
+            return JsonConvert.DeserializeObject<List<User>>(getJsonData(userName, null, "getUserInfo", token, null, null, null, 0, 0, 0))[0];
+        }
 
-        
+
     }
 }
