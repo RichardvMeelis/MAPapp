@@ -50,8 +50,9 @@ namespace MAPapp
 
                 // laat de tweede colom twee keer zo groot zijn als de eerste
                 Grid.SetColumnSpan(naamlabel1, 2);
+                Grid.SetColumnSpan(achternaamlabel1, 2);
                 Grid.SetColumnSpan(emaillabel1, 2);
-                Grid.SetColumnSpan(bedrijflabel1, 2);
+                Grid.SetColumnSpan(bedrijflabel1,2);
                 Grid.SetColumnSpan(veranderWachtwoord, 2);
                 Grid.SetColumnSpan(veranderEmail, 2);
 
