@@ -12,17 +12,27 @@ namespace MAPapp
 	{
         Entry sprintName, sprintDuration, tPoints;
         DatePicker startDate;
-		public NewSprintPage ()
-		{
+        Project project;
+
+        public NewSprintPage(Project f) {
+            project = f;
+
+            Button newSprint = new Button();
+            newSprint.Clicked += newSprintClicked;
             sprintName = new Entry();
             sprintDuration = new Entry();
             tPoints = new Entry();
             startDate = new DatePicker();
 			Content = new StackLayout {
 				Children = {
-					new Label { Text = Globals.sprintnaamlabel }, sprintName,new Label() {Text = Globals.sprintdurationlabel }, sprintDuration,new Label() {Text = Globals.sprinttargetpoints } ,tPoints,new Label() {Text = Globals.sprintstartdatum },startDate
+					new Label { Text = Globals.sprintnaamlabel }, sprintName,new Label() {Text = Globals.sprintdurationlabel }, sprintDuration,new Label() {Text = Globals.sprinttargetpoints } ,tPoints,new Label() {Text = Globals.sprintstartdatum },startDate,newSprint
 				}
 			};
 		}
-	}
+
+        private void newSprintClicked(object sender, EventArgs e)
+        {
+            GetFromDatabase.createNewSprint(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,sprintName.Text,Convert.ToInt32(sprintDuration.Text),Convert.ToInt32(tPoints.Text),startDate.Date,project.projectid);
+        }
+    }
 }

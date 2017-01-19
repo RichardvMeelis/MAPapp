@@ -104,9 +104,10 @@ namespace MAPapp
 
         //Nieuwe sprint pagina
         public static string sprintnaamlabel = "Sprint naam:";
-        public static string sprintdurationlabel = "Sprint beschrijving:";
+        public static string sprintdurationlabel = "Sprint duration:";
         public static string sprinttargetpoints = "Sprint puntendoel";
         public static string sprintstartdatum = "Sprint start datum";
+        public static string nieuwesprintpaginatitel = "Nieuwe sprint"; 
 
     }
 }

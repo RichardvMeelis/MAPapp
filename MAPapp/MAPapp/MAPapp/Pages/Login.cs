@@ -128,7 +128,7 @@ namespace MAPapp {
                     {
                         signIn.IsEnabled = true;
                         warning.Text = Globals.warnlogin;
-                        this.IsBusy = false;
+                        working.IsRunning = false;
                     }
                 });
             },tokenSource2.Token);

@@ -9,11 +9,13 @@ using Xamarin.Forms;
 namespace MAPapp {
     public class SprintPage : ContentPage {
         ListView table;
+        
         Sprint givenSprint;
         List<Task> givenTasks = new List<Task>();
         Project f;
         public SprintPage(Sprint s, List<Task> projectTasks,Project project)
         {
+            Title = Globals.nieuwesprintpaginatitel;
             givenTasks = projectTasks;
             givenSprint = s;
             this.f = project;
@@ -99,7 +101,7 @@ namespace MAPapp {
                 sprintName = new Label {Text ="Name: "+ s.sprintname };
                 sprintDuration = new Label {Text ="Sprint duration: "+ s.duration   };
                 sprintStartDate = new Label {Text = "Start date: "+s.sprint_start_date.ToString("dd/MM/yyyy") };
-                sprintTimeRemaining = new Label {Text ="Time Remaining: " + TimeRemaining(s.sprint_start_date,s.duration) };
+                sprintTimeRemaining = new Label {Text ="Time Remaining: " + TimeRemaining(s.sprint_start_date,s.duration) + " Dagen" };
             }
             else
             {
@@ -131,8 +133,8 @@ namespace MAPapp {
 
         public int TimeRemaining(DateTime startDate, int duration)
         {
-            startDate.AddDays(duration);
-            return startDate.Subtract(DateTime.Today).Days;
+           DateTime adjusted =  startDate.AddDays(duration);
+            return adjusted.Subtract(DateTime.Today).Days;
         }
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
