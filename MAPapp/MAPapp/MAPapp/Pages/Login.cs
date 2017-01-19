@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Auth;
-using System.Text;
 using System.IO;
 using Xamarin.Forms;
 using System.Threading;
@@ -22,6 +20,7 @@ namespace MAPapp {
         ActivityIndicator working = new ActivityIndicator() { Color = GeneralSettings.mainColor };
         public Login()
         {
+           
             BackgroundColor = GeneralSettings.backgroundColor;
             //Invoervelden worden toegewezen en eventuele opgeslagen waarden worden ingeladen
             userName = new Entry() { Placeholder = "Email", };

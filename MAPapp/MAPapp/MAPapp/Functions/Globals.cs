@@ -80,7 +80,13 @@ namespace MAPapp
 
         //Taak aan sprint pagina
         public static string knoptaaktoevoegenfinal = "Taak toevoegen";
-        
+
+        //Nieuwe sprint pagina
+        public static string sprintnaamlabel = "Sprint naam:";
+        public static string sprintdurationlabel = "Sprint beschrijving:";
+        public static string sprinttargetpoints = "Sprint puntendoel";
+        public static string sprintstartdatum = "Sprint start datum";
+
     }
 }
 

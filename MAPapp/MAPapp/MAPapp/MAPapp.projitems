@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GetFromDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\SaveTestData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\Sort.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NewSprintPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountRecoveryPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AddTaskToSprintPage.cs" />
