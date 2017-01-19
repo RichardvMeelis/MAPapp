@@ -9,7 +9,6 @@
     <Import_RootNamespace>MAPapp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AccountRecoveryPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\ClickableLabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\CustomRendererNames.cs" />
@@ -24,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GetFromDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\SaveTestData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\Sort.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountRecoveryPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AddTaskToSprintPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\burndown.cs" />

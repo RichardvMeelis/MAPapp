@@ -79,7 +79,7 @@ namespace MAPapp {
             return url;
         }
 
-        private static String getJsonData(String username, String password, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID, int taskid, string taskName, string taskDescription, int jspoints, int rroePoints, int timeCriticality, int Ucvalue, int ubvValue, string projectName, string projectDescription, DateTime startDate)
+        private static String getJsonData(String username,  String command, String token = null, String password = null, String fName = null, String lName = null, String joincode = null, int projectId = 0, int sprintID= 0, int taskid = 0, string taskName = null, string taskDescription = null, int jspoints = 0, int rroePoints = 0, int timeCriticality = 0, int Ucvalue = 0, int ubvValue = 0, string projectName = null, string projectDescription = null, DateTime startDate = new DateTime())
         {
             string url = CreateURL(username, password, command, token, fName, lName, joincode, projectId, sprintID, taskid, taskName, taskDescription, jspoints, rroePoints, timeCriticality, Ucvalue, ubvValue,projectName,projectDescription,startDate);
             System.Diagnostics.Debug.WriteLine(url);
@@ -104,24 +104,24 @@ namespace MAPapp {
         public static object GetProjects(String userName, String token)
         {
 
-            List<Project> s = JsonConvert.DeserializeObject<List<Project>>(getJsonData(userName, null, "getProjectsUser", token, null, null, null, 0, 0, 0, null, null, 0, 0, 0, 0, 0,null,null,new DateTime()));
+            List<Project> s = JsonConvert.DeserializeObject<List<Project>>(getJsonData(userName, "getProjectsUser",token: token));
             return s;
         }
         public static object SingIn(String userName, String password)
         {
             // s.Start();
-            String z = JsonConvert.DeserializeObject<String>(getJsonData(userName, password, "signIn", null, null, null, null, 0, 0, 0, null, null, 0, 0, 0, 0, 0, null, null, new DateTime()));
+            String z = JsonConvert.DeserializeObject<String>(getJsonData(userName, "signIn",password: password ));
 
             return z;
         }
         public static object CreateUser(String userName, String password, String fName, String lName, String joincode)
         {
-            string s = getJsonData(userName, password, "createNewUser", null, fName, lName, joincode, 0, 0, 0, null, null, 0, 0, 0, 0, 0, null, null, new DateTime());
+            string s = getJsonData(userName, "createNewUser", password: password, fName: fName,lName: lName, joincode: joincode);
             return JsonConvert.DeserializeObject<String>(s);
         }
         public static object GetInformation(String userName, String token)
         {
-            string s = getJsonData(userName, null, "getInformation", token, null, null, null, 0, 0, 0, null, null, 0, 0, 0, 0, 0, null, null, new DateTime());
+            string s = getJsonData(userName, "getInformation", token: token);
             List<Tip> tips = JsonConvert.DeserializeObject<List<Tip>>(s);
             List<InformationObject> info = new List<InformationObject>();
             string stringetje = "";
@@ -143,7 +143,7 @@ namespace MAPapp {
         }
         public static object GetTasks(String userName, String token, int projectId)
         {
-            string s = getJsonData(userName, null, "getTasks", token, null, null, null, projectId, 0, 0, null, null, 0, 0, 0, 0, 0, null, null, new DateTime());
+            string s = getJsonData(userName, "getTasks",token: token,projectId: projectId);
             try
             {
                 return JsonConvert.DeserializeObject<List<Task>>(s);
@@ -157,34 +157,34 @@ namespace MAPapp {
         {
             try
             {
-                return JsonConvert.DeserializeObject<List<Sprint>>(getJsonData(userName, null, "getSprint", token, null, null, null, projectID, 0, 0, null, null, 0, 0, 0, 0, 0, null, null, new DateTime()))[0];
+                return JsonConvert.DeserializeObject<List<Sprint>>(getJsonData(userName, "getSprint", token: token, projectId: projectID))[0];
             }
             catch { return null; }
         }
         public static object JoinProject(String userName, String token, int projectID)
         {
-            return JsonConvert.DeserializeObject<string>(getJsonData(userName, null, "joinProject", token, null, null, null, projectID, 0, 0, null, null, 0, 0, 0, 0, 0, null, null, new DateTime()));
+            return JsonConvert.DeserializeObject<string>(getJsonData(userName, "joinProject", token: token, projectId: projectID));
 
         }
         public static object JoinTask(String userName, String token, int taskid, int projectid)
         {
-            return JsonConvert.DeserializeObject<String>(getJsonData(userName, null, "assingTask", token, null, null, null, projectid, 0, taskid, null, null, 0, 0, 0, 0, 0, null, null, new DateTime()));
+            return JsonConvert.DeserializeObject<String>(getJsonData(userName, "assingTask", token: token, projectId: projectid,taskid: taskid));
         }
         public static object addTaskToSprint(String userName, String token, int taskid, int projectid, int sprintid)
         {
-            return JsonConvert.DeserializeObject<String>(getJsonData(userName, null, "addTaskToSprint", token, null, null, null, projectid, sprintid, taskid, null, null, 0, 0, 0, 0, 0, null, null, new DateTime()));
+            return JsonConvert.DeserializeObject<String>(getJsonData(userName, "addTaskToSprint", token: token, projectId: projectid, sprintID: sprintid, taskid: taskid));
         }
         public static object addTaskToProject(String userName, String token, String taskName, String taskDescription, int projectId, int rroevalue, int jspoints, int Ubvalue, int timeCriticality, int uncCertainty)
         {
-            return JsonConvert.DeserializeObject<String>(getJsonData(userName, null, "addTaskToProject", token, null, null, null, projectId, 0, 0, taskName, taskDescription, jspoints, rroevalue, timeCriticality, uncCertainty, Ubvalue, null, null, new DateTime()));
+            return JsonConvert.DeserializeObject<String>(getJsonData(userName, "addTaskToProject", token: token, projectId: projectId, taskName: taskName,taskDescription: taskDescription,jspoints: jspoints,rroePoints: rroevalue,timeCriticality: timeCriticality,Ucvalue: uncCertainty,ubvValue: Ubvalue));
         }
         public static object GetUserInfo(String userName, String token)
         {
-            return JsonConvert.DeserializeObject<List<User>>(getJsonData(userName, null, "getUserInfo", token, null, null, null, 0, 0, 0, null, null, 0, 0, 0, 0, 0, null, null, new DateTime()))[0];
+            return JsonConvert.DeserializeObject<List<User>>(getJsonData(userName, "getUserInfo", token: token))[0];
         }
         public static object createProject(String userName, String token, String projectName, String projectDescription, DateTime startDate)
         {
-            return JsonConvert.DeserializeObject<String>(getJsonData(userName, null, "createNewProject", token, null, null, null, 0, 0, 0, null, null, 0, 0, 0, 0, 0, projectDescription, projectName, startDate));
+            return JsonConvert.DeserializeObject<String>(getJsonData(userName, "createNewProject", token: token, projectDescription: projectDescription, projectName: projectName,startDate: startDate));
         }
 
 
