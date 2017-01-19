@@ -11,6 +11,7 @@ namespace MAPapp
 	{
         Entry nieuwEmail = new Entry() { Placeholder = Globals.VEnieuwEmail_Entery }, nieuwEmail1 = new Entry() { Placeholder = Globals.VEhehaalnieuwEmail_Entery}, wachtwoord = new Entry() {Placeholder = Globals.VEwachtwoord_Entery, IsPassword= true };
         Button change_W8 = new Button() { Text= "verander", IsEnabled= false };
+        Label Error = new Label { Text = null, TextColor = Color.Red };
 
         public VeranderEmail ()
 		{
@@ -21,7 +22,7 @@ namespace MAPapp
 
             Content = new StackLayout
             { 
-                Children = {new Label { Text = Globals.VEnieuweEmail_Label , FontSize = 15 }, nieuwEmail, new Label {Text = Globals.VEherhaalnieuwEmail_Label }, nieuwEmail1, new Label {Text = Globals.VEwachtwoord_Label , FontSize =15 }, wachtwoord, change_W8 }
+                Children = {new Label { Text = Globals.VEnieuweEmail_Label , FontSize = 15 }, nieuwEmail, new Label {Text = Globals.VEherhaalnieuwEmail_Label }, nieuwEmail1, new Label {Text = Globals.VEwachtwoord_Label , FontSize =15 }, wachtwoord, change_W8, Error }
 			};
 		}
         private void Textaangepast(object sender, TextChangedEventArgs e)
@@ -33,10 +34,18 @@ namespace MAPapp
         private void butonclicked(object sender, EventArgs e)
         {
             change_W8.IsEnabled = false;
+            if ((string)GetFromDatabase.UpdateEmail(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, wachtwoord.Text, nieuwEmail.Text) == "NEW_EMAIL_HAS_BEEN_SET")
+            {
+                Application.Current.MainPage = new NavigationPage(new Login()) { BarBackgroundColor = GeneralSettings.mainColor, Title = "test", BarTextColor = GeneralSettings.textColor };
+            }
+            else
+            {
+                Error.Text = Globals.VEerror ;
+            }
 
-
+            
         }
 
 
-	}
+    }
 }

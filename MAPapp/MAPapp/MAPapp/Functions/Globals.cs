@@ -99,6 +99,7 @@ namespace MAPapp
         public static string VEhehaalnieuwEmail_Entery = "herhaal nieuw mail adres";
         public static string VEwachtwoord_Label = "Wachtwoord:";
         public static string VEwachtwoord_Entery = "wachtwoord";
+        public static string VEerror = "Onjuist wachtwoord ";
         //Taak aan sprint pagina
         public static string knoptaaktoevoegenfinal = "Taak toevoegen";
 
