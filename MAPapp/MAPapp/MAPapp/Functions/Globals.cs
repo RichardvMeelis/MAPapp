@@ -4,7 +4,6 @@ using System.Text;
 
 namespace MAPapp
 {
-    //Hierin staat alle tekst die in de app wordt weergegeven. 
     public static class Globals
     {
         //Login
@@ -14,15 +13,13 @@ namespace MAPapp
         public static string nieuwacc = "Nieuw Account";
         public static string onthouden = "Wachtwoord onthouden";
         public static string warnlogin = "Verkeerde wachtwoord of gebruikersnaam, probeer het opnieuw. Indien u nog geen account heeft, kunt u er via \"Nieuw Account\" een aanmaken";
-        public static string accounntrecovery = "Wachtworod vergeten?";
+        public static string accounntrecovery = "Wachtwoord vergeten? ";
         //Nieuw Account
         public static string joincode = "Joincode";
         public static string herhwachtwoord = "Herhaal wachtwoord";
         public static string voornaam = "Voornaam";
         public static string achternaam = "Achternaam";
         public static string nieuwaccfail = "Aanmaken niet gelukt.";
-        public static string nieuwaccountsuccesMessageTitle = "Nieuw account succesvol aangemaakt";
-        public static string ass = "";
         //Home
         public static string paginahome = "Home";
         public static string knopprojecten = "Projecten";
@@ -77,7 +74,31 @@ namespace MAPapp
         //Sprint Pagina
         public static string paginasprint = "Huidige Sprint";
         public static string knoptaaktoevoegen = "Taak toevoegen";
-
+        //AccountSettings pagina
+        public static string ACvoornaam = "Voornaam:"; 
+        public static string ACachternaam = "Achternaam:";
+        public static string ACemail = "Email:";
+        public static string ACbedrijf = "Bedrijf:";
+        public static string ACveranderW8 = "Verander Wachtwoord";
+        public static string ACveranderEmail = "Verander Email";
+        // veranderWachtwoord pagina
+        public static string VWhuidigwachtwoord_Label = "Huidig wachtwoord:";
+        public static string VWhuidigwachtwoord_Entery = "huidig wachtwoord";
+        public static string VWnieuwwachtwoord_Label = "Nieuw wachtwoord:";
+        public static string VWnieuwwachtwoord_Entery = "nieuw wachtwoord";
+        public static string VWherhaalnieuwwachtwoord_Label = "Herhaal nieuw wachtwoord:";
+        public static string VWherhaalnieuwwachtwoord_Entery = "herhaal nieuw wachtwoord";
+        public static string VWemail_Entry = "email adres";
+        public static string VWemail_Label = "Email adres:";
+        public static string VWverander = "VERANDER";
+        public static string VWerror = "Error, huidig wachtwoord onjuist";
+        // veranderEmail pagina
+        public static string VEnieuweEmail_Label = "Nieuwe email:";
+        public static string VEnieuwEmail_Entery = "nieuw mail adres ";
+        public static string VEherhaalnieuwEmail_Label = "Herhaal nieuwe email: ";
+        public static string VEhehaalnieuwEmail_Entery = "herhaal nieuw mail adres";
+        public static string VEwachtwoord_Label = "Wachtwoord:";
+        public static string VEwachtwoord_Entery = "wachtwoord";
         //Taak aan sprint pagina
         public static string knoptaaktoevoegenfinal = "Taak toevoegen";
 

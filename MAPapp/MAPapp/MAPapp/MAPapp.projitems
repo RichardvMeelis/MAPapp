@@ -35,16 +35,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Login.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\MasterPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\newAccount.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Pages\NewEmail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\NewProjectPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\NewTaskPage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Pages\NewWachtwoord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\PokerPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectsPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\SprintPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TaskInfoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TextPageInformation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\VeranderEmail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\VeranderWachtwoord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestPage.cs" />
   </ItemGroup>
   <ItemGroup>

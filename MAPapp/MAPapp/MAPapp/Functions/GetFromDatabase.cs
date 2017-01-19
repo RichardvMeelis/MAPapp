@@ -11,7 +11,7 @@ namespace MAPapp {
         public static string currentUserName;
         public static User currentUser;
         static Stopwatch s = new Stopwatch();
-        private static String CreateURL(String userName, String passWord, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID, int taskid, string taskName, string taskDescription, int jspoints, int rroePoints, int timeCriticality, int Ucvalue, int ubvValue, string projectName, string projectDescription, DateTime startDate)
+        private static String CreateURL(String userName, String passWord, String niewPassword, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID, int taskid, string taskName, string taskDescription, int jspoints, int rroePoints, int timeCriticality, int Ucvalue, int ubvValue, string projectName, string projectDescription, DateTime startDate)
         {
 
             string url = "https://apihost.nl/map/api.php/?";
@@ -75,13 +75,17 @@ namespace MAPapp {
             {
                 url += "_MAP_REST_REQUEST_=_MAP_INS_PROJECT_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_PROJECT_NAME_=" + projectName + "&_MAP_PROJECT_DESC_=" + projectDescription + "&_MAP_START_DATE_=" + startDate.ToString();
             }
+            else if (command == "ChangePasword")
+            {
+                url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USER_PASSWORD_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_NEW_PASSWORD_=" + niewPassword + "&_MAP_EPASS_=" + passWord;
+            }
 
             return url;
         }
 
-        private static String getJsonData(String username,  String command, String token = null, String password = null, String fName = null, String lName = null, String joincode = null, int projectId = 0, int sprintID= 0, int taskid = 0, string taskName = null, string taskDescription = null, int jspoints = 0, int rroePoints = 0, int timeCriticality = 0, int Ucvalue = 0, int ubvValue = 0, string projectName = null, string projectDescription = null, DateTime startDate = new DateTime())
+        private static String getJsonData(String username,  String command, String token = null, String password = null, String fName = null, String lName = null, String joincode = null, int projectId = 0, int sprintID= 0, int taskid = 0, string taskName = null, string taskDescription = null, int jspoints = 0, int rroePoints = 0, int timeCriticality = 0, int Ucvalue = 0, int ubvValue = 0, string projectName = null, string projectDescription = null, DateTime startDate = new DateTime(), string niewpasword = null)
         {
-            string url = CreateURL(username, password, command, token, fName, lName, joincode, projectId, sprintID, taskid, taskName, taskDescription, jspoints, rroePoints, timeCriticality, Ucvalue, ubvValue,projectName,projectDescription,startDate);
+            string url = CreateURL(username, password, niewpasword, command, token, fName, lName, joincode, projectId, sprintID, taskid, taskName, taskDescription, jspoints, rroePoints, timeCriticality, Ucvalue, ubvValue,projectName,projectDescription,startDate);
             System.Diagnostics.Debug.WriteLine(url);
 
             WebRequest request = WebRequest.Create(url);
@@ -185,6 +189,10 @@ namespace MAPapp {
         public static object createProject(String userName, String token, String projectName, String projectDescription, DateTime startDate)
         {
             return JsonConvert.DeserializeObject<String>(getJsonData(userName, "createNewProject", token: token, projectDescription: projectDescription, projectName: projectName,startDate: startDate));
+        }
+        public static object UpdatePasword(String userName, String token, String password, String nieuwpassword)
+        {
+            return JsonConvert.DeserializeObject<String>(getJsonData(userName, "ChangePasword", token:token, password:password, niewpasword:nieuwpassword ));
         }
 
 
