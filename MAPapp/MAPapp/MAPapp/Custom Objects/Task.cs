@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MAPapp {
     public class Task {
-        DateTime completedDate; //Null of datum
+        DateTime? completedDate; //Null of datum
         String name;
         String description;
         int jobSize;
@@ -108,5 +108,11 @@ namespace MAPapp {
             get { return projectID; }
             set { projectID = value; }
         }
+        public DateTime? timecompleted
+        {
+            get { return completedDate; }
+            set { completedDate = value; }
+        }
+
     }
 }

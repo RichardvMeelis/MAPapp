@@ -50,7 +50,7 @@ namespace MAPapp {
                     endingdateLabel.TextColor = GeneralSettings.textColor;
 
 
-                    System.Diagnostics.Debug.WriteLine("-------------------------------------------------------------------------------------------------------" + endingdateLabel.Text);
+                   // System.Diagnostics.Debug.WriteLine("-------------------------------------------------------------------------------------------------------" + endingdateLabel.Text);
                     if (nameLabel.Text == "Project 1 - Blink")
                     {
                         BackgroundColor = Color.Gray;
@@ -148,7 +148,7 @@ namespace MAPapp {
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         //  List<Task> t = f.Tasks;
-                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f) }, Title = f.projectname });
+                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f),new burndown(f) }, Title = f.projectname });
                     });
                 }
                 catch
@@ -157,7 +157,7 @@ namespace MAPapp {
                     {
                         if ((string)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid) == " \"NO_PERMISSION\"") //Spatie voor\ is nodig
                         {
-                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname });
+                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f) }, Title = f.projectname });
                         }
                     });
                 }

@@ -108,7 +108,10 @@ namespace MAPapp
         public static string sprintdurationlabel = "Sprint duration:";
         public static string sprinttargetpoints = "Sprint puntendoel";
         public static string sprintstartdatum = "Sprint start datum";
-        public static string nieuwesprintpaginatitel = "Nieuwe sprint"; 
+        public static string nieuwesprintpaginatitel = "Nieuwe sprint";
+
+        //Burndown pagina
+        public static string burndowntitle = "Burndownchart";
 
     }
 }
