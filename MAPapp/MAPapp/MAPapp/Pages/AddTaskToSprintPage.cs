@@ -10,14 +10,16 @@ namespace MAPapp
 	public class AddTaskToSprintPage : ContentPage
 	{
         ListView table;
-        Button addTask = new Button() {Text = Globals.knoptaaktoevoegenfinal };
+        Button addTask = new Button() {Text = Globals.knoptaaktoevoegenfinal , BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor};
         Sprint sprint;
         Project f;
+       
 		public AddTaskToSprintPage (Sprint givenSprint, List<Task> projectTasks, Project project)
 		{
             this.f = project;
             sprint = givenSprint;
             addTask.Clicked += AddTaskClicked;
+            BackgroundColor = GeneralSettings.backgroundColor;
             List<Task> tasks = new List<Task>();
             foreach (Task t in projectTasks)
             {
@@ -116,7 +118,7 @@ namespace MAPapp
                 
             }
       //      await Navigation.PopAsync(false);
-            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname });
+            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname , BackgroundColor = GeneralSettings.backgroundColor});
             /*
              int i = Navigation.NavigationStack.Count;
                  Navigation.RemovePage(Navigation.NavigationStack[3]);

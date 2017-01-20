@@ -11,7 +11,7 @@ namespace MAPapp {
         public static string currentUserName;
         public static User currentUser;
         static Stopwatch s = new Stopwatch();
-        private static String CreateURL(String userName,String nieuwUserName, String passWord, String niewPassword, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID, int taskid, string taskName, string taskDescription, int jspoints, int rroePoints, int timeCriticality, int Ucvalue, int ubvValue, string projectName, string projectDescription, DateTime startDate, string sprintName, int sprintDuration, int sprintTarget)
+        private static String CreateURL(String userName,String nieuwUserName, String passWord, String nieuwPassword, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID, int taskid, string taskName, string taskDescription, int jspoints, int rroePoints, int timeCriticality, int Ucvalue, int ubvValue, string projectName, string projectDescription, DateTime startDate, string sprintName, int sprintDuration, int sprintTarget)
         {
 
             string url = "https://apihost.nl/map/api.php/?";
@@ -77,11 +77,11 @@ namespace MAPapp {
             }
             else if (command == "ChangePasword")
             {
-                url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USER_PASSWORD_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_NEW_PASSWORD_=" + niewPassword + "&_MAP_EPASS_=" + passWord;
+                url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USER_PASSWORD_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_NEW_PASSWORD_=" + nieuwPassword + "&_MAP_EPASS_=" + passWord;
             }
             else if (command == "ChangeEmail")
             {
-                url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USERNAME_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord + "&_MAP_NEW_USERNAME_=" + niewUserName;
+                url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USERNAME_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord + "&_MAP_NEW_USERNAME_=" + nieuwUserName;
             }
             else if(command == "createNewSprint")
             {
@@ -91,9 +91,9 @@ namespace MAPapp {
             return url;
         }
 
-        private static String getJsonData(String username,  String command, String token = null, String password = null, String fName = null, String lName = null, String joincode = null, int projectId = 0, int sprintID= 0, int taskid = 0, string taskName = null, string taskDescription = null, int jspoints = 0, int rroePoints = 0, int timeCriticality = 0, int Ucvalue = 0, int ubvValue = 0, string projectName = null, string projectDescription = null, DateTime startDate = new DateTime(), string niewpasword = null, string sprintname = null, int sprintDuration = 0, int sprintTarget = 0, string nieuwUserName = null)
+        private static String getJsonData(String username,  String command, String token = null, String password = null, String fName = null, String lName = null, String joincode = null, int projectId = 0, int sprintID= 0, int taskid = 0, string taskName = null, string taskDescription = null, int jspoints = 0, int rroePoints = 0, int timeCriticality = 0, int Ucvalue = 0, int ubvValue = 0, string projectName = null, string projectDescription = null, DateTime startDate = new DateTime(), string nieuwpassword = null, string sprintname = null, int sprintDuration = 0, int sprintTarget = 0, string nieuwUserName = null)
         {
-            string url = CreateURL(username,nieuwUserName, password, niewpasword, command, token, fName, lName, joincode, projectId, sprintID, taskid, taskName, taskDescription, jspoints, rroePoints, timeCriticality, Ucvalue, ubvValue,projectName,projectDescription,startDate,sprintname,sprintDuration,sprintTarget);
+            string url = CreateURL(username,nieuwUserName, password, nieuwpassword, command, token, fName, lName, joincode, projectId, sprintID, taskid, taskName, taskDescription, jspoints, rroePoints, timeCriticality, Ucvalue, ubvValue,projectName,projectDescription,startDate,sprintname,sprintDuration,sprintTarget);
             System.Diagnostics.Debug.WriteLine(url);
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -201,7 +201,7 @@ namespace MAPapp {
         }
         public static object UpdatePasword(String userName, String token, String password, String nieuwpassword)
         {
-            return JsonConvert.DeserializeObject<String>(getJsonData(userName, "ChangePasword", token:token, password:password, nieuwpasword:nieuwpassword ));
+            return JsonConvert.DeserializeObject<String>(getJsonData(userName, "ChangePasword", token:token, password:password, nieuwpassword:nieuwpassword ));
         }
         public static object UpdateEmail(String userName, String token, String password, String nieuwemail)
         {

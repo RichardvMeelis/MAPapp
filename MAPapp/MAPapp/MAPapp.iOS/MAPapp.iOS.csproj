@@ -184,6 +184,36 @@
       <Version>2015.1.744</Version>
     </XamarinComponentReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconOranje.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InformatieButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\InstellingenButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LaunchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MijnAccountButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PlanningPokerButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ProjectenButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Projecten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Calender.png" />
+  </ItemGroup>
   <Import Project="..\MAPapp\MAPapp.projitems" Label="Shared" Condition="Exists('..\MAPapp\MAPapp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

@@ -25,7 +25,7 @@ namespace MAPapp
             lName.TextChanged += TextChanged;
             joincode.TextChanged += TextChanged;
 
-            createNewUser = new Button() { Text = Globals.knopaanmaken, IsEnabled = false };
+            createNewUser = new Button() { Text = Globals.knopaanmaken, IsEnabled = false, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
             createNewUser.Clicked += B_Clicked;
 			Content = new StackLayout {
                 Margin = GeneralSettings.pageMargin,

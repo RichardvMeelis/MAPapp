@@ -10,7 +10,7 @@ namespace MAPapp
 	public class VeranderEmail : ContentPage
 	{
         Entry nieuwEmail = new Entry() { Placeholder = Globals.VEnieuwEmail_Entery }, nieuwEmail1 = new Entry() { Placeholder = Globals.VEhehaalnieuwEmail_Entery}, wachtwoord = new Entry() {Placeholder = Globals.VEwachtwoord_Entery, IsPassword= true };
-        Button change_W8 = new Button() { Text= "verander", IsEnabled= false };
+        Button change_W8 = new Button() { Text= "verander", IsEnabled= false, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
         Label Error = new Label { Text = null, TextColor = Color.Red };
 
         public VeranderEmail ()

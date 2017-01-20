@@ -21,7 +21,7 @@ namespace MAPapp {
         {
             BackgroundColor = GeneralSettings.backgroundColor;
             ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label { Text = Globals.projnaam, TextColor = GeneralSettings.textColor }, nameEntry, new Label { Text = Globals.beschrijving, TextColor = GeneralSettings.textColor }, descriptionEntry, new Label { Text = Globals.datumbegin, TextColor = GeneralSettings.textColor }, start, new Label { Text = Globals.datumeind, TextColor = GeneralSettings.textColor }, end } } };
-            b = new Button() { Text = Globals.knopaanmaken, HorizontalOptions = LayoutOptions.Center };
+            b = new Button() { Text = Globals.knopaanmaken, HorizontalOptions = LayoutOptions.Center, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
             b.Clicked += B_Clicked;
             Content = new StackLayout
             {

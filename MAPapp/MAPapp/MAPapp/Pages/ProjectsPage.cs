@@ -12,6 +12,7 @@ namespace MAPapp {
         {
             Title = Globals.paginaprojecten;
             BackgroundColor = GeneralSettings.backgroundColor;
+            Icon = "Projecten.png";
 
 
             // String s = GetFromDatabase.SingIn("user%40test.com", "testtest");
@@ -87,7 +88,7 @@ namespace MAPapp {
 
             table.ItemTapped += Table_ItemTapped;
 
-            Button b = new Button() { Text = Globals.knopnieuwproject, BackgroundColor = GeneralSettings.mainColor };
+            Button b = new Button() { Text = Globals.knopnieuwproject, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
             b.Clicked += B_Clicked;
 
             Content = new StackLayout
@@ -148,7 +149,7 @@ namespace MAPapp {
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         //  List<Task> t = f.Tasks;
-                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f) }, Title = f.projectname });
+                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f) }, Title = f.projectname, BackgroundColor = GeneralSettings.backgroundColor });
                     });
                 }
                 catch
@@ -157,7 +158,7 @@ namespace MAPapp {
                     {
                         if ((string)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid) == " \"NO_PERMISSION\"") //Spatie voor\ is nodig
                         {
-                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname });
+                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f),}, Title = f.projectname, BackgroundColor = GeneralSettings.mainColor });
                         }
                     });
                 }

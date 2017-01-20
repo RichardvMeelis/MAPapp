@@ -10,7 +10,7 @@ namespace MAPapp
 {
 	public class TaskInfoPage : ContentPage
 	{
-        Button jointTask = new Button() { Text = "Ga bij de taak" };
+        Button jointTask = new Button() { Text = "Ga bij de taak" , BackgroundColor = GeneralSettings.mainColor};
         Task t;
 		public TaskInfoPage (Task givenTask)
 		{

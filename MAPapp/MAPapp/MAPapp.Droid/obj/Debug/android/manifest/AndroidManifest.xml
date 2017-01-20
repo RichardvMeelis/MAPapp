@@ -6,12 +6,13 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.INTERNET" />
   <application android:label="MAPapp.Droid" android:name="android.app.Application" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
-    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="MAPapp" android:name="md556a6d8ffd005082619d8375fbf79a99b.MainActivity">
+    <activity android:icon="@drawable/icon" android:label="MAPapp" android:noHistory="true" android:theme="@style/MyTheme.Splash" android:name="md5a99f8b1df253cac6a20522f6231dc891.SplashActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="MAPapp" android:name="md556a6d8ffd005082619d8375fbf79a99b.MainActivity" />
     <activity android:label="Web Authenticator" android:name="md5a104545e4d19c4ffe9ec3d5074a3b979.FormAuthenticatorActivity" />
     <activity android:label="Web Authenticator" android:name="md5a104545e4d19c4ffe9ec3d5074a3b979.WebAuthenticatorActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="MAPapp.MAPapp.mono.MonoRuntimeProvider.__mono_init__" />

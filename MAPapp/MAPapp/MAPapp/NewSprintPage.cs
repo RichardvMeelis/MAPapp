@@ -17,7 +17,7 @@ namespace MAPapp
         public NewSprintPage(Project f) {
             project = f;
 
-            Button newSprint = new Button();
+            Button newSprint = new Button() {BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
             newSprint.Clicked += newSprintClicked;
             sprintName = new Entry();
             sprintDuration = new Entry();

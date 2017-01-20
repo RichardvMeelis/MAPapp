@@ -1,3 +1,7 @@
+MyApp.Droid.SplashActivity, MAPapp.Droid;md5a99f8b1df253cac6a20522f6231dc891.SplashActivity
+MyApp.Droid.SplashActivity, MAPapp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5a99f8b1df253cac6a20522f6231dc891.SplashActivity
+MyApp.Droid.SplashActivity;md5a99f8b1df253cac6a20522f6231dc891.SplashActivity
+myapp.droid.SplashActivity;md5a99f8b1df253cac6a20522f6231dc891.SplashActivity
 MAPapp.Droid.CustomButtonRenderer, MAPapp.Droid;md556a6d8ffd005082619d8375fbf79a99b.CustomButtonRenderer
 MAPapp.Droid.CustomButtonRenderer, MAPapp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md556a6d8ffd005082619d8375fbf79a99b.CustomButtonRenderer
 MAPapp.Droid.CustomButtonRenderer;md556a6d8ffd005082619d8375fbf79a99b.CustomButtonRenderer

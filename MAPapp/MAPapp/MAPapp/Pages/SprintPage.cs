@@ -21,6 +21,8 @@ namespace MAPapp {
             this.f = project;
             List<Task> tasks = new List<Task>();
             Title = Globals.paginasprint;
+            BackgroundColor = GeneralSettings.backgroundColor;
+            Icon = "Calender.png";
 
             if (s != null && s.Sprinttasks != null)
             {
@@ -37,7 +39,6 @@ namespace MAPapp {
                 ItemTemplate = new DataTemplate(() =>
                 {
                     // Create views with bindings for displaying each property.
-
                     Label nameLabel = new Label();
                     nameLabel.SetBinding(Label.TextProperty, "taskname");
                     nameLabel.FontSize = 20;
@@ -88,39 +89,37 @@ namespace MAPapp {
 
             Button b = new Button()
             {
-                BackgroundColor = GeneralSettings.mainColor
+                BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor
 
             };
             b.Text = Globals.knoptaaktoevoegen;
             b.Clicked += B_Clicked;
 
-            //  BackgroundColor = Color.White;]
             Label sprintName, sprintStartDate, sprintDuration, sprintTimeRemaining;
             if(s!= null)
             {
-                sprintName = new Label {Text ="Name: "+ s.sprintname };
-                sprintDuration = new Label {Text ="Sprint duration: "+ s.duration   };
-                sprintStartDate = new Label {Text = "Start date: "+s.sprint_start_date.ToString("dd/MM/yyyy") };
-                sprintTimeRemaining = new Label {Text ="Time Remaining: " + TimeRemaining(s.sprint_start_date,s.duration) + " Dagen" };
+                sprintName = new Label {Text ="Name: "+ s.sprintname, TextColor = GeneralSettings.textColor};
+                sprintDuration = new Label {Text ="Sprint duration: "+ s.duration, TextColor = GeneralSettings.textColor};
+                sprintStartDate = new Label {Text = "Start date: "+s.sprint_start_date.ToString("dd/MM/yyyy"), TextColor = GeneralSettings.textColor};
+                sprintTimeRemaining = new Label {Text ="Time Remaining: " + TimeRemaining(s.sprint_start_date,s.duration) + " Dagen", TextColor = GeneralSettings.textColor};
             }
             else
             {
                 sprintName = new Label { Text = "No Sprint available",TextColor = GeneralSettings.warningColor};
-                sprintDuration = new Label { Text = " "  };
-                sprintStartDate = new Label { Text = "" };
-                sprintTimeRemaining = new Label { Text = "" };
+                sprintDuration = new Label { Text = " " , TextColor = GeneralSettings.textColor };
+                sprintStartDate = new Label { Text = "", TextColor = GeneralSettings.textColor };
+                sprintTimeRemaining = new Label { Text = "" , TextColor = GeneralSettings.textColor};
             }
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
-
                 Children = {
                         
                          sprintName,
                          sprintStartDate,
                          sprintDuration,
                          sprintTimeRemaining,
-                    new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand  }, b
+                    new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand }, b
                 }
             };
             table.ItemTapped += Table_ItemTapped;

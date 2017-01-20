@@ -22,20 +22,24 @@ namespace MAPapp
             BackgroundColor = GeneralSettings.backgroundColor;
             var grid = new Grid();
             // Grid defenities aangemaakt
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
+            // grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.15, GridUnitType.Star) });
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            //grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.04, GridUnitType.Star) });
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            // grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.04, GridUnitType.Star) });
 
             //Knoppen toevoegen aan de grid 
-            grid.Children.Add(projectButton = new Button() { Text = Globals.knopprojecten, BackgroundColor = GeneralSettings.mainColor }, 0, 0);
-            grid.Children.Add(pokerButton = new Button() { Text = Globals.knoppoker, BackgroundColor = GeneralSettings.mainColor }, 0, 1);
-            grid.Children.Add(accountSettingsButton = new Button() { Text = Globals.knopaccount, BackgroundColor = GeneralSettings.mainColor }, 1, 1);
-            grid.Children.Add(settingsButton = new Button() { Text = Globals.knopinstellingen, BackgroundColor = GeneralSettings.mainColor }, 1, 2);
-            grid.Children.Add(informatieButton = new Button() { Text = Globals.knopinformatie, BackgroundColor = GeneralSettings.mainColor }, 0, 2);
-            
-            Grid.SetColumnSpan(projectButton,2);
-           
+            grid.Children.Add(projectButton = new Button() { /*Text = Globals.knopprojecten,*/ BackgroundColor = GeneralSettings.mainColor, Image = "ProjectenButton.png"}, 0, 0);
+            grid.Children.Add(pokerButton = new Button() { /* Text = Globals.knoppoker,*/ BackgroundColor = GeneralSettings.mainColor, Image = "PlanningPokerButton.png" }, 0, 1);
+            grid.Children.Add(accountSettingsButton = new Button() { /*Text = Globals.knopaccount,*/ BackgroundColor = GeneralSettings.mainColor, Image = "MijnAccountButton.png" }, 1, 1);
+            grid.Children.Add(settingsButton = new Button() {/* Text = Globals.knopinstellingen,*/ BackgroundColor = GeneralSettings.mainColor, Image = "InstellingenButton.png" }, 1, 2);
+            grid.Children.Add(informatieButton = new Button() { /*Text = Globals.knopinformatie,*/ BackgroundColor = GeneralSettings.mainColor, Image = "InformatieButton.png" }, 0, 2);
+
+            Grid.SetColumnSpan(projectButton, 2);
+
             //Eventhandlers toewijzen aan de knoppen
             projectButton.Clicked += ProjectButtonClicked;
             pokerButton.Clicked += PokerButtonClicked;
@@ -47,7 +51,7 @@ namespace MAPapp
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,
                 Margin = GeneralSettings.pageMargin,
-                Children = { grid,ai }
+                Children = { grid }
             };
 			}
 

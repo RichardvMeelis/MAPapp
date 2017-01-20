@@ -42,7 +42,7 @@ namespace MAPapp
         public static string nojoin = "U bent niet aangemeld voor dit project.";
         //Project INFO
         public static string tabprojectinfo = "Project Informatie";
-        public static string tabprint = "Huidige Sprint";
+        public static string tabsprint = "Huidige Sprint";
         public static string deelnemers = "Deelnemers";
         public static string knopnieuwetaak = "Nieuwe Taak";
         //Nieuw Project

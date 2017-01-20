@@ -22,6 +22,7 @@ namespace MAPapp
             // tasks.Sort();
             if(tasks != null)
             tasks =  Sort.SortTasks(tasks);
+            Icon = "Projecten.png";
             //   App.page.Title = "Projects";
 
              table = new ListView
@@ -89,9 +90,10 @@ namespace MAPapp
                 })
             };
 
-            b = new Button() {BackgroundColor = GeneralSettings.mainColor
-        };
-            b.Text = Globals.knopnieuwetaak;
+            b = new Button() {BackgroundColor = GeneralSettings.mainColor,
+                Text = Globals.knopnieuwetaak, TextColor = GeneralSettings.textColor
+            };
+           
             b.Clicked += B_Clicked;
 
             //  BackgroundColor = Color.White;

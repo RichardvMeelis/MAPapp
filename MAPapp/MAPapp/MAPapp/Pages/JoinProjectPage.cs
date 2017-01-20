@@ -12,7 +12,6 @@ namespace MAPapp
     {
         Button b;
         Project ding;
-        Boolean test = true;
         Label warning = new Label() { TextColor = Color.Red };
         public JoinProjectPage(Project s)
         {
@@ -28,7 +27,7 @@ namespace MAPapp
 
            b = new Button()
             {
-                BackgroundColor = GeneralSettings.mainColor
+                BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor
             };
             b.Text = Globals.paginajoinproject;
             b.Clicked += B_Clicked;
@@ -81,7 +80,7 @@ namespace MAPapp
                         {
                             if (f.Tasks[0].HasAccess)
                             {
-                                Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
+                                Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname, BackgroundColor = GeneralSettings.backgroundColor });
                                 b.IsEnabled = true;
                             }
                             else
@@ -91,7 +90,7 @@ namespace MAPapp
                                 b.IsEnabled = true;
                             }
                         }
-                        else Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname });
+                        else Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname , BackgroundColor = GeneralSettings.backgroundColor});
                     });
                 });
             }

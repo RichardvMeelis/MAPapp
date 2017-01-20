@@ -10,23 +10,33 @@ namespace MAPapp {
         // Invoervelden voor het inloggen
         Entry userName;
         Entry password;
-
         //Label om meldingen weer te geven
         Label warning;
-
         Button signIn;
         Switch rememberMe;
+        Image Logo;
 
         ActivityIndicator working = new ActivityIndicator() { Color = GeneralSettings.mainColor };
         public Login()
         {
-           
+            Title = "Login";
+            NavigationPage.SetHasNavigationBar(this, false);
+            var grid = new Grid();
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.1, GridUnitType.Star) });
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            grid.Children.Add(Logo = new Image() { Source = "IconOranje.png" }, 1, 0);
+
+  
+
             BackgroundColor = GeneralSettings.backgroundColor;
             //Invoervelden worden toegewezen en eventuele opgeslagen waarden worden ingeladen
-            userName = new Entry() { Placeholder = "Email", };
+            userName = new Entry() { Placeholder = "Email", TextColor = GeneralSettings.textColor, PlaceholderColor = GeneralSettings.fadedColor, BackgroundColor = GeneralSettings.entryColor};
             userName.Text = UserName;
-            password = new Entry() { Placeholder = "Password", IsPassword = true };
+            password = new Entry() { Placeholder = "Password", IsPassword = true, TextColor = GeneralSettings.textColor, PlaceholderColor = GeneralSettings.fadedColor, BackgroundColor = GeneralSettings.entryColor };
             password.Text = Password;
+
            
             /////////////////////////////////
            // working.IsRunning = true;
@@ -56,7 +66,7 @@ namespace MAPapp {
             password.TextChanged += EntryTextChanged;
 
             warning = new Label() { TextColor = Color.Red, Text = "" };
-            signIn = new Button() { Text = Globals.login, IsEnabled = false };
+            signIn = new Button() { Text = Globals.login, IsEnabled = false, BackgroundColor = GeneralSettings.backgroundColor, BorderWidth = 2, BorderColor = GeneralSettings.mainColor, TextColor = GeneralSettings.mainColor };
             signIn.Clicked += SignInClicked;
             
             //Button inschakelen na ophalen wachtwoorden
@@ -67,9 +77,9 @@ namespace MAPapp {
 
             Content = new StackLayout
             {Margin = GeneralSettings.pageMargin,
-                Children = {
+                Children = {grid,
                     //De aangemaakt elementen worden toegevoegd aan de stacklayout
-                    new Label { Text = Globals.mail }, userName, new Label {Text = Globals.wachtwoord},password ,signIn ,new StackLayout {Children = { new Label {Text = Globals.onthouden },rememberMe },Orientation = StackOrientation.Horizontal },new ClickableLabel(NewAccountClicked) {Text = Globals.nieuwacc },warning,working, new ClickableLabel(AccountRecoveryClicked) {Text = Globals.accounntrecovery }
+                    new Label { Text = Globals.mail, TextColor = GeneralSettings.textColor }, userName, new Label {Text = Globals.wachtwoord, TextColor = GeneralSettings.textColor},password , new StackLayout {Children = { new Label {Text = Globals.onthouden, TextColor = GeneralSettings.textColor },rememberMe },Orientation = StackOrientation.Horizontal }, signIn ,new ClickableLabel(NewAccountClicked) {Text = Globals.nieuwacc }, new ClickableLabel(AccountRecoveryClicked) {Text = Globals.accounntrecovery },warning,working
                 }
             };
         }

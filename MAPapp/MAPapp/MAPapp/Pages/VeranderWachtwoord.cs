@@ -10,7 +10,7 @@ namespace MAPapp
 	public class VeranderWachtwoord : ContentPage
 	{
         Entry oudwachtwoord = new Entry() { Placeholder = Globals.VWhuidigwachtwoord_Entery, IsPassword= true }, nieuwWachtwoord= new Entry() {Placeholder=Globals.VWnieuwwachtwoord_Entery, IsPassword=true }, nieuwwachtwoord2 = new Entry() {Placeholder=Globals.VWherhaalnieuwwachtwoord_Entery , IsPassword= true } ;
-        Button change = new Button() { Text = Globals.VWverander , IsEnabled = false };
+        Button change = new Button() { Text = Globals.VWverander , IsEnabled = false, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
         Label warning = new Label {Text=null ,TextColor=Color.Red };
 
         public VeranderWachtwoord ()
