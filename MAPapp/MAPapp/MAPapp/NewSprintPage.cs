@@ -10,7 +10,7 @@ namespace MAPapp
 {
 	public class NewSprintPage : ContentPage
 	{
-        Entry sprintName, sprintDuration, tPoints;
+        Entry sprintName , sprintDuration, tPoints;
         DatePicker startDate;
         Project project;
 
@@ -19,9 +19,9 @@ namespace MAPapp
 
             Button newSprint = new Button() {BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
             newSprint.Clicked += newSprintClicked;
-            sprintName = new Entry();
-            sprintDuration = new Entry();
-            tPoints = new Entry();
+            sprintName = new Entry() ;
+            sprintDuration = new Entry() { Keyboard = Keyboard.Numeric };
+            tPoints = new Entry() { Keyboard = Keyboard.Numeric };
             startDate = new DatePicker();
 			Content = new StackLayout {
 				Children = {

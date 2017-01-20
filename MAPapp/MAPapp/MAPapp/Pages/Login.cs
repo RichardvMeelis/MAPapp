@@ -136,6 +136,7 @@ namespace MAPapp {
                     }
                     else
                     {
+                        System.Diagnostics.Debug.WriteLine(s1);
                         signIn.IsEnabled = true;
                         warning.Text = Globals.warnlogin;
                         working.IsRunning = false;

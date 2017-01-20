@@ -51,7 +51,7 @@ namespace MAPapp {
                     endingdateLabel.TextColor = GeneralSettings.textColor;
 
 
-                    System.Diagnostics.Debug.WriteLine("-------------------------------------------------------------------------------------------------------" + endingdateLabel.Text);
+                   // System.Diagnostics.Debug.WriteLine("-------------------------------------------------------------------------------------------------------" + endingdateLabel.Text);
                     if (nameLabel.Text == "Project 1 - Blink")
                     {
                         BackgroundColor = Color.Gray;
@@ -149,7 +149,7 @@ namespace MAPapp {
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         //  List<Task> t = f.Tasks;
-                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f) }, Title = f.projectname, BackgroundColor = GeneralSettings.backgroundColor });
+                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f) }, Title = f.projectname });
                     });
                 }
                 catch

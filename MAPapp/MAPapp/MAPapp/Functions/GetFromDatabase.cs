@@ -11,10 +11,11 @@ namespace MAPapp {
         public static string currentUserName;
         public static User currentUser;
         static Stopwatch s = new Stopwatch();
-        private static String CreateURL(String userName,String nieuwUserName, String passWord, String nieuwPassword, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID, int taskid, string taskName, string taskDescription, int jspoints, int rroePoints, int timeCriticality, int Ucvalue, int ubvValue, string projectName, string projectDescription, DateTime startDate, string sprintName, int sprintDuration, int sprintTarget)
+        private static String CreateURL(String userName,String niewUserName, String passWord, String niewPassword, String command, String token, String fName, String lName, String joincode, int projectId, int sprintID, int taskid, string taskName, string taskDescription, int jspoints, int rroePoints, int timeCriticality, int Ucvalue, int ubvValue, string projectName, string projectDescription, DateTime startDate, string sprintName, int sprintDuration, int sprintTarget)
         {
 
             string url = "https://apihost.nl/map/api.php/?";
+            /*
             if (command == "signIn")
             {
                 url += "_MAP_REST_REQUEST_=_MAP_AUTH_" + "&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord;
@@ -77,23 +78,78 @@ namespace MAPapp {
             }
             else if (command == "ChangePasword")
             {
-                url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USER_PASSWORD_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_NEW_PASSWORD_=" + nieuwPassword + "&_MAP_EPASS_=" + passWord;
+                url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USER_PASSWORD_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_NEW_PASSWORD_=" + niewPassword + "&_MAP_EPASS_=" + passWord;
             }
             else if (command == "ChangeEmail")
             {
-                url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USERNAME_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord + "&_MAP_NEW_USERNAME_=" + nieuwUserName;
+                url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USERNAME_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord + "&_MAP_NEW_USERNAME_=" + niewUserName;
             }
             else if(command == "createNewSprint")
             {
                 url += "_MAP_REST_REQUEST_=_MAP_INS_SPRINT_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_SPRINT_NAME_=" + sprintName + "&_MAP_SPRINT_DURATION_=" + sprintDuration + "&_MAP_SPRINT_TPOINTS_=" + sprintTarget + "&_MAP_START_DATE_=" + startDate + "&_MAP_PROJECT_ID_=" + projectId;
             }
-
+            */
+            switch (command)
+            {
+                case "signIn":
+                    url += "_MAP_REST_REQUEST_=_MAP_AUTH_" + "&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord;
+                    break;
+                case "signOut":
+                    url += "_MAP_REST_REQUEST_=_MAP_TOKEN_DESTROY_" + "&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token;
+                    break;
+                case "getProjectsUser":
+                    url += "_MAP_REST_REQUEST_=_MAP_GET_PROJECTS_ALL_" + "&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token;
+                    break;
+                case "createNewUser":
+                    url += "_MAP_REST_REQUEST_=_MAP_INS_USER_&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord + "&_MAP_INS_FNAME_=" + fName + "&_MAP_INS_LNAME_=" + lName + "&_MAP_JOIN_CODE_=" + joincode;
+                    break;
+                case "getInformation":
+                    url += "_MAP_REST_REQUEST_=_MAP_GET_COMPONENTS_&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token;
+                    break;
+                case "getTasks":
+                    url += "_MAP_REST_REQUEST_=_MAP_GET_TASKS_&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token + "&_MAP_PROJECT_ID_=" + projectId;
+                    break;
+                case "getSassasasasaprint":
+                    url += "_MAP_REST_REQUEST_=_MAP_GET_SPRINT_&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token + "&_MAP_SPRINT_ID_=" + sprintID + "&_MAP_PROJECT_ID_=" + projectId;
+                    break;
+                case "getSprint":
+                    url += "_MAP_REST_REQUEST_=_MAP_GET_CURRENT_SPRINT_&_MAP_USERNAME_=" + userName + "&_MAP_AUTH_TOKEN_=" + token + "&_MAP_PROJECT_ID_=" + projectId;
+                    break;
+                case "joinProject":
+                    url += "_MAP_REST_REQUEST_=_MAP_JOIN_PROJECT_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_PROJECT_ID_=" + projectId;
+                    break;
+                case "assingTask":
+                    url += "_MAP_REST_REQUEST_=_MAP_ASSIGN_TASK_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_PROJECT_ID_=" + projectId + "&_MAP_TASK_ID_=" + taskid;
+                    break;
+                case "addTaskToSprint":
+                    url += "_MAP_REST_REQUEST_=_MAP_ADD_TO_SPRINT_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_PROJECT_ID_=" + projectId + "&_MAP_TASK_ID_=" + taskid + "&_MAP_SPRINT_ID_=" + sprintID;
+                    break;
+                case "getUserInfo":
+                    url += "_MAP_REST_REQUEST_=_MAP_GET_USER_INFO_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName;
+                    break;
+                case "addTaskToProject":
+                    url += "_MAP_REST_REQUEST_=_MAP_INS_TASK_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_TASK_NAME_=" + taskName + "&_MAP_TASK_DESC_=" + taskDescription + "&_MAP_TASK_VAL_JS_=" + jspoints + "&_MAP_TASK_VAL_UBV_=" + ubvValue + "&_MAP_TASK_VAL_RROE_=" + rroePoints + "&_MAP_TASK_VAL_TC_=" + timeCriticality + "&_MAP_TASK_VAL_UC_=" + Ucvalue + "&_MAP_PROJECT_ID_=" + projectId;
+                    break;
+                case "createNewProject":
+                    url += "_MAP_REST_REQUEST_=_MAP_INS_PROJECT_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_PROJECT_NAME_=" + projectName + "&_MAP_PROJECT_DESC_=" + projectDescription + "&_MAP_START_DATE_=" + startDate.ToString();
+                    break;
+                case "ChangePasword":
+                    url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USER_PASSWORD_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_NEW_PASSWORD_=" + niewPassword + "&_MAP_EPASS_=" + passWord;
+                    break;
+                case "ChangeEmail":
+                    url += "_MAP_REST_REQUEST_=_MAP_UPDATE_USERNAME_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_EPASS_=" + passWord + "&_MAP_NEW_USERNAME_=" + niewUserName;
+                    break;
+                case "createNewSprint":
+                    url += "_MAP_REST_REQUEST_=_MAP_INS_SPRINT_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_SPRINT_NAME_=" + sprintName + "&_MAP_SPRINT_DURATION_=" + sprintDuration + "&_MAP_SPRINT_TPOINTS_=" + sprintTarget + "&_MAP_START_DATE_=" + startDate + "&_MAP_PROJECT_ID_=" + projectId;
+                    break;
+               
+        }
             return url;
         }
 
-        private static String getJsonData(String username,  String command, String token = null, String password = null, String fName = null, String lName = null, String joincode = null, int projectId = 0, int sprintID= 0, int taskid = 0, string taskName = null, string taskDescription = null, int jspoints = 0, int rroePoints = 0, int timeCriticality = 0, int Ucvalue = 0, int ubvValue = 0, string projectName = null, string projectDescription = null, DateTime startDate = new DateTime(), string nieuwpassword = null, string sprintname = null, int sprintDuration = 0, int sprintTarget = 0, string nieuwUserName = null)
+        private static String getJsonData(String username,  String command, String token = null, String password = null, String fName = null, String lName = null, String joincode = null, int projectId = 0, int sprintID= 0, int taskid = 0, string taskName = null, string taskDescription = null, int jspoints = 0, int rroePoints = 0, int timeCriticality = 0, int Ucvalue = 0, int ubvValue = 0, string projectName = null, string projectDescription = null, DateTime startDate = new DateTime(), string nieuwpasword = null, string sprintname = null, int sprintDuration = 0, int sprintTarget = 0, string nieuwUserName = null)
         {
-            string url = CreateURL(username,nieuwUserName, password, nieuwpassword, command, token, fName, lName, joincode, projectId, sprintID, taskid, taskName, taskDescription, jspoints, rroePoints, timeCriticality, Ucvalue, ubvValue,projectName,projectDescription,startDate,sprintname,sprintDuration,sprintTarget);
+            string url = CreateURL(username,nieuwUserName, password, nieuwpasword, command, token, fName, lName, joincode, projectId, sprintID, taskid, taskName, taskDescription, jspoints, rroePoints, timeCriticality, Ucvalue, ubvValue,projectName,projectDescription,startDate,sprintname,sprintDuration,sprintTarget);
             System.Diagnostics.Debug.WriteLine(url);
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -123,9 +179,15 @@ namespace MAPapp {
         public static object SingIn(String userName, String password)
         {
             // s.Start();
-            String z = JsonConvert.DeserializeObject<String>(getJsonData(userName, "signIn",password: password ));
+            try
+            {
+                String z = JsonConvert.DeserializeObject<String>(getJsonData(userName, "signIn", password: password));
+                return z;
+            }
+            catch { return getJsonData(userName, "signIn", password: password); }
 
-            return z;
+            
+           
         }
         public static object CreateUser(String userName, String password, String fName, String lName, String joincode)
         {
@@ -157,14 +219,14 @@ namespace MAPapp {
         public static object GetTasks(String userName, String token, int projectId)
         {
             string s = getJsonData(userName, "getTasks",token: token,projectId: projectId);
-            try
-            {
+          //  try
+           // {
                 return JsonConvert.DeserializeObject<List<Task>>(s);
-            }
-            catch
-            {
-                return s;//return new List<Task>() { new Task(new DateTime(), null, null, 0, 0, 0, null, 0, 0, 0) {HasAccess = false } };
-            }
+            //}
+            //catch
+           // {
+             //   return s;//return new List<Task>() { new Task(new DateTime(), null, null, 0, 0, 0, null, 0, 0, 0) {HasAccess = false } };
+           // }
         }
         public static object GetSprint(String userName, String token, int projectID)
         {
@@ -201,7 +263,7 @@ namespace MAPapp {
         }
         public static object UpdatePasword(String userName, String token, String password, String nieuwpassword)
         {
-            return JsonConvert.DeserializeObject<String>(getJsonData(userName, "ChangePasword", token:token, password:password, nieuwpassword:nieuwpassword ));
+            return JsonConvert.DeserializeObject<String>(getJsonData(userName, "ChangePasword", token:token, password:password, nieuwpasword:nieuwpassword ));
         }
         public static object UpdateEmail(String userName, String token, String password, String nieuwemail)
         {
