@@ -149,7 +149,7 @@ namespace MAPapp {
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         //  List<Task> t = f.Tasks;
-                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f) }, Title = f.projectname });
+                        Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f),new burndown(f) }, Title = f.projectname });
                     });
                 }
                 catch

@@ -27,7 +27,7 @@ namespace MAPapp
             plotModel.Series.Add(series1);
             //  plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, AbsoluteMinimum = 0,Minimum = 0, });
             // plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, IsPanEnabled = false, AbsoluteMinimum = 0, Maximum = totalPointsMember, Minimum = 0, });
-            plotModel.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, AbsoluteMinimum = DateTimeAxis.ToDouble(project.start_date), StringFormat = "dd/MM/yyyy" , Minimum = DateTimeAxis.ToDouble(project.start_date),Maximum = DateTimeAxis.ToDouble(project.start_date.AddDays(5)),MajorStep = 1, MinorStep = 1 });
+            plotModel.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, AbsoluteMinimum = DateTimeAxis.ToDouble(project.start_date), StringFormat = "dd/MM" , Minimum = DateTimeAxis.ToDouble(project.start_date),Maximum = DateTimeAxis.ToDouble(project.start_date.AddDays(5)),MajorStep = 1, MinorStep = 1 });
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, IsPanEnabled = false, AbsoluteMinimum = 0, Maximum = totalPointsMember, Minimum = 0 });   
             PlotView plot = new PlotView() {Model = plotModel,
                 VerticalOptions = LayoutOptions.Fill,

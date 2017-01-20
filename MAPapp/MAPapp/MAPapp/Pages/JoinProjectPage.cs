@@ -80,7 +80,7 @@ namespace MAPapp
                         {
                             if (f.Tasks[0].HasAccess)
                             {
-                                Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname, BackgroundColor = GeneralSettings.backgroundColor });
+                                Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f), new burndown(f) }, Title = f.projectname, BackgroundColor = GeneralSettings.backgroundColor });
                                 b.IsEnabled = true;
                             }
                             else

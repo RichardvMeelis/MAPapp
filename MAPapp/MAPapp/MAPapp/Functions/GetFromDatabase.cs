@@ -219,14 +219,14 @@ namespace MAPapp {
         public static object GetTasks(String userName, String token, int projectId)
         {
             string s = getJsonData(userName, "getTasks",token: token,projectId: projectId);
-          //  try
-           // {
+            try
+            {
                 return JsonConvert.DeserializeObject<List<Task>>(s);
-            //}
-            //catch
-           // {
-             //   return s;//return new List<Task>() { new Task(new DateTime(), null, null, 0, 0, 0, null, 0, 0, 0) {HasAccess = false } };
-           // }
+            }
+            catch
+            {
+                return s;//return new List<Task>() { new Task(new DateTime(), null, null, 0, 0, 0, null, 0, 0, 0) {HasAccess = false } };
+            }
         }
         public static object GetSprint(String userName, String token, int projectID)
         {
