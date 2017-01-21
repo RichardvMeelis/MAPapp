@@ -53,10 +53,16 @@ namespace MAPapp
                             null, null, Globals.ubv + ": {0:d}"));
                     importancePointsLabel.TextColor = GeneralSettings.textColor;
 
+////////////////////////////////////////////////////////////////////////
+                    BoxView boxView = new BoxView();
+                    
+                    boxView.SetBinding(BoxView.ColorProperty, "FavoriteColor");
+//////////////////////////////////////////////////////////////////////////////////
+                    table.BackgroundColor = boxView.BackgroundColor;
                     //Label birthdayLabel = new Label();
                     //birthdayLabel.Text = "test";
                     //birthdayLabel.TextColor = Color.Black;
-                   
+
 
 
 
@@ -70,7 +76,7 @@ namespace MAPapp
                             Orientation = StackOrientation.Horizontal,
                             Children =
                                 {
-                                    //boxView,
+                                    boxView,
                                     
                                     new StackLayout
                                     {
@@ -89,7 +95,7 @@ namespace MAPapp
                     };
                 })
             };
-
+            
             b = new Button() {BackgroundColor = GeneralSettings.mainColor,
                 Text = Globals.knopnieuwetaak, TextColor = GeneralSettings.textColor
             };

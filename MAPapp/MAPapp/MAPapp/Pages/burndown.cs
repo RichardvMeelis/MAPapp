@@ -27,7 +27,7 @@ namespace MAPapp
             plotModel.Series.Add(series1);
             //  plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, AbsoluteMinimum = 0,Minimum = 0, });
             // plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, IsPanEnabled = false, AbsoluteMinimum = 0, Maximum = totalPointsMember, Minimum = 0, });
-            plotModel.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, AbsoluteMinimum = DateTimeAxis.ToDouble(project.start_date), StringFormat = "dd/MM" , Minimum = DateTimeAxis.ToDouble(project.start_date),Maximum = DateTimeAxis.ToDouble(project.start_date.AddDays(5)),MajorStep = 1, MinorStep = 1 });
+            plotModel.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, AbsoluteMinimum = DateTimeAxis.ToDouble(project.start_date)-1, StringFormat = "dd/MM" , Minimum = DateTimeAxis.ToDouble(project.start_date)-1,Maximum = DateTimeAxis.ToDouble(project.start_date.AddDays(5)),MajorStep = 1, MinorStep = 1 });
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, IsPanEnabled = false, AbsoluteMinimum = 0, Maximum = totalPointsMember + 10, Minimum = 0 });   
             PlotView plot = new PlotView() {Model = plotModel,
                 VerticalOptions = LayoutOptions.Fill,
@@ -54,7 +54,7 @@ namespace MAPapp
                 totalPoints += t.UBVPoints;
             }
            totalPointsMember = totalPoints;
-            series1.Points.Add(new DataPoint(DateTimeAxis.ToDouble(project.start_date),totalPoints));
+         //   series1.Points.Add(new DataPoint(DateTimeAxis.ToDouble(project.start_date),totalPoints));
             List<Task> removeTasks = new List<Task>();
             Boolean changed = false;
             for (int i = 0; i <= DateTime.Today.Subtract(project.start_date).Days; i++)
@@ -67,15 +67,15 @@ namespace MAPapp
                         
                         totalPoints -= t.UBVPoints;
                         //project.Tasks.Remove(t);
-                        changed = true;
+                      //  changed = true;
                     }
                     foreach (Task z in removeTasks)
                     project.Tasks.Remove(z);
                 }
-                if (changed){
+             //   if (changed){
                     series1.Points.Add(new DataPoint(DateTimeAxis.ToDouble(project.start_date.AddDays(i).Date), totalPoints) );
-                    changed = false;
-                }
+              ////      changed = false;
+              //  }
             }
             return series1;
         }
