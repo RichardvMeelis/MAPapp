@@ -55,6 +55,7 @@ namespace MAPapp
         public static string timecrit = "Timecriticality";
         public static string ubv = "User-Business Value";
         public static string uncertainty = "Uncertainty";
+        public static string afrondenknop = "Taak afronden";
         //Nieuwe Taak
         public static string paginanieuwetaak = "Nieuwe Taak";
         public static string taaknaam = "Taak Naam";

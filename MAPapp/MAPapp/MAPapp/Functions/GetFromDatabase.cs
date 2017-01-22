@@ -142,8 +142,10 @@ namespace MAPapp {
                 case "createNewSprint":
                     url += "_MAP_REST_REQUEST_=_MAP_INS_SPRINT_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_SPRINT_NAME_=" + sprintName + "&_MAP_SPRINT_DURATION_=" + sprintDuration + "&_MAP_SPRINT_TPOINTS_=" + sprintTarget + "&_MAP_START_DATE_=" + startDate + "&_MAP_PROJECT_ID_=" + projectId;
                     break;
-               
-        }
+                case "completeTask":
+                    url += "_MAP_REST_REQUEST_=_MAP_COMPLETE_TASK_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_TASK_ID_=" + taskid + "&_MAP_PROJECT_ID_=" + projectId; ;
+                    break;
+            }
             return url;
         }
 
@@ -272,6 +274,10 @@ namespace MAPapp {
         public static object createNewSprint(String userName, String token, String sprintName, int sprintDuration, int sprintTarget, DateTime startDate, int projectId)
         {
             return JsonConvert.DeserializeObject<String>(getJsonData(userName, "createNewSprint", token: token, sprintname: sprintName, sprintTarget: sprintTarget,startDate: startDate, sprintDuration: sprintDuration, projectId: projectId));
+        }
+        public static object completeTask(String Username, String token, int taskID, int projectID)
+        {
+            return JsonConvert.DeserializeObject<String>(getJsonData(Username,"completeTask",token: token,taskid: taskID,projectId: projectID));
         }
 
 

@@ -26,8 +26,10 @@ namespace MAPapp
             //   App.page.Title = "Projects";
             foreach(Task t in tasks)
             {
-                if (t.timecompleted == null)
-                    t.CompletedColor = Color.Gray;
+                if (t.timecompleted == null && t.firstname == null && t.lastname == null)
+                    t.CompletedColor = Color.Red;
+                else if (t.timecompleted == null && t.firstname != null && t.lastname != null)
+                    t.CompletedColor = Color.Yellow;
                 else
                 {
                     t.CompletedColor = Color.Green;
@@ -63,10 +65,12 @@ namespace MAPapp
 
 ////////////////////////////////////////////////////////////////////////
                     BoxView boxView = new BoxView();
-                    boxView.Opacity = 0.5;
+                    //boxView.Opacity = 0.5;
+                    boxView.HorizontalOptions = LayoutOptions.Fill;
+                    boxView.VerticalOptions = LayoutOptions.Fill;
                     boxView.SetBinding(BoxView.ColorProperty, "CompletedColor");
 //////////////////////////////////////////////////////////////////////////////////
-                    table.BackgroundColor = boxView.BackgroundColor;
+                    //table.BackgroundColor = boxView.BackgroundColor;
                     //Label birthdayLabel = new Label();
                     //birthdayLabel.Text = "test";
                     //birthdayLabel.TextColor = Color.Black;
@@ -109,7 +113,8 @@ namespace MAPapp
             };
            
             b.Clicked += B_Clicked;
-
+            
+           
             //  BackgroundColor = Color.White;
             Content = new StackLayout
             {
@@ -121,7 +126,7 @@ namespace MAPapp
                                     new Label {Text = Globals.deelnemers + " " + User.UserListToString(s.Users), TextColor =  GeneralSettings.textColor  },
 
                     new ScrollView() {Content = new Label {Text = Globals.beschrijving + " " + s.projectdescription, TextColor =  GeneralSettings.textColor}},
-                    new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand  }, b  
+                    table, b  
                 }
             };
             table.ItemTapped += Table_ItemTapped;

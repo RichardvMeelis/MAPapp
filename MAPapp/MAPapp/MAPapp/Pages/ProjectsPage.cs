@@ -96,7 +96,7 @@ namespace MAPapp {
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
                 Children = {
-                    new ScrollView() { Content =  table, VerticalOptions =LayoutOptions.FillAndExpand  }, b
+                   table, b
                 }
             };
         }
@@ -115,8 +115,8 @@ namespace MAPapp {
             {
 
 
-                try
-                {
+       //         try
+           //     {
                     f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
                     /*
                     int i = 0;
@@ -151,6 +151,7 @@ namespace MAPapp {
                         //  List<Task> t = f.Tasks;
                         Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f),new burndown(f) }, Title = f.projectname });
                     });
+                    /*
                 }
                 catch
                 {
@@ -162,7 +163,7 @@ namespace MAPapp {
                         }
                     });
                 }
-
+*/
             }, tokenSource2.Token);
             tokenSource2.Cancel();
             table.IsEnabled = true;

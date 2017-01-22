@@ -11,15 +11,31 @@ namespace MAPapp
 	public class TaskInfoPage : ContentPage
 	{
         Button jointTask = new Button() { Text = "Ga bij de taak" , BackgroundColor = GeneralSettings.mainColor};
+        Button completeTask = new Button() { Text = Globals.afrondenknop, BackgroundColor = GeneralSettings.mainColor,TextColor = GeneralSettings.textColor };
         Task t;
+        Label userLabel;
 		public TaskInfoPage (Task givenTask)
 		{
             t = givenTask;
-            jointTask.Clicked += JointTask_Clicked;
-            Title = t.taskname;
-            StackLayout stack;
             BackgroundColor = GeneralSettings.backgroundColor;
-			Content = stack = new StackLayout {
+            Title = t.taskname;
+
+            userLabel = new Label() { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, TextColor = GeneralSettings.textColor };
+           
+
+            if (t.firstname != null && t.lastname != null)
+                jointTask.IsEnabled = false;
+            else
+                completeTask.IsEnabled = false;
+
+            jointTask.Clicked += JointTask_Clicked;
+            completeTask.Clicked += CompleteTask_Clicked;
+
+           
+            StackLayout stack;
+            
+
+            Content = stack = new StackLayout {
                 Margin = GeneralSettings.pageMargin,
 				Children = {
 
@@ -31,17 +47,24 @@ namespace MAPapp
                     new Label { Text = "Timecriticality: " + t.TimeCriticality, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center,TextColor =  GeneralSettings.textColor },
                     new Label { Text = "User-Business value: " + t.UBVPoints, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center,TextColor =  GeneralSettings.textColor },
                     new Label { Text = "Uncertainty: " + t.UCValue, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center,TextColor =  GeneralSettings.textColor },
+                    userLabel,
                     jointTask,
+                    completeTask
 
                 }
             };
             if (t.firstname != null && t.lastname != null) {
-                stack.Children.Add(new Label { Text = "Wordt gedaan door: " + t.firstname + " " + t.lastname , HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, TextColor = GeneralSettings.textColor });
+                userLabel.Text = "Wordt gedaan door: " + t.firstname + " " + t.lastname  ;
             }
             else
             {
-                stack.Children.Add(new Label { Text = "Wordt gedaan door: T.B.D ", HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, TextColor = GeneralSettings.textColor });
+                userLabel.Text = "Wordt gedaan door: T.B.D ";
             }
+        }
+
+        private void CompleteTask_Clicked(object sender, EventArgs e)
+        {
+            GetFromDatabase.completeTask(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,t.taskid,t.projectid);
         }
 
         private void JointTask_Clicked(object sender, EventArgs e)

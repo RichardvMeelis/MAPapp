@@ -119,7 +119,7 @@ namespace MAPapp {
                          sprintStartDate,
                          sprintDuration,
                          sprintTimeRemaining,
-                    new ScrollView() { Content =  table , VerticalOptions =LayoutOptions.FillAndExpand }, b
+                         table, b
                 }
             };
             table.ItemTapped += Table_ItemTapped;

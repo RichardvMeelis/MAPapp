@@ -86,9 +86,10 @@ namespace MAPapp
                     };
                 })
             };
+            
             addTask.IsEnabled = false;
             table.ItemTapped += Table_ItemTapped;
-            Content = new StackLayout { Children = { new ScrollView {Content = table },addTask } };
+            Content = new StackLayout { Children = { table,addTask } };
 
         }
 

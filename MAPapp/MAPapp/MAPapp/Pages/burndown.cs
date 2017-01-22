@@ -57,7 +57,7 @@ namespace MAPapp
          //   series1.Points.Add(new DataPoint(DateTimeAxis.ToDouble(project.start_date),totalPoints));
             List<Task> removeTasks = new List<Task>();
             Boolean changed = false;
-            for (int i = 0; i <= DateTime.Today.Subtract(project.start_date).Days; i++)
+            for (int i = 0; i <= DateTime.Today.Subtract(project.start_date).Days + 1; i++)
             {
                 foreach (Task t in project.Tasks)
                 {
