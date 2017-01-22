@@ -12,7 +12,12 @@ namespace MAPapp
 	{
         
         //Invoervelden voor het aanmaken van een account
-        Entry username = new Entry() {Placeholder = Globals.mail,Keyboard = Keyboard.Email },password = new Entry() {Placeholder = Globals.wachtwoord, IsPassword = true  }, passwordReEnter = new Entry() { Placeholder = Globals.herhwachtwoord, IsPassword = true }, fName = new Entry() { Placeholder = Globals.voornaam }, lName = new Entry() { Placeholder = Globals.achternaam }, joincode = new Entry() { Placeholder = Globals.joincode};
+        Entry username = new Entry() {Placeholder = Globals.mail,Keyboard = Keyboard.Email,TextColor = GeneralSettings.textColor,BackgroundColor = GeneralSettings.entryColor, PlaceholderColor = GeneralSettings.textColor },
+            password = new Entry() {Placeholder = Globals.wachtwoord, IsPassword = true, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor, PlaceholderColor = GeneralSettings.textColor }, 
+            passwordReEnter = new Entry() { Placeholder = Globals.herhwachtwoord, IsPassword = true, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor, PlaceholderColor = GeneralSettings.textColor }, 
+            fName = new Entry() { Placeholder = Globals.voornaam, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor, PlaceholderColor = GeneralSettings.textColor }, 
+            lName = new Entry() { Placeholder = Globals.achternaam, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor, PlaceholderColor = GeneralSettings.textColor }, 
+            joincode = new Entry() { Placeholder = Globals.joincode, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor, PlaceholderColor = GeneralSettings.textColor };
         Label warning = new Label() {TextColor = Color.Red };
         Button createNewUser;
 
@@ -25,13 +30,13 @@ namespace MAPapp
             lName.TextChanged += TextChanged;
             joincode.TextChanged += TextChanged;
 
-            createNewUser = new Button() { Text = Globals.knopaanmaken, IsEnabled = false, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
+            createNewUser = new Button() { Text = Globals.knopaanmaken, IsEnabled = false, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor};
             createNewUser.Clicked += B_Clicked;
 			Content = new StackLayout {
                 Margin = GeneralSettings.pageMargin,
 				Children = {
                     //De elementen worden toegevoegd aan de stacklayout
-					new Label { Text = Globals.mail },username,new Label {Text = Globals.wachtwoord },password,passwordReEnter,new Label {Text = Globals.voornaam },fName,new Label {Text = Globals.achternaam },lName,new Label {Text = Globals.joincode },joincode,createNewUser,warning
+					new Label { Text = Globals.mail, TextColor = GeneralSettings.textColor },username,new Label {Text = Globals.wachtwoord, TextColor = GeneralSettings.textColor },password,new Label {Text = Globals.herhwachtwoord , TextColor = GeneralSettings.textColor }, passwordReEnter,new Label {Text = Globals.voornaam, TextColor = GeneralSettings.textColor },fName,new Label {Text = Globals.achternaam, TextColor = GeneralSettings.textColor },lName,new Label {Text = Globals.joincode, TextColor = GeneralSettings.textColor },joincode,createNewUser,warning
                 }
 			};
 		}

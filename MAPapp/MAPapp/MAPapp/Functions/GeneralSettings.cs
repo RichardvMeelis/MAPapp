@@ -15,6 +15,7 @@ namespace MAPapp
         public static Color entryColor = new Color();
         public static Color warningColor = new Color();
         public static Color fadedColor = new Color();
+        public static Color btextColor = new Color();
         public static int pageMargin;
         public static void GetColors()
         {
@@ -26,6 +27,7 @@ namespace MAPapp
             warningColor = Color.Red;
             pageMargin = 5;
             fadedColor = Color.FromRgb(100, 100, 100);
+            btextColor = Color.White;
 
         }
        

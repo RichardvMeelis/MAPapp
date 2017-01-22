@@ -191,28 +191,25 @@
     <BundleResource Include="Resources\IconOranje.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\InformatieButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\InstellingenButton.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\LaunchIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\MijnAccountButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\PlanningPokerButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\ProjectenButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Projecten.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Calender.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accountButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\infoButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\instellingButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pokerButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\projectButton.png" />
   </ItemGroup>
   <Import Project="..\MAPapp\MAPapp.projitems" Label="Shared" Condition="Exists('..\MAPapp\MAPapp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

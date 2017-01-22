@@ -10,7 +10,7 @@ namespace MAPapp
 	public class AddTaskToSprintPage : ContentPage
 	{
         ListView table;
-        Button addTask = new Button() {Text = Globals.knoptaaktoevoegenfinal , BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor};
+        Button addTask = new Button() {Text = Globals.knoptaaktoevoegenfinal , BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor};
         Sprint sprint;
         Project f;
        

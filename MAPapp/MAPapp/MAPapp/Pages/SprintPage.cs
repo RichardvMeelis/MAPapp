@@ -89,7 +89,7 @@ namespace MAPapp {
 
             Button b = new Button()
             {
-                BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor
+                BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor
 
             };
             b.Text = Globals.knoptaaktoevoegen;

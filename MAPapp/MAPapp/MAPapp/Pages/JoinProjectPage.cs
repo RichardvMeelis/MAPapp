@@ -27,7 +27,7 @@ namespace MAPapp
 
            b = new Button()
             {
-                BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor
+                BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor
             };
             b.Text = Globals.paginajoinproject;
             b.Clicked += B_Clicked;

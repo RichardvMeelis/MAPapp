@@ -9,12 +9,16 @@ namespace MAPapp
 {
 	public class VeranderEmail : ContentPage
 	{
-        Entry nieuwEmail = new Entry() { Placeholder = Globals.VEnieuwEmail_Entery }, nieuwEmail1 = new Entry() { Placeholder = Globals.VEhehaalnieuwEmail_Entery}, wachtwoord = new Entry() {Placeholder = Globals.VEwachtwoord_Entery, IsPassword= true };
-        Button change_W8 = new Button() { Text= "verander", IsEnabled= false, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
+        
+        Entry nieuwEmail = new Entry() { Placeholder = Globals.VEnieuwEmail_Entery, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor }, 
+            nieuwEmail1 = new Entry() { Placeholder = Globals.VEhehaalnieuwEmail_Entery, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor }, 
+            wachtwoord = new Entry() {Placeholder = Globals.VEwachtwoord_Entery, IsPassword= true, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor };
+        Button change_W8 = new Button() { Text= "Verander", IsEnabled= false, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor };
         Label Error = new Label { Text = null, TextColor = Color.Red };
 
         public VeranderEmail ()
 		{
+            BackgroundColor = GeneralSettings.backgroundColor;
             nieuwEmail.TextChanged += Textaangepast;
             nieuwEmail1.TextChanged += Textaangepast;
             wachtwoord.TextChanged += Textaangepast;
@@ -22,7 +26,7 @@ namespace MAPapp
 
             Content = new StackLayout
             { 
-                Children = {new Label { Text = Globals.VEnieuweEmail_Label , FontSize = 15 }, nieuwEmail, new Label {Text = Globals.VEherhaalnieuwEmail_Label }, nieuwEmail1, new Label {Text = Globals.VEwachtwoord_Label , FontSize =15 }, wachtwoord, change_W8, Error }
+                Children = {new Label { Text = Globals.VEnieuweEmail_Label, TextColor=GeneralSettings.textColor }, nieuwEmail, new Label {Text = Globals.VEherhaalnieuwEmail_Label, TextColor = GeneralSettings.textColor }, nieuwEmail1, new Label {Text = Globals.VEwachtwoord_Label, TextColor = GeneralSettings.textColor }, wachtwoord, change_W8, Error }
 			};
 		}
         private void Textaangepast(object sender, TextChangedEventArgs e)

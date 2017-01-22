@@ -109,7 +109,7 @@ namespace MAPapp
             };
             table.VerticalOptions = LayoutOptions.StartAndExpand;
             b = new Button() {BackgroundColor = GeneralSettings.mainColor,
-                Text = Globals.knopnieuwetaak, TextColor = GeneralSettings.textColor
+                Text = Globals.knopnieuwetaak, TextColor = GeneralSettings.btextColor
             };
            
             b.Clicked += B_Clicked;

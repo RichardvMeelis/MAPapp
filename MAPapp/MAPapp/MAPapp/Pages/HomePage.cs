@@ -11,20 +11,42 @@ namespace MAPapp
 	public class HomePage : ContentPage
 	{
         //Alle buttons die op het homescreen staan
-        Button  pokerButton, accountSettingsButton, settingsButton, informatieButton;
-        Button projectButton;
         public static Stopwatch stopwatch = new Stopwatch();
         ActivityIndicator ai = new ActivityIndicator() {Color = GeneralSettings.mainColor };
-        Image z;
+        Image infoImage, projectImage, pokerImage, accountImage, settingImage;
         public HomePage ()
 		{
-            TapGestureRecognizer tap = new TapGestureRecognizer();
-            tap.Tapped += InformationButtonClicked;
-            z = new Image();
-            z.Source = "InformatieButton2.png";
-            z.GestureRecognizers.Add(tap);
-           
-            z.Scale = 1;
+            TapGestureRecognizer tapInfo = new TapGestureRecognizer();
+            tapInfo.Tapped += InformationButtonClicked;
+            infoImage = new Image();
+            infoImage.Source = "infoButton.png";
+            infoImage.GestureRecognizers.Add(tapInfo);
+            infoImage.Scale = 1;
+            TapGestureRecognizer tapSetting = new TapGestureRecognizer();
+            tapSetting.Tapped += SettingButtonClicked;
+            settingImage = new Image();
+            settingImage.Source = "instellingButton.png";
+            settingImage.GestureRecognizers.Add(tapSetting);
+            settingImage.Scale = 1;
+            TapGestureRecognizer tapPoker = new TapGestureRecognizer();
+            tapPoker.Tapped += PokerButtonClicked;
+            pokerImage = new Image();
+            pokerImage.Source = "pokerButton.png";
+            pokerImage.GestureRecognizers.Add(tapPoker);
+            pokerImage.Scale = 1;
+            TapGestureRecognizer tapAccount = new TapGestureRecognizer();
+            tapAccount.Tapped += AccountSettingButtonClicked;
+            accountImage = new Image();
+            accountImage.Source = "accountButton.png";
+            accountImage.GestureRecognizers.Add(tapAccount);
+            accountImage.Scale = 1;
+            TapGestureRecognizer tapProject = new TapGestureRecognizer();
+            tapProject.Tapped += ProjectButtonClicked;
+            projectImage = new Image();
+            projectImage.Source = "projectButton.png";
+            projectImage.GestureRecognizers.Add(tapProject);
+            projectImage.Scale = 1;
+
             Title = Globals.paginahome;
             BackgroundColor = GeneralSettings.backgroundColor;
             var grid = new Grid();
@@ -39,20 +61,19 @@ namespace MAPapp
             // grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.04, GridUnitType.Star) });
 
             //Knoppen toevoegen aan de grid 
-            grid.Children.Add(projectButton = new Button() { /*Text = Globals.knopprojecten,*/ BackgroundColor = GeneralSettings.mainColor, Image = "ProjectenButton.png"}, 0, 0);
-            grid.Children.Add(pokerButton = new Button() { /* Text = Globals.knoppoker,*/ BackgroundColor = GeneralSettings.mainColor, Image = "PlanningPokerButton.png" }, 0, 1);
-            grid.Children.Add(accountSettingsButton = new Button() { /*Text = Globals.knopaccount,*/ BackgroundColor = GeneralSettings.mainColor, Image = "MijnAccountButton.png" }, 1, 1);
-            grid.Children.Add(settingsButton = new Button() {/* Text = Globals.knopinstellingen,*/ BackgroundColor = GeneralSettings.mainColor, Image = "InstellingenButton.png" }, 1, 2);
-            grid.Children.Add(z, 0, 2);//informatieButton = new Button() { /*Text = Globals.knopinformatie,*/ BackgroundColor = GeneralSettings.mainColor, Image = "InformatieButton.png" }, 0, 2);
+            grid.Children.Add(projectImage, 0, 0);
+            grid.Children.Add(pokerImage, 0, 1);
+            grid.Children.Add(accountImage, 1, 1);
+            grid.Children.Add(settingImage, 1, 2);
+            grid.Children.Add(infoImage, 0, 2);//informatieButton = new Button() { /*Text = Globals.knopinformatie,*/ BackgroundColor = GeneralSettings.mainColor, Image = "InformatieButton.png" }, 0, 2);
 
-            Grid.SetColumnSpan(projectButton, 2);
-
+            Grid.SetColumnSpan(projectImage, 2);
             //Eventhandlers toewijzen aan de knoppen
-            projectButton.Clicked += ProjectButtonClicked;
-            pokerButton.Clicked += PokerButtonClicked;
-            accountSettingsButton.Clicked += AccountSettingButtonClicked;
-            settingsButton.Clicked += SettingsButtonClicked;
-          //  informatieButton.Clicked += InformationButtonClicked;
+            // projectButton.Clicked += ProjectButtonClicked;
+            // pokerButton.Clicked += PokerButtonClicked;
+            // accountSettingsButton.Clicked += AccountSettingButtonClicked;
+            //settingsButton.Clicked += SettingsButtonClicked;
+            //  informatieButton.Clicked += InformationButtonClicked;
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
@@ -64,8 +85,8 @@ namespace MAPapp
 
         private async void InformationButtonClicked(object sender, EventArgs e)
         {
-            await z.ScaleTo(0.9, 100);
-            await z.ScaleTo(1, 100);
+            await infoImage.ScaleTo(0.9, 100);
+            await infoImage.ScaleTo(1, 100);
          //   informatieButton.IsEnabled = false;
             //Zet de nieuwe pagina op de stack.
             await Navigation.PushAsync(new InformationPage());
@@ -73,33 +94,35 @@ namespace MAPapp
 
         }
 
-        private async void SettingsButtonClicked(object sender, EventArgs e)
+        private async void SettingButtonClicked(object sender, EventArgs e)
         {
-            settingsButton.IsEnabled = false;
+            await settingImage.ScaleTo(0.9, 100);
+            await settingImage.ScaleTo(1, 100);
             // await Navigation.PushAsync(new burndown());
             await Navigation.PushAsync(new TestPage());
-            settingsButton.IsEnabled = true;
         }
 
         private async void AccountSettingButtonClicked(object sender, EventArgs e)
         {
-            accountSettingsButton.IsEnabled = false;
+            await accountImage.ScaleTo(0.9, 100);
+            await accountImage.ScaleTo(1, 100);
             //Zet de nieuwe pagina op de stack.
             await Navigation.PushAsync(new AccountSettings());
-            accountSettingsButton.IsEnabled = true;
+
         }
 
         private async void PokerButtonClicked(object sender, EventArgs e)
         {
-            pokerButton.IsEnabled = false;
+            await pokerImage.ScaleTo(0.9, 100);
+            await pokerImage.ScaleTo(1, 100);
             //Zet de nieuwe pagina op de stack.
             await Navigation.PushAsync(new PokerPage());
-            pokerButton.IsEnabled = true;
         }
 
         private async void ProjectButtonClicked(object sender, EventArgs e)
         {
-            projectButton.IsEnabled = false;
+            await projectImage.ScaleTo(0.9, 100);
+            await projectImage.ScaleTo(1, 100);
             ai.IsRunning = true;
             //Zet de nieuwe pagina op de stack.
             var tokenSource2 = new CancellationTokenSource();
@@ -111,7 +134,6 @@ namespace MAPapp
                 Device.BeginInvokeOnMainThread(() =>
                 {
                      Navigation.PushAsync(new ProjectsPage(s));
-                    projectButton.IsEnabled = true;
                     ai.IsRunning = false;
                 });
             },tokenSource2.Token);

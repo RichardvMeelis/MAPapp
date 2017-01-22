@@ -33,7 +33,7 @@ namespace MAPapp {
 
             //Er wordt een nieuwe scrollview gemaakt en de gemaakt elementen worden toegevoegd
             ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label { Text = Globals.taaknaam, TextColor = GeneralSettings.textColor }, nameEntry, new Label { Text = Globals.beschrijving, TextColor = GeneralSettings.textColor}, descriptionEntry, new Label { Text = Globals.jobsize, TextColor = GeneralSettings.textColor }, jobSizeEntry, new Label { Text = Globals.ubv, TextColor = GeneralSettings.textColor }, userBusinessValueEntry, new Label { Text = Globals.timecrit, TextColor = GeneralSettings.textColor }, timeCriticalityEntry, new Label { Text = Globals.rroe, TextColor = GeneralSettings.textColor}, rroeValueEntry, new Label { Text = Globals.uncertainty, TextColor = GeneralSettings.textColor }, uncertaintyEntry } } };
-            b = new Button() { Text = Globals.knopaanmaken, HorizontalOptions = LayoutOptions.Center, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
+            b = new Button() { Text = Globals.knopaanmaken, HorizontalOptions = LayoutOptions.Center, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor };
             b.Clicked += B_Clicked;
             Content = new StackLayout
             {

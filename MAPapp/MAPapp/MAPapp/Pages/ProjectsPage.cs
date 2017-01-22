@@ -88,7 +88,7 @@ namespace MAPapp {
 
             table.ItemTapped += Table_ItemTapped;
 
-            Button b = new Button() { Text = Globals.knopnieuwproject, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
+            Button b = new Button() { Text = Globals.knopnieuwproject, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor };
             b.Clicked += B_Clicked;
 
             Content = new StackLayout
