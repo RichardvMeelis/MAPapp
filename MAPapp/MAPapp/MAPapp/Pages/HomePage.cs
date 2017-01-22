@@ -15,9 +15,16 @@ namespace MAPapp
         Button projectButton;
         public static Stopwatch stopwatch = new Stopwatch();
         ActivityIndicator ai = new ActivityIndicator() {Color = GeneralSettings.mainColor };
-		public HomePage ()
+        Image z;
+        public HomePage ()
 		{
+            TapGestureRecognizer tap = new TapGestureRecognizer();
+            tap.Tapped += InformationButtonClicked;
+            z = new Image();
+            z.Source = "InformatieButton2.png";
+            z.GestureRecognizers.Add(tap);
            
+            z.Scale = 1;
             Title = Globals.paginahome;
             BackgroundColor = GeneralSettings.backgroundColor;
             var grid = new Grid();
@@ -36,7 +43,7 @@ namespace MAPapp
             grid.Children.Add(pokerButton = new Button() { /* Text = Globals.knoppoker,*/ BackgroundColor = GeneralSettings.mainColor, Image = "PlanningPokerButton.png" }, 0, 1);
             grid.Children.Add(accountSettingsButton = new Button() { /*Text = Globals.knopaccount,*/ BackgroundColor = GeneralSettings.mainColor, Image = "MijnAccountButton.png" }, 1, 1);
             grid.Children.Add(settingsButton = new Button() {/* Text = Globals.knopinstellingen,*/ BackgroundColor = GeneralSettings.mainColor, Image = "InstellingenButton.png" }, 1, 2);
-            grid.Children.Add(informatieButton = new Button() { /*Text = Globals.knopinformatie,*/ BackgroundColor = GeneralSettings.mainColor, Image = "InformatieButton.png" }, 0, 2);
+            grid.Children.Add(z, 0, 2);//informatieButton = new Button() { /*Text = Globals.knopinformatie,*/ BackgroundColor = GeneralSettings.mainColor, Image = "InformatieButton.png" }, 0, 2);
 
             Grid.SetColumnSpan(projectButton, 2);
 
@@ -45,7 +52,7 @@ namespace MAPapp
             pokerButton.Clicked += PokerButtonClicked;
             accountSettingsButton.Clicked += AccountSettingButtonClicked;
             settingsButton.Clicked += SettingsButtonClicked;
-            informatieButton.Clicked += InformationButtonClicked;
+          //  informatieButton.Clicked += InformationButtonClicked;
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
@@ -57,10 +64,12 @@ namespace MAPapp
 
         private async void InformationButtonClicked(object sender, EventArgs e)
         {
-            informatieButton.IsEnabled = false;
+            await z.ScaleTo(0.9, 100);
+            await z.ScaleTo(1, 100);
+         //   informatieButton.IsEnabled = false;
             //Zet de nieuwe pagina op de stack.
             await Navigation.PushAsync(new InformationPage());
-            informatieButton.IsEnabled = true;
+         //   informatieButton.IsEnabled = true;
 
         }
 

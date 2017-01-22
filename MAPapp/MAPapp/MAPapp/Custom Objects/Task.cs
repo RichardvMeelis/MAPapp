@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Xamarin.Forms;
 namespace MAPapp {
     public class Task {
         DateTime? completedDate; //Null of datum
@@ -19,6 +19,7 @@ namespace MAPapp {
         int sprintID;
         int projectID;
         int taskID;
+        Color completedColor;
         Boolean hasAccess = true;
 
         public Task(DateTime completedDate, String name, String description, int difficultyPoints, int importancePoints, int changed, User user, int timeCriticality, int rroeValue, int uncertainty)
@@ -112,6 +113,11 @@ namespace MAPapp {
         {
             get { return completedDate; }
             set { completedDate = value; }
+        }
+        public Color CompletedColor
+        {
+            get { return completedColor; }
+            set { completedColor = value; }
         }
 
     }

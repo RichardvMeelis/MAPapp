@@ -21,10 +21,18 @@ namespace MAPapp
             List<Task> tasks = s.Tasks;
             // tasks.Sort();
             if(tasks != null)
-            tasks =  Sort.SortTasks(tasks);
+           tasks =  Sort.SortTasks(tasks);
             Icon = "Projecten.png";
             //   App.page.Title = "Projects";
-
+            foreach(Task t in tasks)
+            {
+                if (t.timecompleted == null)
+                    t.CompletedColor = Color.Gray;
+                else
+                {
+                    t.CompletedColor = Color.Green;
+                }
+            }
              table = new ListView
             {
 
@@ -55,8 +63,8 @@ namespace MAPapp
 
 ////////////////////////////////////////////////////////////////////////
                     BoxView boxView = new BoxView();
-                    
-                    boxView.SetBinding(BoxView.ColorProperty, "FavoriteColor");
+                    boxView.Opacity = 0.5;
+                    boxView.SetBinding(BoxView.ColorProperty, "CompletedColor");
 //////////////////////////////////////////////////////////////////////////////////
                     table.BackgroundColor = boxView.BackgroundColor;
                     //Label birthdayLabel = new Label();
@@ -95,7 +103,7 @@ namespace MAPapp
                     };
                 })
             };
-            
+            table.VerticalOptions = LayoutOptions.StartAndExpand;
             b = new Button() {BackgroundColor = GeneralSettings.mainColor,
                 Text = Globals.knopnieuwetaak, TextColor = GeneralSettings.textColor
             };
