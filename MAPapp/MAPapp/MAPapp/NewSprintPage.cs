@@ -17,9 +17,11 @@ namespace MAPapp
         public NewSprintPage(Project f) {
             project = f;
 
-            Button newSprint = new Button() {BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.textColor };
+            Button newSprint = new Button() {BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor, Text = "Aanmaken" };
             newSprint.Clicked += newSprintClicked;
             sprintName = new Entry() ;
+            Title = "Nieuwe Sprint";
+            Icon = "Calender.png";
             sprintDuration = new Entry() { Keyboard = Keyboard.Numeric };
             tPoints = new Entry() { Keyboard = Keyboard.Numeric };
             startDate = new DatePicker();

@@ -201,9 +201,6 @@
     <AndroidResource Include="Resources\Values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\LaunchIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\Drawable\IconOranje.png" />
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\projectButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\LaunchIcon.png" />
   </ItemGroup>
   <Import Project="..\MAPapp\MAPapp.projitems" Label="Shared" Condition="Exists('..\MAPapp\MAPapp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

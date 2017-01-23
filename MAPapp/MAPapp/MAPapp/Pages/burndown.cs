@@ -18,7 +18,7 @@ namespace MAPapp
 		{
             Title = Globals.burndowntitle;
             BackgroundColor = Color.White;
-            var plotModel = new PlotModel { Title = "OxyPlot Demo" };
+            var plotModel = new PlotModel { Title = "Burndown Chart" };
             
            
 

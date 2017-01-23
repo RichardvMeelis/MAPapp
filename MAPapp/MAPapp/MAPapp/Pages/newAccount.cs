@@ -29,6 +29,7 @@ namespace MAPapp
             fName.TextChanged += TextChanged;
             lName.TextChanged += TextChanged;
             joincode.TextChanged += TextChanged;
+            Title = "Nieuw Account";
 
             createNewUser = new Button() { Text = Globals.knopaanmaken, IsEnabled = false, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor};
             createNewUser.Clicked += B_Clicked;
@@ -55,7 +56,7 @@ namespace MAPapp
             createNewUser.IsEnabled = false;
            if ((string)GetFromDatabase.CreateUser(username.Text, password.Text, fName.Text, lName.Text, joincode.Text) == "NEW_USER_SUCCESS")
             {
-                DisplayAlert("New user succes", "het is gelukt","jaja");
+                DisplayAlert("Nieuw Account","Aanmaken succesvol. U heeft een email ontvangen met een link om het account te verifiëren","OK");
                 Navigation.PopAsync();
             }
             else
