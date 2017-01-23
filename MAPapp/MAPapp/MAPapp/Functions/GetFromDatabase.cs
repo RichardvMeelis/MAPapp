@@ -164,10 +164,11 @@ namespace MAPapp {
                 WebResponse ws = request.GetResponse();
                 Stream ReceiveStream = ws.GetResponseStream();
                 Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
-                
+                String s;
                 // Pipe the stream to a higher level stream reader with the required encoding format. 
-                StreamReader readStream = new StreamReader(ReceiveStream, encode);
-                String s = readStream.ReadToEnd();
+                using (StreamReader reader = new StreamReader (ReceiveStream,encode)) {
+                s = reader.ReadToEnd ();
+                }
                 return s;
             }
             catch { return "error"; }

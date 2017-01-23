@@ -16,6 +16,7 @@ namespace MAPapp
         Image infoImage, projectImage, pokerImage, accountImage, settingImage;
         public HomePage ()
 		{
+            
             TapGestureRecognizer tapInfo = new TapGestureRecognizer();
             tapInfo.Tapped += InformationButtonClicked;
             infoImage = new Image();
@@ -81,6 +82,7 @@ namespace MAPapp
                 HorizontalOptions = LayoutOptions.Center,
                 Margin = GeneralSettings.pageMargin,
                 Children = { grid }
+                
             };
 			}
 
@@ -122,6 +124,9 @@ namespace MAPapp
 
         private async void ProjectButtonClicked(object sender, EventArgs e)
         {
+            this.IsBusy = true;
+            //this.RotateTo(360,400);
+            
             await projectImage.ScaleTo(0.9, 100);
             await projectImage.ScaleTo(1, 100);
             ai.IsRunning = true;
