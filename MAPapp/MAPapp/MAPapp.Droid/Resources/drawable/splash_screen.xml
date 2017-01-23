@@ -5,8 +5,11 @@
   </item>
   <item>
     <bitmap
+        android:layout_width="5dp"
+        android:layout_height="5dp"
         android:src="@drawable/LaunchIcon"
         android:tileMode="disabled"
-        android:gravity="center" />
+        android:gravity="center"/>
+
   </item>
 </layer-list>
