@@ -34,6 +34,7 @@ namespace MAPapp
             pokerImage.Source = "pokerButton.png";
             pokerImage.GestureRecognizers.Add(tapPoker);
             pokerImage.Scale = 1;
+            
             TapGestureRecognizer tapAccount = new TapGestureRecognizer();
             tapAccount.Tapped += AccountSettingButtonClicked;
             accountImage = new Image();
@@ -99,7 +100,7 @@ namespace MAPapp
             await settingImage.ScaleTo(0.9, 100);
             await settingImage.ScaleTo(1, 100);
             // await Navigation.PushAsync(new burndown());
-            await Navigation.PushAsync(new TestPage());
+          //  await Navigation.PushAsync(new TestPage());
         }
 
         private async void AccountSettingButtonClicked(object sender, EventArgs e)

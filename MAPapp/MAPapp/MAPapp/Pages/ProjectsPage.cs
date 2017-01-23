@@ -113,11 +113,14 @@ namespace MAPapp {
             var tokenSource2 = new CancellationTokenSource();
             await System.Threading.Tasks.Task.Run(() =>
             {
-
-
-       //         try
-           //     {
+                Boolean hasAccess = true;
+                Sprint s = null;
+                try
+                {
                     f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                     s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                }
+                catch { hasAccess = false; }
                     /*
                     int i = 0;
                     foreach (Task t in f.Tasks)
@@ -130,7 +133,7 @@ namespace MAPapp {
                     */
                     try
                     {
-                        Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                        
                         List<Task> tasks = new List<Task>();
                         foreach (Task t in f.Tasks)
                         {
@@ -149,7 +152,10 @@ namespace MAPapp {
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         //  List<Task> t = f.Tasks;
+                        if(hasAccess)
                         Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f),new burndown(f) }, Title = f.projectname });
+                        else
+                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), }, Title = f.projectname, BackgroundColor = GeneralSettings.mainColor });
                     });
                     /*
                 }

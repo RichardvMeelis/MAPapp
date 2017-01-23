@@ -157,13 +157,14 @@ namespace MAPapp {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.UserAgent = "ae30f0ddf72d";
             request.Proxy = null;
-            WebResponse ws = request.GetResponse();
 
+            
             try
             {
+                WebResponse ws = request.GetResponse();
                 Stream ReceiveStream = ws.GetResponseStream();
                 Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
-
+                
                 // Pipe the stream to a higher level stream reader with the required encoding format. 
                 StreamReader readStream = new StreamReader(ReceiveStream, encode);
                 String s = readStream.ReadToEnd();

@@ -2012,58 +2012,11 @@ C:\Users\richa\Source\Repos\MAPapp17\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\dr
 C:\Users\richa\Source\Repos\MAPapp17\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\projecten.png
 C:\Users\richa\Source\Repos\MAPapp17\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\calender.png
 C:\Users\richa\Source\Repos\MAPapp17\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\instellingenbutton.png
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\mijnaccountbutton.png
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\planningpokerbutton.png
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\projectenbutton.png
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\splash_screen.xml
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\values\styles.xml
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\informatiebutton.png
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\launchicon.png
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\iconoranje.png
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\projecten.png
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\calender.png
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Java.Interop.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Microsoft.CSharp.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Mono.Android.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Mono.CSharp.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\mscorlib.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.ComponentModel.Composition.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Core.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Json.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Net.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Net.Http.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Runtime.Serialization.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.ServiceModel.Internals.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Xml.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Xml.Linq.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\FormsViewGroup.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Java.Interop.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\MAPapp.Droid.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Mono.Android.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Mono.CSharp.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\mscorlib.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\OxyPlot.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\OxyPlot.Xamarin.Forms.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\OxyPlot.Xamarin.Forms.Platform.Android.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Refractored.FloatingActionButton.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Core.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Json.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Net.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Net.Http.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Xml.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll.mdb
 C:\Users\samca\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.csprojResolveAssemblyReference.cache
 C:\Users\samca\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll
 C:\Users\samca\Source\Repos\MAPapp6\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.pdb
@@ -2303,4 +2256,51 @@ C:\Users\richa\Source\Repos\MAPapp19\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\dr
 C:\Users\richa\Source\Repos\MAPapp19\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\projectbutton.png
 C:\Users\richa\Source\Repos\MAPapp19\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\instellingbutton.png
 C:\Users\richa\Source\Repos\MAPapp19\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll.mdb
-C:\Users\richa\Source\Repos\MAPapp19\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\infobutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\accountbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\pokerbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\voorbeeldprojectenbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\instellingbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\projectbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Java.Interop.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Microsoft.CSharp.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Mono.Android.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\Mono.CSharp.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\mscorlib.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.ComponentModel.Composition.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Core.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Json.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Net.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Net.Http.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Runtime.Serialization.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.ServiceModel.Internals.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Xml.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\System.Xml.Linq.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\FormsViewGroup.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Java.Interop.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\MAPapp.Droid.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Mono.Android.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Mono.CSharp.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\mscorlib.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\OxyPlot.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\OxyPlot.Xamarin.Forms.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\OxyPlot.Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Refractored.FloatingActionButton.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Core.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Json.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Net.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Net.Http.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Xml.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.mdb
