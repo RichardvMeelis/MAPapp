@@ -131,7 +131,7 @@ namespace MAPapp {
                     {
                         GetFromDatabase.currentToken = s1;
                         GetFromDatabase.currentUserName = userName.Text;
-                        Application.Current.MainPage = new NavigationPage(new HomePage());
+                        Application.Current.MainPage = new NavigationPage(new HomePage()) {BarBackgroundColor = GeneralSettings.mainColor,BarTextColor = GeneralSettings.btextColor  };
                         //this.working.IsRunning = false;
                     }
                     else
