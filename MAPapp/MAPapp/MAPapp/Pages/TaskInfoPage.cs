@@ -62,17 +62,73 @@ namespace MAPapp
             }
         }
 
-        private void CompleteTask_Clicked(object sender, EventArgs e)
+        private async void CompleteTask_Clicked(object sender, EventArgs e)
         {
-            GetFromDatabase.completeTask(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,t.taskid,t.projectid);
+            try
+            {
+                GetFromDatabase.completeTask(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, t.taskid, t.projectid);
+                refreshPage();
+            }
+            catch { }
         }
+        private async void refreshPage()
+        {
+            int projectID = t.projectid;
+            try
+            {
+                // saved.Tasks.Add(new Task(new DateTime(), nameEntry.Text, descriptionEntry.Text, int.Parse(jobSizeEntry.Text), int.Parse(userBusinessValueEntry.Text), 0, null, int.Parse(timeCriticalityEntry.Text), int.Parse(rroeValueEntry.Text), int.Parse(userBusinessValueEntry.Text)));
+                GetFromDatabase.completeTask(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, t.taskid, t.projectid);
+                List<Project> projects = (List<Project>)GetFromDatabase.GetProjects(GetFromDatabase.currentUserName, GetFromDatabase.currentToken);
+                foreach (Project project in projects)
+                {
+                    if (project.projectid == projectID)
+                    {
+                        project.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, project.projectid);
+                        Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, project.projectid);
+                        List<Task> tasks = new List<Task>();
+                        foreach (Task t in project.Tasks)
+                        {
+                            if (s != null && t.sprintid == s.sprintid)
+                            {
+                                tasks.Add(t);
+                            }
+                        }
+                        if (s != null)
+                        {
+                            s.Sprinttasks = tasks;
+                            project.CurrentSprint = s;
+                        }
+                        await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(project), new SprintPage(project.CurrentSprint, project.Tasks, project), new NewSprintPage(project), new burndown(project) }, Title = project.projectname });
+                    }
+                }
 
+                ////////////////
+                //        Project ding = null;
+                //      ding.projectid = 1;
+                ///////////////////
+                // Het verwijderen van de oude pages in de stack
+                for (int counter = 1; counter <= 2; counter++)
+                {
+
+                    Navigation.RemovePage(Navigation.NavigationStack[2]);
+                }
+                //b.IsEnabled = true;
+            }
+            catch
+            {
+                await DisplayAlert(Globals.taakallerttitel, Globals.taakallertmessage, "ok");
+                //  b.IsEnabled = true;
+
+            }
+        }
         private void JointTask_Clicked(object sender, EventArgs e)
         {
             if (t.User == null)
             {
                 t.User = GetFromDatabase.currentUser;
                 GetFromDatabase.JoinTask(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,t.taskid,t.projectid);
+                refreshPage();
+
             }
         }
     }

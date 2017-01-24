@@ -68,6 +68,7 @@ namespace MAPapp
                     //boxView.Opacity = 0.5;
                     boxView.HorizontalOptions = LayoutOptions.Fill;
                     boxView.VerticalOptions = LayoutOptions.Fill;
+                    boxView.WidthRequest = 8;
                     boxView.SetBinding(BoxView.ColorProperty, "CompletedColor");
 //////////////////////////////////////////////////////////////////////////////////
                     //table.BackgroundColor = boxView.BackgroundColor;

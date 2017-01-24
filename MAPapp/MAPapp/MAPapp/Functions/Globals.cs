@@ -59,6 +59,8 @@ namespace MAPapp
         //Nieuwe Taak
         public static string paginanieuwetaak = "Nieuwe Taak";
         public static string taaknaam = "Taak Naam";
+        public static string taakallerttitel = "Oops er ging iets fout";
+        public static string taakallertmessage = "Er is iets fout gegaan, probeer het opnieuw";
         //Planningpoker
         public static string paginapoker = "Planningpoker";
         public static string pp1 = "1";
@@ -113,6 +115,8 @@ namespace MAPapp
 
         //Burndown pagina
         public static string burndowntitle = "Burndownchart";
+        
+        
 
     }
 }

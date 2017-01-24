@@ -1213,7 +1213,6 @@ C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debu
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
-C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll.mdb
 C:\Users\richa\Source\Repos\MAPapp12\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.csprojResolveAssemblyReference.cache
 C:\Users\richa\Source\Repos\MAPapp12\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll
 C:\Users\richa\Source\Repos\MAPapp12\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.pdb
@@ -2422,4 +2421,17 @@ C:\Users\richa\Source\Repos\MAPapp21\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\androi
 C:\Users\richa\Source\Repos\MAPapp21\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\richa\Source\Repos\MAPapp21\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\richa\Source\Repos\MAPapp21\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll.mdb
-C:\Users\richa\Source\Repos\MAPapp21\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\splash_screen.xml
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\values\styles.xml
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\iconoranje.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\calender.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\infobutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\accountbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\pokerbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\voorbeeldprojectenbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\instellingbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\projectbutton.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\launchicon.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\burndownicon.png
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll.mdb
+C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.mdb
