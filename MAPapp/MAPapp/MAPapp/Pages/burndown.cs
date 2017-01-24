@@ -19,9 +19,7 @@ namespace MAPapp
             Title = Globals.burndowntitle;
             BackgroundColor = Color.White;
             var plotModel = new PlotModel { Title = "Burndown Chart" };
-            
-           
-
+            Icon = "burndownicon.png";
 
             LineSeries series1 = createLineSeries(project);
             plotModel.Series.Add(series1);
