@@ -15,7 +15,7 @@ namespace MAPapp
 			Content = new StackLayout {
                 Margin = GeneralSettings.pageMargin,
 				Children = {
-					new ScrollView() {Content = new StackLayout() {Children = { new Label {Text = s} } } }
+					new ScrollView() {Content = new StackLayout() {Children = { new Label {Text = s,TextColor = GeneralSettings.textColor} } } }
 				}
 			};
 		}
