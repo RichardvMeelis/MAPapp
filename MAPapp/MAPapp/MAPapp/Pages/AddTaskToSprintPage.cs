@@ -23,7 +23,7 @@ namespace MAPapp
             List<Task> tasks = new List<Task>();
             foreach (Task t in projectTasks)
             {
-                if(t.sprintid == 0)
+                if (t.sprintid == 0 && t.timecompleted == null)
                 {
                     tasks.Add(t);
                 }
@@ -37,18 +37,18 @@ namespace MAPapp
 
                 ItemTemplate = new DataTemplate(() =>
                 {
-                    // Create views with bindings for displaying each property.
-
+                    // Creëer de labels met bindings
+                        
                     Label nameLabel = new Label();
                     nameLabel.SetBinding(Label.TextProperty, "taskname");
                     nameLabel.FontSize = 20;
                     nameLabel.TextColor = GeneralSettings.textColor;
 
-                    Label CompanyLabel = new Label();
-                    CompanyLabel.SetBinding(Label.TextProperty,
+                    Label jobSizeLabel = new Label();
+                    jobSizeLabel.SetBinding(Label.TextProperty,
                         new Binding("JSPoints", BindingMode.OneWay,
                             null, null, "Job Size: {0:d}"));
-                    CompanyLabel.TextColor = GeneralSettings.textColor;
+                    jobSizeLabel.TextColor = GeneralSettings.textColor;
 
                     Label importancePointsLabel = new Label();
                     importancePointsLabel.SetBinding(Label.TextProperty,
@@ -57,7 +57,7 @@ namespace MAPapp
                     importancePointsLabel.TextColor = GeneralSettings.textColor;
 
 
-                    // Return an assembled ViewCell.
+                   
                     return new ViewCell
                     {
                         View = new StackLayout
@@ -67,8 +67,6 @@ namespace MAPapp
                             Orientation = StackOrientation.Horizontal,
                             Children =
                                 {
-                                    //boxView,
-                                    
                                     new StackLayout
                                     {
                                         VerticalOptions = LayoutOptions.FillAndExpand,
@@ -76,9 +74,7 @@ namespace MAPapp
                                         Children =
                                         {
                                             nameLabel,
-                                            //birthdayLabel,
-                                            CompanyLabel,importancePointsLabel,
-
+                                            jobSizeLabel,importancePointsLabel,
                                         }
                                         }
                                 }
@@ -118,25 +114,13 @@ namespace MAPapp
                 f.CurrentSprint.Sprinttasks = tasks2;
                 
             }
-      //      await Navigation.PopAsync(false);
-            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f) }, Title = f.projectname , BackgroundColor = GeneralSettings.backgroundColor});
-            /*
-             int i = Navigation.NavigationStack.Count;
-                 Navigation.RemovePage(Navigation.NavigationStack[3]);
-              int x = Navigation.NavigationStack.Count;
-              Navigation.RemovePage(Navigation.NavigationStack[3]);
-              */
+
+            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f),new burndown(f) }, Title = f.projectname , BackgroundColor = GeneralSettings.backgroundColor});
             for (int counter = 1; counter <= 2; counter++)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[2]);
             }
-            // await Navigation.PopAsync();
-            /*for (int i = 0; i < 2; i++)
-            {
-                int x = Navigation.NavigationStack.Count;
-                Navigation.RemovePage(Navigation.NavigationStack[x-2]);
-            }
-            */
+           
         }
     }
 }

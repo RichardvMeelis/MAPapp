@@ -16,7 +16,7 @@ namespace MAPapp
         {
             BackgroundColor = GeneralSettings.backgroundColor;
             Title = "Mijn Account";
-                // moet mogelijk in een andere pagina komen te staan zodat meer pagina's met de variabele kunnen werken
+               //Zet de currentUser in de ContactDateBase klasse
                 ContactDataBase.currentUser =  (User)ContactDataBase.GetUserInfo(ContactDataBase.currentUserName, ContactDataBase.currentToken); 
                 
                 // het creëren van een Grid
