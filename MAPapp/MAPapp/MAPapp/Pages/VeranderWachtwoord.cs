@@ -39,7 +39,7 @@ namespace MAPapp
         private void pushed(object sender, EventArgs e)
         {
             change.IsEnabled = false;
-            if ((string)GetFromDatabase.UpdatePasword(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, oudwachtwoord.Text, nieuwWachtwoord.Text) == "NEW_PASS_HAS_BEEN_SET")
+            if ((string)ContactDataBase.UpdatePasword(ContactDataBase.currentUserName, ContactDataBase.currentToken, oudwachtwoord.Text, nieuwWachtwoord.Text) == "NEW_PASS_HAS_BEEN_SET")
             {
                 Navigation.PopAsync();
             }

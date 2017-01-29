@@ -66,7 +66,7 @@ namespace MAPapp
         {
             try
             {
-                GetFromDatabase.completeTask(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, t.taskid, t.projectid);
+                ContactDataBase.completeTask(ContactDataBase.currentUserName, ContactDataBase.currentToken, t.taskid, t.projectid);
                 refreshPage();
             }
             catch { }
@@ -77,14 +77,14 @@ namespace MAPapp
             try
             {
                 // saved.Tasks.Add(new Task(new DateTime(), nameEntry.Text, descriptionEntry.Text, int.Parse(jobSizeEntry.Text), int.Parse(userBusinessValueEntry.Text), 0, null, int.Parse(timeCriticalityEntry.Text), int.Parse(rroeValueEntry.Text), int.Parse(userBusinessValueEntry.Text)));
-                GetFromDatabase.completeTask(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, t.taskid, t.projectid);
-                List<Project> projects = (List<Project>)GetFromDatabase.GetProjects(GetFromDatabase.currentUserName, GetFromDatabase.currentToken);
+                ContactDataBase.completeTask(ContactDataBase.currentUserName, ContactDataBase.currentToken, t.taskid, t.projectid);
+                List<Project> projects = (List<Project>)ContactDataBase.GetProjects(ContactDataBase.currentUserName, ContactDataBase.currentToken);
                 foreach (Project project in projects)
                 {
                     if (project.projectid == projectID)
                     {
-                        project.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, project.projectid);
-                        Sprint s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, project.projectid);
+                        project.Tasks = (List<Task>)ContactDataBase.GetTasks(ContactDataBase.currentUserName, ContactDataBase.currentToken, project.projectid);
+                        Sprint s = (Sprint)ContactDataBase.GetSprint(ContactDataBase.currentUserName, ContactDataBase.currentToken, project.projectid);
                         List<Task> tasks = new List<Task>();
                         foreach (Task t in project.Tasks)
                         {
@@ -125,9 +125,9 @@ namespace MAPapp
         {
             if (t.lastname == null && t.firstname == null)
             {
-                t.firstname = GetFromDatabase.currentUser.firstname;
-                t.lastname = GetFromDatabase.currentUser.lastname;
-                GetFromDatabase.JoinTask(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,t.taskid,t.projectid);
+                t.firstname = ContactDataBase.currentUser.firstname;
+                t.lastname = ContactDataBase.currentUser.lastname;
+                ContactDataBase.JoinTask(ContactDataBase.currentUserName,ContactDataBase.currentToken,t.taskid,t.projectid);
                 refreshPage();
 
             }

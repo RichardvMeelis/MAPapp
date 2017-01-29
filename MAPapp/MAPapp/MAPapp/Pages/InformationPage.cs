@@ -26,7 +26,7 @@ namespace MAPapp
             BackgroundColor = GeneralSettings.backgroundColor;
             
             //Haal de informatie op uit de database
-            InfoObj = (List<InformationObject>)GetFromDatabase.GetInformation(GetFromDatabase.currentUserName,GetFromDatabase.currentToken);
+            InfoObj = (List<InformationObject>)ContactDataBase.GetInformation(ContactDataBase.currentUserName,ContactDataBase.currentToken);
             
             StackLayout stack = new StackLayout() {VerticalOptions = LayoutOptions.Center,Margin = GeneralSettings.pageMargin };
             

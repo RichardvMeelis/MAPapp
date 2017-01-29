@@ -19,7 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Custom Objects\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\Globals.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GeneralSettings.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Functions\GetFromDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Functions\ContactDataBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\Sort.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NewSprintPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountRecoveryPage.cs" />

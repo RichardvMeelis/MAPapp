@@ -101,9 +101,9 @@ namespace MAPapp
         private async void AddTaskClicked(object sender, EventArgs e)
         {
             Task s = (Task)table.SelectedItem;
-            GetFromDatabase.addTaskToSprint(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,s.taskid,s.projectid,sprint.sprintid);
-            f.CurrentSprint = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
-            f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+            ContactDataBase.addTaskToSprint(ContactDataBase.currentUserName,ContactDataBase.currentToken,s.taskid,s.projectid,sprint.sprintid);
+            f.CurrentSprint = (Sprint)ContactDataBase.GetSprint(ContactDataBase.currentUserName, ContactDataBase.currentToken, f.projectid);
+            f.Tasks = (List<Task>)ContactDataBase.GetTasks(ContactDataBase.currentUserName, ContactDataBase.currentToken, f.projectid);
              
             List<Task> tasks2 = new List<Task>();
             foreach (Task t in f.Tasks)

@@ -54,7 +54,7 @@ namespace MAPapp
         private void B_Clicked(object sender, EventArgs e)
         {
             createNewUser.IsEnabled = false;
-           if ((string)GetFromDatabase.CreateUser(username.Text, password.Text, fName.Text, lName.Text, joincode.Text) == "NEW_USER_SUCCESS")
+           if ((string)ContactDataBase.CreateUser(username.Text, password.Text, fName.Text, lName.Text, joincode.Text) == "NEW_USER_SUCCESS")
             {
                 DisplayAlert("Nieuw Account","Aanmaken succesvol. U heeft een email ontvangen met een link om het account te verifiëren","OK");
                 Navigation.PopAsync();

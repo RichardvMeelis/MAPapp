@@ -38,7 +38,7 @@ namespace MAPapp
         private void butonclicked(object sender, EventArgs e)
         {
             change_W8.IsEnabled = false;
-            if ((string)GetFromDatabase.UpdateEmail(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, wachtwoord.Text, nieuwEmail.Text) == "NEW_EMAIL_HAS_BEEN_SET")
+            if ((string)ContactDataBase.UpdateEmail(ContactDataBase.currentUserName, ContactDataBase.currentToken, wachtwoord.Text, nieuwEmail.Text) == "NEW_EMAIL_HAS_BEEN_SET")
             {
                 Application.Current.MainPage = new NavigationPage(new Login()) { BarBackgroundColor = GeneralSettings.mainColor, Title = "test", BarTextColor = GeneralSettings.textColor };
             }

@@ -34,7 +34,7 @@ namespace MAPapp
 
         private void newSprintClicked(object sender, EventArgs e)
         {
-            GetFromDatabase.createNewSprint(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,sprintName.Text,Convert.ToInt32(sprintDuration.Text),Convert.ToInt32(tPoints.Text),startDate.Date,project.projectid);
+            ContactDataBase.createNewSprint(ContactDataBase.currentUserName,ContactDataBase.currentToken,sprintName.Text,Convert.ToInt32(sprintDuration.Text),Convert.ToInt32(tPoints.Text),startDate.Date,project.projectid);
         }
     }
 }

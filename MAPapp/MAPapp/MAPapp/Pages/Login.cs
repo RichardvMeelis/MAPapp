@@ -122,15 +122,15 @@ namespace MAPapp {
                 var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 var filename = Path.Combine(documents, "MySettings.txt");
                 File.WriteAllText(filename, this.rememberMe.IsToggled.ToString());
-                string s1 = (string)GetFromDatabase.SingIn(userName.Text, password.Text);
+                string s1 = (string)ContactDataBase.SingIn(userName.Text, password.Text);
 
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     
                     if (s1.Length == 120)
                     {
-                        GetFromDatabase.currentToken = s1;
-                        GetFromDatabase.currentUserName = userName.Text;
+                        ContactDataBase.currentToken = s1;
+                        ContactDataBase.currentUserName = userName.Text;
                         Application.Current.MainPage = new NavigationPage(new HomePage()) {BarBackgroundColor = GeneralSettings.mainColor,BarTextColor = GeneralSettings.btextColor  };
                         //this.working.IsRunning = false;
                     }

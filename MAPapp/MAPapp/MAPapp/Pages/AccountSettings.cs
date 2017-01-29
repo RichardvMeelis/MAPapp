@@ -17,7 +17,7 @@ namespace MAPapp
             BackgroundColor = GeneralSettings.backgroundColor;
             Title = "Mijn Account";
                 // moet mogelijk in een andere pagina komen te staan zodat meer pagina's met de variabele kunnen werken
-                GetFromDatabase.currentUser =  (User)GetFromDatabase.GetUserInfo(GetFromDatabase.currentUserName, GetFromDatabase.currentToken); 
+                ContactDataBase.currentUser =  (User)ContactDataBase.GetUserInfo(ContactDataBase.currentUserName, ContactDataBase.currentToken); 
                 
                 // het creëren van een Grid
                 var grid1 = new Grid { RowSpacing = 1, ColumnSpacing = 1 };
@@ -52,10 +52,10 @@ namespace MAPapp
                 grid1.Children.Add(achternaamlabel = new Label() { Text = Globals.ACachternaam  , FontSize = 20, TextColor = GeneralSettings.textColor }, 0, 1);
                 grid1.Children.Add(bedrijflabel = new Label() { Text = Globals.ACbedrijf , FontSize = 20, TextColor = GeneralSettings.textColor }, 0, 2);
                 grid1.Children.Add(emaillabel = new Label() { Text = Globals.ACemail , FontSize = 20, TextColor = GeneralSettings.textColor }, 0, 3);
-                grid1.Children.Add(naamlabel1 = new Label() { Text = GetFromDatabase.currentUser.firstname, FontSize = 20, TextColor = GeneralSettings.textColor }, 1, 0);
-                grid1.Children.Add(achternaamlabel1 = new Label() { Text = GetFromDatabase.currentUser.lastname, FontSize = 20, TextColor = GeneralSettings.textColor }, 1, 1);
-                grid1.Children.Add(bedrijflabel1 = new Label() { Text = GetFromDatabase.currentUser.companyname, FontSize = 20, TextColor = GeneralSettings.textColor }, 1, 2);
-                grid1.Children.Add(emaillabel1 = new Label() { Text = GetFromDatabase.currentUser.username, FontSize = 20, TextColor = GeneralSettings.textColor }, 1, 3);
+                grid1.Children.Add(naamlabel1 = new Label() { Text = ContactDataBase.currentUser.firstname, FontSize = 20, TextColor = GeneralSettings.textColor }, 1, 0);
+                grid1.Children.Add(achternaamlabel1 = new Label() { Text = ContactDataBase.currentUser.lastname, FontSize = 20, TextColor = GeneralSettings.textColor }, 1, 1);
+                grid1.Children.Add(bedrijflabel1 = new Label() { Text = ContactDataBase.currentUser.companyname, FontSize = 20, TextColor = GeneralSettings.textColor }, 1, 2);
+                grid1.Children.Add(emaillabel1 = new Label() { Text = ContactDataBase.currentUser.username, FontSize = 20, TextColor = GeneralSettings.textColor }, 1, 3);
                 grid1.Children.Add(veranderWachtwoord = new ClickableLabel(veranderwachtwoord) { Text = Globals.ACveranderW8, TextColor = Color.FromRgb(66,133,244) }, 0, 4);
                 grid1.Children.Add(veranderEmail = new ClickableLabel(veranderemail) { Text = Globals.ACveranderEmail , TextColor = Color.FromRgb(66, 133, 244) }, 0, 5);
 

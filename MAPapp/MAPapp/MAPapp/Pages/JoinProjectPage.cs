@@ -52,10 +52,10 @@ namespace MAPapp
         private async void B_Clicked(object sender, EventArgs e)
         {
             b.IsEnabled = false;
-            string userName = GetFromDatabase.currentUserName;
-            string token = GetFromDatabase.currentToken;
+            string userName = ContactDataBase.currentUserName;
+            string token = ContactDataBase.currentToken;
             int projectID = ding.projectid;
-            if ((string)GetFromDatabase.JoinProject(userName, token, projectID) == "JOIN_PROJECT_SUCCESS")
+            if ((string)ContactDataBase.JoinProject(userName, token, projectID) == "JOIN_PROJECT_SUCCESS")
             {
                 await DisplayAlert(Globals.joinpassname, Globals.joinpass, Globals.okknop);
                 Project f = ding;
@@ -66,8 +66,8 @@ namespace MAPapp
                     Sprint s = null;
                     try
                     {
-                        f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
-                        s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                        f.Tasks = (List<Task>)ContactDataBase.GetTasks(ContactDataBase.currentUserName, ContactDataBase.currentToken, f.projectid);
+                        s = (Sprint)ContactDataBase.GetSprint(ContactDataBase.currentUserName, ContactDataBase.currentToken, f.projectid);
                     }
                     catch { hasAccess = false; }
 
