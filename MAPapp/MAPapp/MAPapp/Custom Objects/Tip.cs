@@ -7,6 +7,7 @@ namespace MAPapp
    
    public class Tip
     {
+        //Achter een tip zit een tekst pagina. Firstpoint wordt gebruikt om de informationobject de juiste naam te geven en de tips te sorteren
         String tipName, tipText, tipFirstPoint;
         public Tip(String tipName, String tipText, String tipFirstPoint)
         {
@@ -15,6 +16,7 @@ namespace MAPapp
             this.tipFirstPoint = tipFirstPoint;
         }
 
+        //Tip properties
         public String ACName
         {
             get { return tipName; }

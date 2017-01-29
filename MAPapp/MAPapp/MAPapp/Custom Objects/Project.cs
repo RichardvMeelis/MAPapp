@@ -61,27 +61,31 @@ namespace MAPapp
             get { return users; }
             set { users = value; }
         }
+        //Get of set de startdatum
         public DateTime start_date
         {
             get { return startingDate; }
             set { startingDate = value; }
         }
+        //Get of set de einddatum
         public DateTime EndingDate
         {
             get { return endingDate; }
             set { endingDate = value; }
         }
+        //Get of set het projectid
         public int projectid
         {
             get { return projectId; }
             set { projectId = value; }
         }
-
+        //Get of set de huidige sprint
         public Sprint CurrentSprint
         {
             get { return sprint; }
             set { sprint = value; }
         }
+        //Get of set de bedrijfsnaam
         public String companyname
         {
             get { return company; }

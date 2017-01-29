@@ -6,25 +6,28 @@ namespace MAPapp
 {
     public class InformationObject
     {
+        //Een informationobject heeft een lijst van tips en een naam
         List<Tip> tips = new List<Tip>();
-        string layer;
+        string name;
 
         public InformationObject(List<Tip> tips, string threeInfoPoint)
         {
             this.tips = tips;
-            this.layer = threeInfoPoint;
+            this.name = threeInfoPoint;
         }
 
-       
+       //Get of set de lijst met tips
         public List<Tip> Tips
         {
             get { return tips; }
             set { tips = value; }
         }
-        public string ThreeInfoPoint
+
+        //Get of set de naam
+        public string Name
         {
-            get { return layer; }
-            set { layer = value; }
+            get { return name; }
+            set { name = value; }
         }
 
         }

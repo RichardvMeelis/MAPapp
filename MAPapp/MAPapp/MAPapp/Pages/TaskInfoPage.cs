@@ -123,9 +123,10 @@ namespace MAPapp
         }
         private void JointTask_Clicked(object sender, EventArgs e)
         {
-            if (t.User == null)
+            if (t.lastname == null && t.firstname == null)
             {
-                t.User = GetFromDatabase.currentUser;
+                t.firstname = GetFromDatabase.currentUser.firstname;
+                t.lastname = GetFromDatabase.currentUser.lastname;
                 GetFromDatabase.JoinTask(GetFromDatabase.currentUserName,GetFromDatabase.currentToken,t.taskid,t.projectid);
                 refreshPage();
 

@@ -4,44 +4,52 @@ using System.Text;
 using Xamarin.Forms;
 namespace MAPapp {
     public class Task {
+        //Als afgelopen is dit niet null
         DateTime? completedDate; //Null of datum
+
         String name;
         String description;
+
+        //De waardes die de eigenschappen van een taak zijn die de gebruiker meegeeft
         int jobSize;
         int userBusinessValue;
-        int changed;
-        User user;
-        String doneByFirstName;
-        String doneByLastName;
         int timeCriticality;
         int rroeValue;
         int uncertainty;
+
+        //Informatie over wie de taak doet
+        String doneByFirstName;
+        String doneByLastName;
+        
+        //Benodigde identifiers
         int sprintID;
         int projectID;
         int taskID;
-        Color completedColor;
-        Boolean hasAccess = true;
 
-        public Task(DateTime completedDate, String name, String description, int difficultyPoints, int importancePoints, int changed, User user, int timeCriticality, int rroeValue, int uncertainty)
+        //Kleur code voor of een taak af is of nog niet gekozen enz.
+        Color completedColor;
+       
+
+        public Task(DateTime completedDate, String name, String description, int difficultyPoints, int importancePoints, int timeCriticality, int rroeValue, int uncertainty)
         {
             this.completedDate = completedDate;
             this.name = name;
             this.description = description;
             this.jobSize = difficultyPoints;
             this.userBusinessValue = importancePoints;
-            this.changed = changed;
+            
             this.uncertainty = uncertainty;
             this.timeCriticality = timeCriticality;
             this.rroeValue = rroeValue;
-            this.user = user;
+           
         }
+
+        //Taak properties
         public string taskname
         {
             get { return name; }
             set { name = value; }
         }
-
-        //Get of set de description property
         public string taskdescription
         {
             get { return description; }
@@ -73,20 +81,11 @@ namespace MAPapp {
             get { return uncertainty; }
             set { uncertainty = value; }
         }
-        public User User
-        {
-            get { return user; }
-            set { user = value; }
-        }
+
         public int sprintid
         {
             get { return sprintID; }
             set { sprintID = value; }
-        }
-        public Boolean HasAccess
-        {
-            get { return hasAccess; }
-            set { hasAccess = value; }
         }
         public int taskid
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using System.Text;
-
+using System.Threading;
 using Xamarin.Forms;
 
 namespace MAPapp
@@ -59,40 +59,47 @@ namespace MAPapp
             {
                 await DisplayAlert(Globals.joinpassname, Globals.joinpass, Globals.okknop);
                 Project f = ding;
+                var tokenSource2 = new CancellationTokenSource();
                 await System.Threading.Tasks.Task.Run(() =>
                 {
-                    f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
-                    /*
-                    int i = 0;
-                    foreach (Task t in f.Tasks)
+                    Boolean hasAccess = true;
+                    Sprint s = null;
+                    try
                     {
-                        if (t.sprintid >= i)
+                        f.Tasks = (List<Task>)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                        s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
+                    }
+                    catch { hasAccess = false; }
+
+                    try
+                    {
+
+                        List<Task> tasks = new List<Task>();
+                        foreach (Task t in f.Tasks)
                         {
-                            i = t.sprintid;
+                            if (s != null && t.sprintid == s.sprintid)
+                            {
+                                tasks.Add(t);
+                            }
+                        }
+                        if (s != null)
+                        {
+                            s.Sprinttasks = tasks;
+                            f.CurrentSprint = s;
                         }
                     }
-                    */
-                    f.CurrentSprint = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
-
+                    catch { }
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        if (f.Tasks.Count != 0)
-                        {
-                            if (f.Tasks[0].HasAccess)
-                            {
-                                Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f), new burndown(f) }, Title = f.projectname, BackgroundColor = GeneralSettings.backgroundColor });
-                                b.IsEnabled = true;
-                            }
-                            else
-                            {
-                                Navigation.PushAsync(new JoinProjectPage(f));
-                                DisplayAlert(Globals.error, Globals.nojoin, Globals.okknop);
-                                b.IsEnabled = true;
-                            }
-                        }
-                        else Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint,f.Tasks,f), new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" }, new ContentPage() { Title = "Test" } }, Title = f.projectname , BackgroundColor = GeneralSettings.backgroundColor});
+                        //  List<Task> t = f.Tasks;
+                        if (hasAccess)
+                            Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f), new burndown(f) }, Title = f.projectname });
+                        else
+                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), }, Title = f.projectname, BackgroundColor = GeneralSettings.mainColor });
                     });
-                });
+
+                }, tokenSource2.Token);
+                tokenSource2.Cancel();
             }
             else
             {

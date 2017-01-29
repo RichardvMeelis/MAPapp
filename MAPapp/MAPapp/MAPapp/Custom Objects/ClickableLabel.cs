@@ -7,19 +7,17 @@ namespace MAPapp
 {
     class ClickableLabel : Label
     {
-        public ClickableLabel(int size)
-        {
-            TextColor = GeneralSettings.textColor;
-            FontSize = size;
-        }
+        //Contructor neemt methode naam mee voor de eventhandler
         public ClickableLabel(Action<String> myMethodName)
         {
             TextColor = GeneralSettings.textColor;
             this.GestureRecognizers.Add(new TapGestureRecognizer
             {
+                // Clickablelabel geeft een string terug, dit was handig
                 Command = new Command(() => myMethodName(this.Text)),
             });
         }
+        //In deze alternatieve methode zet je naast de methode ook de fontsize
         public ClickableLabel(Action<String> myMethodName, int size)
         {
             TextColor = GeneralSettings.textColor;

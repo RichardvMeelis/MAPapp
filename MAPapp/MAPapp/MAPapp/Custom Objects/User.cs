@@ -6,10 +6,12 @@ namespace MAPapp
 {
     public class User
     {
+        //De eigenschappen van gebruikers die lokaal worden opgeslagen
         String name;
         String LastName;
         String email;
         String company;
+
         public User(String name, String lastname, String email, String company)
         {
             this.name = name;
@@ -42,6 +44,8 @@ namespace MAPapp
             get { return email; }
             set { email = value; }
         }
+
+        //Lijst van users omzetten in een string
         public static String UserListToString(List<User> s)
         {
             if (s != null)

@@ -11,7 +11,7 @@ namespace MAPapp
 {
 	public class TestPage : ContentPage
 	{
-        ImageButton b;
+      //  ImageButton b;
         Image z;
         Image iim;
         Xamarin.Forms.Button c;Label s = new Label();
@@ -30,16 +30,16 @@ namespace MAPapp
             z.Scale = 0.75;
           
             z.GestureRecognizers.Add(tap);
-            b = new ImageButton() { BorderColor = Color.Red, BorderWidth = 10, BorderRadius = 10,Image = "InformatieButton.png" };
+     //       b = new ImageButton() { BorderColor = Color.Red, BorderWidth = 10, BorderRadius = 10,Image = "InformatieButton.png" };
           //  c = new Xamarin.Forms.Button() { BorderColor = Color.Blue, BorderWidth = 10, BorderRadius = 10, Text = "Dit is een test2", Image ="Icon.png"};
-            b.CompleteImage = new Image {Source = "Icon.png" };
+            //b.CompleteImage = new Image {Source = "Icon.png" };
             Content = new StackLayout {
                 Children = {
-                 z,  b,s,
+                 z,  s,
 				}
 			};
             
-            b.Clicked += B_Clicked;
+            //b.Clicked += B_Clicked;
           //  c.Clicked += C_Clicked;
 		}
 

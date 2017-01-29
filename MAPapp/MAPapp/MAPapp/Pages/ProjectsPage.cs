@@ -121,16 +121,7 @@ namespace MAPapp {
                      s = (Sprint)GetFromDatabase.GetSprint(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid);
                 }
                 catch { hasAccess = false; }
-                    /*
-                    int i = 0;
-                    foreach (Task t in f.Tasks)
-                    {
-                        if (t.sprintid > i)
-                        {
-                            i = t.sprintid;
-                        }
-                    }
-                    */
+
                     try
                     {
                         
@@ -157,19 +148,7 @@ namespace MAPapp {
                         else
                             Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f), }, Title = f.projectname, BackgroundColor = GeneralSettings.mainColor });
                     });
-                    /*
-                }
-                catch
-                {
-                    Device.BeginInvokeOnMainThread(() =>
-                    {
-                        if ((string)GetFromDatabase.GetTasks(GetFromDatabase.currentUserName, GetFromDatabase.currentToken, f.projectid) == " \"NO_PERMISSION\"") //Spatie voor\ is nodig
-                        {
-                            Navigation.PushAsync(new TabbedPage() { Children = { new JoinProjectPage(f),}, Title = f.projectname, BackgroundColor = GeneralSettings.mainColor });
-                        }
-                    });
-                }
-*/
+                  
             }, tokenSource2.Token);
             tokenSource2.Cancel();
             table.IsEnabled = true;

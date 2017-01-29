@@ -16,7 +16,7 @@ namespace MAPapp
         {
             foreach (InformationObject b in InfoObj)
                 //Vergelijkt de meegegeven string met de "titel" van het infromatie object 
-                if (s == b.ThreeInfoPoint)
+                if (s == b.Name)
                     //Zet de nieuwe pagina op de stack
                     await Navigation.PushAsync(new FivePointsMenu(b));
 
@@ -32,7 +32,7 @@ namespace MAPapp
             
             //Maakt iteratief ClickableLabels aan
             foreach (InformationObject b in InfoObj)
-                stack.Children.Add(new ClickableLabel(VolgendePagina,24) { Text = b.ThreeInfoPoint, TextColor = GeneralSettings.textColor, HorizontalOptions = LayoutOptions.CenterAndExpand });
+                stack.Children.Add(new ClickableLabel(VolgendePagina,24) { Text = b.Name, TextColor = GeneralSettings.textColor, HorizontalOptions = LayoutOptions.CenterAndExpand });
             ScrollView scroll = new ScrollView() { Content = stack };
             Content = scroll;
 			
