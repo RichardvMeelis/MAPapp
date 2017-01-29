@@ -18,8 +18,9 @@ namespace MAPapp
         public static Color fadedColor = new Color();
         public static Color btextColor = new Color();
      
-        
+        // Ruimte tussen randen scherm en content
         public static int pageMargin;
+
         public static void GetColors()
         { 
             mainColor = Color.FromRgb(250,132,35);

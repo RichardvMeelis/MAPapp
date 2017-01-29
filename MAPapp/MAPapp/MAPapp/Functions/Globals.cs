@@ -6,6 +6,8 @@ namespace MAPapp
 {
     public static class Globals
     {
+        // Alle tekst uit de app
+
         //Login
         public static string mail = "Email";
         public static string wachtwoord = "Wachtwoord";
