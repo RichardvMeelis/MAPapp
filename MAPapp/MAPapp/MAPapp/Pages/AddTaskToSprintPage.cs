@@ -8,9 +8,11 @@ using Xamarin.Forms;
 namespace MAPapp
 {
 	public class AddTaskToSprintPage : ContentPage
-	{
+	{   
         ListView table;
         Button addTask = new Button() {Text = Globals.knoptaaktoevoegenfinal , BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor};
+
+        //Er moet in de sprint gewerkt worden, waarvoor ook project informatie nodig is
         Sprint sprint;
         Project f;
        
@@ -23,11 +25,13 @@ namespace MAPapp
             List<Task> tasks = new List<Task>();
             foreach (Task t in projectTasks)
             {
+                //Als een taak nog niet af is en nog geen sprint heeft kan hij worden toegevoegd
                 if (t.sprintid == 0 && t.timecompleted == null)
                 {
                     tasks.Add(t);
                 }
             }
+            //Listview met alle taken die aan de sprint kunnen worden toegevoegd
             table = new ListView
             {
 
@@ -114,8 +118,10 @@ namespace MAPapp
                 f.CurrentSprint.Sprinttasks = tasks2;
                 
             }
-
+            //Push de nieuwe pagina op de stack
             await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f),new burndown(f) }, Title = f.projectname , BackgroundColor = GeneralSettings.backgroundColor});
+
+            //Verweider de oude pagina's uit de stack
             for (int counter = 1; counter <= 2; counter++)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[2]);

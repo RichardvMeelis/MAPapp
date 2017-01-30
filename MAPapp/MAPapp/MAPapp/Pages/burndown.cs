@@ -18,13 +18,16 @@ namespace MAPapp
 		{
             Title = Globals.burndowntitle;
             BackgroundColor = Color.White;
-            var plotModel = new PlotModel { Title = "Burndown Chart" };
-            Icon = "burndownicon.png";
 
-            LineSeries series1 = createLineSeries(project);
-            plotModel.Series.Add(series1);
-            //  plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, AbsoluteMinimum = 0,Minimum = 0, });
-            // plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, IsPanEnabled = false, AbsoluteMinimum = 0, Maximum = totalPointsMember, Minimum = 0, });
+            var plotModel = new PlotModel { Title = "Burndown Chart" };
+
+            //icon voor iphone tabbedpage
+            Icon = "burndownicon.png";
+            
+            //De punten aan de grafiek toevoegen 
+            plotModel.Series.Add(createLineSeries(project));
+            
+            //X-as met data als waarden
             plotModel.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, AbsoluteMinimum = DateTimeAxis.ToDouble(project.start_date)-1, StringFormat = "dd/MM" , Minimum = DateTimeAxis.ToDouble(project.start_date)-1,Maximum = DateTimeAxis.ToDouble(project.start_date.AddDays(5)),MajorStep = 1, MinorStep = 1 });
             plotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, IsPanEnabled = false, AbsoluteMinimum = 0, Maximum = totalPointsMember + 10, Minimum = 0 });   
             PlotView plot = new PlotView() {Model = plotModel,
@@ -37,9 +40,10 @@ namespace MAPapp
 		
 		}
 
+        //Creëren van punten in de grafiek uit de data in het project
         public static LineSeries createLineSeries(Project project)
         {
-            var series1 = new LineSeries
+            var lineSeries = new LineSeries
             {
                 MarkerType = MarkerType.Circle,
                 MarkerSize = 4,
@@ -52,30 +56,21 @@ namespace MAPapp
                 totalPoints += t.UBVPoints;
             }
            totalPointsMember = totalPoints;
-         //   series1.Points.Add(new DataPoint(DateTimeAxis.ToDouble(project.start_date),totalPoints));
-            List<Task> removeTasks = new List<Task>();
-            Boolean changed = false;
+            
+            // Alle dagen sinds de start van het project tot nu worden afgegaan  
             for (int i = 0; i <= DateTime.Today.Subtract(project.start_date).Days + 1; i++)
             {
                 foreach (Task t in project.Tasks)
                 {
-                   
+                    //Als de taak op de gecheckte dag is afgerond wordt de waarde van het totaal afgetrokken
                     if (t.timecompleted != null && t.timecompleted.Value.DayOfYear == project.start_date.AddDays(i).DayOfYear)
                     {
-                        
                         totalPoints -= t.UBVPoints;
-                        //project.Tasks.Remove(t);
-                      //  changed = true;
-                    }
-                    foreach (Task z in removeTasks)
-                    project.Tasks.Remove(z);
-                }
-             //   if (changed){
-                    series1.Points.Add(new DataPoint(DateTimeAxis.ToDouble(project.start_date.AddDays(i).Date), totalPoints) );
-              ////      changed = false;
-              //  }
+                    }       
+                }         
+                lineSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(project.start_date.AddDays(i).Date), totalPoints) );
             }
-            return series1;
+            return lineSeries;
         }
 	}
 }
