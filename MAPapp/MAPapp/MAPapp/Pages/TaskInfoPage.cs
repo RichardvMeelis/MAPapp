@@ -62,7 +62,7 @@ namespace MAPapp
             }
         }
 
-        private async void CompleteTask_Clicked(object sender, EventArgs e)
+        private void CompleteTask_Clicked(object sender, EventArgs e)
         {
             try
             {

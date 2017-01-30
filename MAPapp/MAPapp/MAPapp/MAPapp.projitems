@@ -21,7 +21,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Functions\GeneralSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\ContactDataBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Functions\Sort.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)NewSprintPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountRecoveryPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AccountSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AddTaskToSprintPage.cs" />
@@ -34,6 +33,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\MasterPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\newAccount.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\NewProjectPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\NewSprintPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\NewTaskPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\PokerPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\ProjectInfoPage.cs" />
@@ -43,14 +43,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\TextPageInformation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\VeranderEmail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\VeranderWachtwoord.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\LoginPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>
