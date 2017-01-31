@@ -2327,7 +2327,6 @@ C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debu
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\res\drawable\burndownicon.png
 C:\Users\Sam Hesselmans\Source\Repos\MAPapp2\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.dll.mdb
 C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.csprojResolveAssemblyReference.cache
-C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\obj\Debug\MAPapp.Droid.Pages.LoginPage.xaml.g.cs
 C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll.config
 C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.dll
 C:\Users\samca\Source\Repos\MAPapp4\MAPapp\MAPapp\MAPapp.Droid\bin\Debug\MAPapp.Droid.pdb

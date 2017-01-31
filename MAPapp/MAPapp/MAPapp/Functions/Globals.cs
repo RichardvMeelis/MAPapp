@@ -86,6 +86,7 @@ namespace MAPapp
         public static string ACbedrijf = "Bedrijf:";
         public static string ACveranderW8 = "Verander Wachtwoord";
         public static string ACveranderEmail = "Verander Email";
+        public static string aclogout = "Log uit";
         // veranderWachtwoord pagina
         public static string VWhuidigwachtwoord_Label = "Huidig wachtwoord:";
         public static string VWhuidigwachtwoord_Entery = "huidig wachtwoord";

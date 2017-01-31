@@ -73,6 +73,9 @@ namespace MAPapp {
                 case "completeTask":
                     url += "_MAP_REST_REQUEST_=_MAP_COMPLETE_TASK_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName + "&_MAP_TASK_ID_=" + taskid + "&_MAP_PROJECT_ID_=" + projectId; ;
                     break;
+                case "logOut":
+                    url += "_MAP_REST_REQUEST_=_MAP_TOKEN_DESTROY_&_MAP_AUTH_TOKEN_=" + token + "&_MAP_USERNAME_=" + userName;
+                    break;
             }
             return url;
         }
@@ -204,6 +207,10 @@ namespace MAPapp {
         public static object completeTask(String Username, String token, int taskID, int projectID)
         {
             return JsonConvert.DeserializeObject<String>(getJsonData(Username,"completeTask",token: token,taskid: taskID,projectId: projectID));
+        }
+        public static object logOut(String Username, String token)
+        {
+            return JsonConvert.DeserializeObject<String>(getJsonData(Username, "logOut", token: token));
         }
 
 

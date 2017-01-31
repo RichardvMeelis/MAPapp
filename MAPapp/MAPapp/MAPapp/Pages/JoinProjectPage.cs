@@ -19,11 +19,9 @@ namespace MAPapp
             Title = Globals.tabprojectinfo;
             BackgroundColor = GeneralSettings.backgroundColor;
             List<Task> tasks = s.Tasks;
-            // tasks.Sort();
+           
             if (tasks != null)
-                tasks = Sort.SortTasks(tasks);
-            //   App.page.Title = "Projects";
-
+                tasks = Sort.SortTasks(tasks);           
 
            b = new Button()
             {

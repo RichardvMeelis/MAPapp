@@ -16,9 +16,11 @@ namespace MAPapp
         {
             BackgroundColor = GeneralSettings.backgroundColor;
             Title = "Mijn Account";
-               //Zet de currentUser in de ContactDateBase klasse
-                ContactDataBase.currentUser =  (User)ContactDataBase.GetUserInfo(ContactDataBase.currentUserName, ContactDataBase.currentToken); 
-                
+         
+            //Zet de currentUser in de ContactDateBase klasse
+            ContactDataBase.currentUser =  (User)ContactDataBase.GetUserInfo(ContactDataBase.currentUserName, ContactDataBase.currentToken);
+            Button logOut = new Button() { Text = Globals.aclogout , TextColor = GeneralSettings.btextColor, BackgroundColor = GeneralSettings.mainColor};
+            logOut.Clicked += LogOut;
                 // het creëren van een Grid
                 var grid1 = new Grid { RowSpacing = 1, ColumnSpacing = 1 };
 
@@ -32,18 +34,18 @@ namespace MAPapp
                 grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                 grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                 grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                grid1.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
 
-            // 3 colums toevoegen aan de grid
-            grid1.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                // 3 colums toevoegen aan de grid
+                grid1.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                 grid1.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                 grid1.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
 
@@ -67,11 +69,18 @@ namespace MAPapp
                 Grid.SetColumnSpan(veranderWachtwoord, 2);
                 Grid.SetColumnSpan(veranderEmail, 2);
 
-                Content = grid1;
+            Content = new StackLayout { Children = { grid1, logOut } };
             }
 
-            // ga naar NewEmail page
-            public async void veranderemail(string s)
+        private void LogOut(object sender, EventArgs e)
+        {
+          String loginResult =   (string)ContactDataBase.logOut(ContactDataBase.currentUserName,ContactDataBase.currentToken);
+           if (loginResult == "TK_DESTROY_SUCCESS")
+            App.Current.MainPage = new Login();
+        }
+
+        // ga naar NewEmail page
+        public async void veranderemail(string s)
             {
                 await Navigation.PushAsync(new VeranderEmail ());
             }
