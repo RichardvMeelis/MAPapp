@@ -158,8 +158,20 @@ namespace MAPapp {
             catch { return null; }
         }
 
-//-------------------------------------------------------------------------CONTACT MET DATABASE ZONDER INFORMATIE OPHALEN-----------------------------------------------------------------------------------------------------------------------------------------------------------
-        
+        public static object GetUserInfo(String userName, String token)
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<List<User>>(getJsonData(userName, "getUserInfo", token: token))[0];
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        //-------------------------------------------------------------------------CONTACT MET DATABASE ZONDER INFORMATIE OPHALEN-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
         //Omdat deze methodes een string returnen is er geen try/catch nodig, want de JsonConvert slaagd altijd
         public static object JoinProject(String userName, String token, int projectID)
         {
@@ -184,10 +196,6 @@ namespace MAPapp {
         public static object addTaskToProject(String userName, String token, String taskName, String taskDescription, int projectId, int rroevalue, int jspoints, int Ubvalue, int timeCriticality, int uncCertainty)
         {
             return JsonConvert.DeserializeObject<String>(getJsonData(userName, "addTaskToProject", token: token, projectId: projectId, taskName: taskName,taskDescription: taskDescription,jspoints: jspoints,rroePoints: rroevalue,timeCriticality: timeCriticality,Ucvalue: uncCertainty,ubvValue: Ubvalue));
-        }
-        public static object GetUserInfo(String userName, String token)
-        {
-            return JsonConvert.DeserializeObject<List<User>>(getJsonData(userName, "getUserInfo", token: token))[0];
         }
         public static object createProject(String userName, String token, String projectName, String projectDescription, DateTime startDate)
         {

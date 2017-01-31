@@ -75,8 +75,11 @@ namespace MAPapp
         private void LogOut(object sender, EventArgs e)
         {
           String loginResult =   (string)ContactDataBase.logOut(ContactDataBase.currentUserName,ContactDataBase.currentToken);
-           if (loginResult == "TK_DESTROY_SUCCESS")
-            App.Current.MainPage = new Login();
+            if (loginResult == "TK_DESTROY_SUCCESS")
+            {
+                App.Current.MainPage = new NavigationPage(new Login()) { BarBackgroundColor = GeneralSettings.mainColor, Title = "test", BarTextColor = GeneralSettings.textColor };
+
+            }
         }
 
         // ga naar NewEmail page

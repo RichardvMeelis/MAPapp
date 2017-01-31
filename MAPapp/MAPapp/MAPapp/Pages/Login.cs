@@ -31,6 +31,7 @@ namespace MAPapp {
             grid.Children.Add(Logo = new Image() { Source = "IconOranje.png" }, 1, 0);
             BackgroundColor = GeneralSettings.backgroundColor;
 
+            
             //Invoervelden worden toegewezen en eventuele opgeslagen waarden worden ingeladen
             userName = new Entry() { Placeholder = "Email", TextColor = GeneralSettings.textColor, PlaceholderColor = GeneralSettings.fadedColor, BackgroundColor = GeneralSettings.entryColor};
             userName.Text = UserName;
