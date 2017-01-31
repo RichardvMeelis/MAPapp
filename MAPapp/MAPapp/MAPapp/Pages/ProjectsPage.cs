@@ -12,25 +12,18 @@ namespace MAPapp {
         {
             Title = Globals.paginaprojecten;
             BackgroundColor = GeneralSettings.backgroundColor;
+            //Pagina icon
             Icon = "Projecten.png";
-
-
-            // String s = GetFromDatabase.SingIn("user%40test.com", "testtest");
-            //System.Diagnostics.Debug.WriteLine(s);
-            //  SaveTestData.projects = Sort.SortProjects(SaveTestData.projects);
-
+            //Nieuwe tabel voor projecten
             table = new ListView
             {
-
                 VerticalOptions = LayoutOptions.FillAndExpand,
-
                 ItemsSource = projects,
                 HasUnevenRows = true,
 
                 ItemTemplate = new DataTemplate(() =>
                 {
                     // Create views with bindings for displaying each property.
-
                     Label nameLabel = new Label();
                     nameLabel.SetBinding(Label.TextProperty, "projectname");
                     nameLabel.FontSize = 20;
@@ -50,14 +43,12 @@ namespace MAPapp {
                             null, null, Globals.datumeind + ": {0: dd/MM/yyyy}"));
                     endingdateLabel.TextColor = GeneralSettings.textColor;
 
-
-                   // System.Diagnostics.Debug.WriteLine("-------------------------------------------------------------------------------------------------------" + endingdateLabel.Text);
                     if (nameLabel.Text == "Project 1 - Blink")
                     {
                         BackgroundColor = Color.Gray;
                     }
 
-
+                    //Nieuwe ViewCell met stacklayout
                     return new ViewCell
                     {
                         View = new StackLayout
@@ -65,6 +56,7 @@ namespace MAPapp {
                             Margin = GeneralSettings.pageMargin,
                             Padding = new Thickness(0, 2),
                             Orientation = StackOrientation.Horizontal,
+                            //Content toevoegen aan stacklayout
                             Children =
                                 {
 
@@ -87,10 +79,10 @@ namespace MAPapp {
             };
 
             table.ItemTapped += Table_ItemTapped;
-
+            //Button nieuw project
             Button b = new Button() { Text = Globals.knopnieuwproject, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor };
             b.Clicked += B_Clicked;
-
+            //Content toevoegen aan stacklayout
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -100,7 +92,7 @@ namespace MAPapp {
                 }
             };
         }
-
+        //Push new project page
         private async void B_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewProjectPage());
@@ -115,6 +107,7 @@ namespace MAPapp {
             {
                 Boolean hasAccess = true;
                 Sprint s = null;
+                //Krijg taken en sprints van database
                 try
                 {
                     f.Tasks = (List<Task>)ContactDataBase.GetTasks(ContactDataBase.currentUserName, ContactDataBase.currentToken, f.projectid);
@@ -124,7 +117,7 @@ namespace MAPapp {
 
                     try
                     {
-                        
+                        //Voeg taken en sprints toe
                         List<Task> tasks = new List<Task>();
                         foreach (Task t in f.Tasks)
                         {
@@ -140,9 +133,9 @@ namespace MAPapp {
                         }
                     }
                     catch { }
-                    Device.BeginInvokeOnMainThread(() =>
+                //Laat normale pagina of join pagina zien (afhankelijk van hasAccess)
+                Device.BeginInvokeOnMainThread(() =>
                     {
-                        //  List<Task> t = f.Tasks;
                         if(hasAccess)
                         Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f),new burndown(f) }, Title = f.projectname });
                         else

@@ -9,7 +9,6 @@ using Xamarin.Forms;
 namespace MAPapp {
     public class SprintPage : ContentPage {
         ListView table;
-        
         Sprint givenSprint;
         List<Task> givenTasks = new List<Task>();
         Project f;
@@ -22,8 +21,9 @@ namespace MAPapp {
             List<Task> tasks = new List<Task>();
             Title = Globals.paginasprint;
             BackgroundColor = GeneralSettings.backgroundColor;
+            //Pagina icon
             Icon = "Calender.png";
-
+            //Controleren of er taken zijn in de sprint
             if (s != null && s.Sprinttasks != null)
             {
                 tasks = s.Sprinttasks;
@@ -31,7 +31,6 @@ namespace MAPapp {
             }
              table = new ListView
             {
-
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 ItemsSource = tasks,
                 HasUnevenRows = true,
@@ -43,21 +42,20 @@ namespace MAPapp {
                     nameLabel.SetBinding(Label.TextProperty, "taskname");
                     nameLabel.FontSize = 20;
                     nameLabel.TextColor = GeneralSettings.textColor;
-
+                    //Label met binding voor Job Size
                     Label CompanyLabel = new Label();
                     CompanyLabel.SetBinding(Label.TextProperty,
                         new Binding("JSPoints", BindingMode.OneWay,
                             null, null, "Job Size: {0:d}"));
                     CompanyLabel.TextColor = GeneralSettings.textColor;
-
+                    //Label met binding voor UBV
                     Label importancePointsLabel = new Label();
                     importancePointsLabel.SetBinding(Label.TextProperty,
                         new Binding("UBVPoints", BindingMode.OneWay,
                             null, null, "User- business value: {0:d}"));
                     importancePointsLabel.TextColor = GeneralSettings.textColor;
 
-
-                    // Return an assembled ViewCell.
+                    // Return ViewCell.
                     return new ViewCell
                     {
                         View = new StackLayout
@@ -86,7 +84,7 @@ namespace MAPapp {
                     };
                 })
             };
-
+            //Nieuwe button voor taak toevoegen
             Button b = new Button()
             {
                 BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor
@@ -96,6 +94,7 @@ namespace MAPapp {
             b.Clicked += B_Clicked;
 
             Label sprintName, sprintStartDate, sprintDuration, sprintTimeRemaining;
+            //Content aanmaken
             if(s!= null)
             {
                 sprintName = new Label {Text ="Name: "+ s.sprintname, TextColor = GeneralSettings.textColor};
@@ -110,6 +109,7 @@ namespace MAPapp {
                 sprintStartDate = new Label { Text = "", TextColor = GeneralSettings.textColor };
                 sprintTimeRemaining = new Label { Text = "" , TextColor = GeneralSettings.textColor};
             }
+            //Content toevoegen aan stacklayout
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -124,17 +124,18 @@ namespace MAPapp {
             };
             table.ItemTapped += Table_ItemTapped;
         }
-
+        //Voeg taak toe aan sprint
         private async void B_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddTaskToSprintPage(givenSprint,givenTasks, f));
         }
-
+        //Time remaining
         public int TimeRemaining(DateTime startDate, int duration)
         {
            DateTime adjusted =  startDate.AddDays(duration);
             return adjusted.Subtract(DateTime.Today).Days;
         }
+        //Push task info page
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             table.IsEnabled = false;
