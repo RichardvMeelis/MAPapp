@@ -19,7 +19,7 @@ namespace MAPapp
             project = f;
             //Button voor nieuwe sprint
             Button newSprint = new Button() {BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor, Text = "Aanmaken" };
-            //Voor het in en uitschakelen van de createNewUser knop
+            //Voor het in en uitschakelen van de knop
             newSprint.Clicked += newSprintClicked;
             Title = "Nieuwe Sprint";
             //Pagina icon

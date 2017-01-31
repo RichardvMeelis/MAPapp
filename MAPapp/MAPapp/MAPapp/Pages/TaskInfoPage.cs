@@ -10,6 +10,7 @@ namespace MAPapp
 {
 	public class TaskInfoPage : ContentPage
 	{
+        //Buttons aanmaken
         Button jointTask = new Button() { Text = "Ga bij de taak" , BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor};
         Button completeTask = new Button() { Text = Globals.afrondenknop, BackgroundColor = GeneralSettings.mainColor,TextColor = GeneralSettings.btextColor };
         Task t;
@@ -19,29 +20,23 @@ namespace MAPapp
             t = givenTask;
             BackgroundColor = GeneralSettings.backgroundColor;
             Title = t.taskname;
-
+            //Nieuwe label voor user
             userLabel = new Label() { HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, TextColor = GeneralSettings.textColor };
-           
-
             if (t.firstname != null && t.lastname != null)
                 jointTask.IsEnabled = false;
             else
                 completeTask.IsEnabled = false;
-
+            //Voor het in en uitschakelen van de knop
             jointTask.Clicked += JointTask_Clicked;
             completeTask.Clicked += CompleteTask_Clicked;
-
-           
+            //Nieuwe stacklayout
             StackLayout stack;
-            
-
             Content = stack = new StackLayout {
                 Margin = GeneralSettings.pageMargin,
-				Children = {
-
+                //Content aanmaken en toevoegen aan de stacklayout
+                Children = {
 					new Label { Text = t.taskname, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center,TextColor =  GeneralSettings.textColor },
-                    new Label { Text = "Beschrijving: " + t.taskdescription, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center,TextColor =  GeneralSettings.textColor },
-                 
+                    new Label { Text = "Beschrijving: " + t.taskdescription, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center,TextColor =  GeneralSettings.textColor },          
                     new Label { Text = "Jobsize: " + t.JSPoints, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center,TextColor =  GeneralSettings.textColor },
                     new Label { Text = "RROE value: " + t.RroeValue, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center, TextColor =  GeneralSettings.textColor},
                     new Label { Text = "Timecriticality: " + t.TimeCriticality, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center,TextColor =  GeneralSettings.textColor },
@@ -53,6 +48,7 @@ namespace MAPapp
 
                 }
             };
+            //User van de taak laten zien
             if (t.firstname != null && t.lastname != null) {
                 userLabel.Text = "Wordt gedaan door: " + t.firstname + " " + t.lastname  ;
             }
@@ -61,7 +57,7 @@ namespace MAPapp
                 userLabel.Text = "Wordt gedaan door: T.B.D ";
             }
         }
-
+        //Complete task
         private void CompleteTask_Clicked(object sender, EventArgs e)
         {
             try
@@ -71,6 +67,7 @@ namespace MAPapp
             }
             catch { }
         }
+        //Refresh de pagina
         private async void refreshPage()
         {
             int projectID = t.projectid;
@@ -107,15 +104,14 @@ namespace MAPapp
 
                     Navigation.RemovePage(Navigation.NavigationStack[2]);
                 }
-                //b.IsEnabled = true;
             }
             catch
             {
+                //error opvangen
                 await DisplayAlert(Globals.taakallerttitel, Globals.taakallertmessage, "ok");
-                //  b.IsEnabled = true;
-
             }
         }
+        //Join task
         private void JointTask_Clicked(object sender, EventArgs e)
         {      
             if (t.lastname == null && t.firstname == null)
