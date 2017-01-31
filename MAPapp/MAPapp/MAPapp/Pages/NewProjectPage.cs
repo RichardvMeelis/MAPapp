@@ -20,9 +20,12 @@ namespace MAPapp {
         public NewProjectPage()
         {
             BackgroundColor = GeneralSettings.backgroundColor;
+            //Maak scrollview voor project info
             ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label { Text = Globals.projnaam, TextColor = GeneralSettings.textColor }, nameEntry, new Label { Text = Globals.beschrijving, TextColor = GeneralSettings.textColor }, descriptionEntry, new Label { Text = Globals.datumbegin, TextColor = GeneralSettings.textColor }, start, new Label { Text = Globals.datumeind, TextColor = GeneralSettings.textColor }, end } } };
+            //Button voor nieuw project
             b = new Button() { Text = Globals.knopaanmaken, HorizontalOptions = LayoutOptions.Center, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor };
             b.Clicked += B_Clicked;
+            //Voeg content toe aan stacklayout
             Content = new StackLayout
             {
                 Margin = GeneralSettings.pageMargin,
@@ -35,12 +38,12 @@ namespace MAPapp {
         private async void B_Clicked(object sender, EventArgs e)
         {
             b.IsEnabled = false;
+            //VraagSam
             //Toevoegen van een nieuw project aan de test data (Tijdelijk/niet helemaal compleet)
-            // SaveTestData.projects.Add(new Project(start.Date, end.Date, nameEntry.Text, "Test Company", descriptionEntry.Text) { Users = new List<User> { new User("Sam", "test@test.com", "test") } });
             ContactDataBase.createProject(ContactDataBase.currentUserName, ContactDataBase.currentToken, nameEntry.Text, descriptionEntry.Text, start.Date);
             await Navigation.PushAsync(new ProjectsPage((List<Project>)ContactDataBase.GetProjects(ContactDataBase.currentUserName, ContactDataBase.currentToken)), false);
 
-            // Het verwijderen van de oude pages in de stack
+            //Het verwijderen van de oude pages in de stack
             for (int counter = 1; counter <= 2; counter++)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[1]);

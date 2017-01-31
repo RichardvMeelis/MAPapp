@@ -15,31 +15,11 @@ namespace MAPapp
         
 		public PokerPage ()
 		{
+            //Maak fontsize op basis van schermgrootte
             int fontSize = App.ScreenWidth / 30;
             Title = "Planningpoker";
             BackgroundColor = GeneralSettings.backgroundColor;
-            /*
-            var grid = new Grid();
-            //Grid defenitions toevoegen
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-         
-            //Nieuwe labels toevoegen aan het grid
-            
-            grid.Children.Add(new ClickableLabel(OnLabelClicked,fontSize) { Text = "1" }, 0, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "2" }, 1, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "3" }, 2, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "4" }, 3, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "5" }, 4, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "6" }, 5, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "7" }, 6, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "8" }, 7, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "9" }, 8, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "10"}, 9, 5);
-            grid.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = "?" }, 10,5);
-            */
+            //Maak stacklayout voor de nummers
             StackLayout stack = new StackLayout { Orientation = StackOrientation.Horizontal };
             stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp1 });
             stack.Children.Add(new ClickableLabel(OnLabelClicked, fontSize) { Text = Globals.pp2 });
@@ -59,6 +39,7 @@ namespace MAPapp
                 TextColor = GeneralSettings.textColor
             };
 
+            //Voeg content toe aan stacklayout
             Content = new StackLayout {
                 Margin = GeneralSettings.pageMargin,
                 VerticalOptions = LayoutOptions.Center,
@@ -67,6 +48,7 @@ namespace MAPapp
 			};
 		}
 
+        //Laat getal zien waar op gedrukt is
         public void OnLabelClicked(String s)
         {
             label12.Text = s;

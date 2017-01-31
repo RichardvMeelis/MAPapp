@@ -61,7 +61,7 @@ namespace MAPapp
                     importancePointsLabel.TextColor = GeneralSettings.textColor;
 
 
-                   
+                   //Maak viewcell met stacklayout
                     return new ViewCell
                     {
                         View = new StackLayout
@@ -98,6 +98,7 @@ namespace MAPapp
             addTask.IsEnabled = true;
         }
 
+        //Taak toevoegen aan de sprint 
         private async void AddTaskClicked(object sender, EventArgs e)
         {
             Task s = (Task)table.SelectedItem;

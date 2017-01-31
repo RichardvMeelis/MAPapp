@@ -9,6 +9,7 @@ using Android.OS;
 
 namespace MAPapp.Droid 
 {
+    //Mianlauncher naar False voor override
 	[Activity (Label = "MAPapp", Icon = "@drawable/icon", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{

@@ -12,6 +12,7 @@ namespace MAPapp
 		public TextPageInformation (string s)
 		{
             BackgroundColor = GeneralSettings.backgroundColor;
+            //Voeg content toe aan stacklayout
 			Content = new StackLayout {
                 Margin = GeneralSettings.pageMargin,
 				Children = {

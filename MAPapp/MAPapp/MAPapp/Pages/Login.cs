@@ -15,35 +15,30 @@ namespace MAPapp {
         Button signIn;
         Switch rememberMe;
         Image Logo;
-
+        //Voeg ActivityIndicator toe
         ActivityIndicator working = new ActivityIndicator() { Color = GeneralSettings.mainColor };
         public Login()
         {
             Title = "Login";
+            //Haal navigationbar weg
             NavigationPage.SetHasNavigationBar(this, false);
+            //Maak grid voor knoppen
             var grid = new Grid();
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(0.1, GridUnitType.Star) });
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             grid.Children.Add(Logo = new Image() { Source = "IconOranje.png" }, 1, 0);
-
-  
-
             BackgroundColor = GeneralSettings.backgroundColor;
+
             //Invoervelden worden toegewezen en eventuele opgeslagen waarden worden ingeladen
             userName = new Entry() { Placeholder = "Email", TextColor = GeneralSettings.textColor, PlaceholderColor = GeneralSettings.fadedColor, BackgroundColor = GeneralSettings.entryColor};
             userName.Text = UserName;
             password = new Entry() { Placeholder = "Password", IsPassword = true, TextColor = GeneralSettings.textColor, PlaceholderColor = GeneralSettings.fadedColor, BackgroundColor = GeneralSettings.entryColor };
             password.Text = Password;
-
-           
-            /////////////////////////////////
-           // working.IsRunning = true;
+            //Laat ActivityIndicator werken
             working.IsEnabled = true;
             working.BindingContext = this;
-          //  working.SetBinding(ActivityIndicator.IsVisibleProperty, "IsBusy");
-            /////////////////////////////////
             
             //Path voor het opslaan van de switch stand
             var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -64,7 +59,7 @@ namespace MAPapp {
             //Voor het in en uitschakelen van de signIn button
             userName.TextChanged += EntryTextChanged;
             password.TextChanged += EntryTextChanged;
-
+            //Warning text en login button
             warning = new Label() { TextColor = Color.Red, Text = "" };
             signIn = new Button() { Text = Globals.login, IsEnabled = false, BackgroundColor = GeneralSettings.backgroundColor, BorderWidth = 2, BorderColor = GeneralSettings.mainColor, TextColor = GeneralSettings.mainColor };
             signIn.Clicked += SignInClicked;
@@ -74,7 +69,7 @@ namespace MAPapp {
             {
                 signIn.IsEnabled = true;
             }
-
+            //Voeg content toe aan stacklayout
             Content = new StackLayout
             {Margin = GeneralSettings.pageMargin,
                 Children = {grid,
@@ -132,7 +127,6 @@ namespace MAPapp {
                         ContactDataBase.currentToken = s1;
                         ContactDataBase.currentUserName = userName.Text;
                         Application.Current.MainPage = new NavigationPage(new HomePage()) {BarBackgroundColor = GeneralSettings.mainColor,BarTextColor = GeneralSettings.btextColor  };
-                        //this.working.IsRunning = false;
                     }
                     else
                     {

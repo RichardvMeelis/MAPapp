@@ -72,6 +72,7 @@ namespace MAPapp
             Content = new StackLayout { Children = { grid1, logOut } };
             }
 
+        //Uitloggen (Destroy token)
         private void LogOut(object sender, EventArgs e)
         {
           String loginResult =   (string)ContactDataBase.logOut(ContactDataBase.currentUserName,ContactDataBase.currentToken);

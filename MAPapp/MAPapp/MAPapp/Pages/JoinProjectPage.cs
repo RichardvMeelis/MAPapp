@@ -19,18 +19,20 @@ namespace MAPapp
             Title = Globals.tabprojectinfo;
             BackgroundColor = GeneralSettings.backgroundColor;
             List<Task> tasks = s.Tasks;
-           
-            if (tasks != null)
-                tasks = Sort.SortTasks(tasks);           
 
-           b = new Button()
+            //Sorteer de taken op formule
+            if (tasks != null)
+                tasks = Sort.SortTasks(tasks);
+
+            //Maak joinProject button
+            b = new Button()
             {
                 BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor
             };
             b.Text = Globals.paginajoinproject;
             b.Clicked += B_Clicked;
 
-            //  BackgroundColor = Color.White;
+            //Voeg content toe aan stacklayout
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -46,15 +48,17 @@ namespace MAPapp
             };
         }
 
-
+        //Voeg gebruiker toe aan project
         private async void B_Clicked(object sender, EventArgs e)
         {
             b.IsEnabled = false;
             string userName = ContactDataBase.currentUserName;
             string token = ContactDataBase.currentToken;
             int projectID = ding.projectid;
+            //Controleer JOIN_PROJECT_SUCCESS
             if ((string)ContactDataBase.JoinProject(userName, token, projectID) == "JOIN_PROJECT_SUCCESS")
             {
+                //Popup success
                 await DisplayAlert(Globals.joinpassname, Globals.joinpass, Globals.okknop);
                 Project f = ding;
                 var tokenSource2 = new CancellationTokenSource();
@@ -62,6 +66,7 @@ namespace MAPapp
                 {
                     Boolean hasAccess = true;
                     Sprint s = null;
+                    //Krijg taken en sprints van database
                     try
                     {
                         f.Tasks = (List<Task>)ContactDataBase.GetTasks(ContactDataBase.currentUserName, ContactDataBase.currentToken, f.projectid);
@@ -71,7 +76,7 @@ namespace MAPapp
 
                     try
                     {
-
+                        //Voeg taken en sprints toe
                         List<Task> tasks = new List<Task>();
                         foreach (Task t in f.Tasks)
                         {
@@ -87,9 +92,9 @@ namespace MAPapp
                         }
                     }
                     catch { }
+                    //Laat normale pagina of join pagina zien (afhankelijk van hasAccess)
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        //  List<Task> t = f.Tasks;
                         if (hasAccess)
                             Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f), new burndown(f) }, Title = f.projectname });
                         else
@@ -99,6 +104,7 @@ namespace MAPapp
                 }, tokenSource2.Token);
                 tokenSource2.Cancel();
             }
+            //error JOIN_PROJECT niet gelukt
             else
             {
                 await DisplayAlert(Globals.error, Globals.joinfail, Globals.okknop);
@@ -107,6 +113,7 @@ namespace MAPapp
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
+        //Push TaskInfo page
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             await Navigation.PushAsync(new TaskInfoPage((Task)e.Item));

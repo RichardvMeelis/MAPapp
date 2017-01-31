@@ -18,12 +18,13 @@ namespace MAPapp
             ding = s;
             Title = Globals.tabprojectinfo;
             BackgroundColor = GeneralSettings.backgroundColor;
+            //Maak lijst van taken
             List<Task> tasks = s.Tasks;
-            // tasks.Sort();
             if(tasks != null)
-           tasks =  Sort.SortTasks(tasks);
+            tasks =  Sort.SortTasks(tasks);
+            //Pagina icon
             Icon = "Projecten.png";
-            //   App.page.Title = "Projects";
+            //Zorgt voor goede kleurcodering van taken
             foreach(Task t in tasks)
             {
                 if (t.timecompleted == null && t.firstname == null && t.lastname == null)
@@ -37,15 +38,12 @@ namespace MAPapp
             }
              table = new ListView
             {
-
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 ItemsSource = tasks,
                 HasUnevenRows = true,
-
                 ItemTemplate = new DataTemplate(() =>
                 {
-                    // Create views with bindings for displaying each property.
-                    
+                    //Maakt de labels correct aan
                     Label nameLabel = new Label();
                     nameLabel.SetBinding(Label.TextProperty, "taskname");
                     nameLabel.FontSize = 20;
@@ -62,24 +60,15 @@ namespace MAPapp
                         new Binding("UBVPoints", BindingMode.OneWay,
                             null, null, Globals.ubv + ": {0:d}"));
                     importancePointsLabel.TextColor = GeneralSettings.textColor;
-
-////////////////////////////////////////////////////////////////////////
+                 
+                    //Boxview voor kleurcodering
                     BoxView boxView = new BoxView();
-                    //boxView.Opacity = 0.5;
                     boxView.HorizontalOptions = LayoutOptions.Fill;
                     boxView.VerticalOptions = LayoutOptions.Fill;
                     boxView.WidthRequest = 8;
                     boxView.SetBinding(BoxView.ColorProperty, "CompletedColor");
-//////////////////////////////////////////////////////////////////////////////////
-                    //table.BackgroundColor = boxView.BackgroundColor;
-                    //Label birthdayLabel = new Label();
-                    //birthdayLabel.Text = "test";
-                    //birthdayLabel.TextColor = Color.Black;
 
-
-
-
-                    // Return an assembled ViewCell.
+                    //Voeg content toe aan stacklayout
                     return new ViewCell
                     {
                         View = new StackLayout
@@ -98,7 +87,6 @@ namespace MAPapp
                                         Children =
                                         {
                                             nameLabel,
-                                            //birthdayLabel,
                                             JSLabel,importancePointsLabel,
 
                                         }
@@ -109,31 +97,29 @@ namespace MAPapp
                 })
             };
             table.VerticalOptions = LayoutOptions.StartAndExpand;
+            //Button voor nieuwe taak
             b = new Button() {BackgroundColor = GeneralSettings.mainColor,
                 Text = Globals.knopnieuwetaak, TextColor = GeneralSettings.btextColor
-            };
-           
+            };     
             b.Clicked += B_Clicked;
             
            
-            //  BackgroundColor = Color.White;
+            //Voeg content toe aan stacklayout
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
-
-                Children = {  new Label {Text = Globals.datumbegin + " " +  s.start_date.ToString("dd/MM/yyyy "), TextColor = GeneralSettings.textColor
-        },
-                                    new Label {Text = Globals.datumeind + " " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor =  GeneralSettings.textColor  },
-                                    new Label {Text = Globals.deelnemers + " " + User.UserListToString(s.Users), TextColor =  GeneralSettings.textColor  },
-
-                    new ScrollView() {Content = new Label {Text = Globals.beschrijving + " " + s.projectdescription, TextColor =  GeneralSettings.textColor}},
+                //Maak content aan
+                Children = {  new Label {Text = Globals.datumbegin + " " +  s.start_date.ToString("dd/MM/yyyy "), TextColor = GeneralSettings.textColor},
+                              new Label {Text = Globals.datumeind + " " +  s.EndingDate.ToString("dd/MM/yyyy "), TextColor =  GeneralSettings.textColor  },
+                              new Label {Text = Globals.deelnemers + " " + User.UserListToString(s.Users), TextColor =  GeneralSettings.textColor  },
+                              new ScrollView() {Content = new Label {Text = Globals.beschrijving + " " + s.projectdescription, TextColor =  GeneralSettings.textColor}},
                     table, b  
                 }
             };
             table.ItemTapped += Table_ItemTapped;
         }
 
-       
+       //Afhandelen nieuwe taak pagina
         private async void B_Clicked(object sender, EventArgs e)
         {
             b.IsEnabled = false;
@@ -141,6 +127,7 @@ namespace MAPapp
             b.IsEnabled = true;
         }
 
+        //Afhandelen wanneer er op een taak gedrukt wordt
         private async void Table_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             table.IsEnabled = false;
@@ -148,6 +135,6 @@ namespace MAPapp
             table.IsEnabled = true;
         }
     }
-	}
+}
 
 

@@ -16,7 +16,6 @@ namespace MAPapp
 		{
             
         // The root page of your application
-        //SaveTestData.CreateTestData();
             GeneralSettings.GetColors();
             try
             {

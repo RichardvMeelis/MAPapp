@@ -48,11 +48,11 @@ namespace MAPapp {
         {
             b.IsEnabled = false;
             int projectID;
+            //VraagSam
             //Toevoegen van een nieuw project aan de test data (Tijdelijk/niet helemaal compleet)
             try
             {
                 projectID = saved.projectid;
-                // saved.Tasks.Add(new Task(new DateTime(), nameEntry.Text, descriptionEntry.Text, int.Parse(jobSizeEntry.Text), int.Parse(userBusinessValueEntry.Text), 0, null, int.Parse(timeCriticalityEntry.Text), int.Parse(rroeValueEntry.Text), int.Parse(userBusinessValueEntry.Text)));
                 ContactDataBase.addTaskToProject(ContactDataBase.currentUserName, ContactDataBase.currentToken, nameEntry.Text, descriptionEntry.Text, project.projectid, int.Parse(rroeValueEntry.Text), int.Parse(jobSizeEntry.Text), int.Parse(userBusinessValueEntry.Text), int.Parse(timeCriticalityEntry.Text), int.Parse(uncertaintyEntry.Text));
                 List<Project> projects = (List<Project>)ContactDataBase.GetProjects(ContactDataBase.currentUserName, ContactDataBase.currentToken);
                 foreach (Project project in projects)
@@ -77,19 +77,14 @@ namespace MAPapp {
                         await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(project), new SprintPage(project.CurrentSprint, project.Tasks, project), new NewSprintPage(project), new burndown(project) }, Title = project.projectname });
                     }
                     }
-
-                ////////////////
-        //        Project ding = null;
-          //      ding.projectid = 1;
-                ///////////////////
                 // Het verwijderen van de oude pages in de stack
                 for (int counter = 1; counter <= 2; counter++)
                 {
-
                     Navigation.RemovePage(Navigation.NavigationStack[2]);
                 }
                 b.IsEnabled = true;
             }
+            //Opvangen error
             catch
             {
                await DisplayAlert(Globals.taakallerttitel,Globals.taakallertmessage,"ok");

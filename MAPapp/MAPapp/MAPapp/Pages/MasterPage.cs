@@ -11,7 +11,7 @@ namespace MAPapp
 	{
 		public MasterPage ()
 		{
-			Content = new StackLayout {
+            Content = new StackLayout {
 				Children = {
 					new Label { Text = "Hello Page" }
 				}

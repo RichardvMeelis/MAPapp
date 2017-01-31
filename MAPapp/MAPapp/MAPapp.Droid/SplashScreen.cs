@@ -7,6 +7,7 @@ using Android.Support.V7.App;
 
 namespace MyApp.Droid
 {
+    //Nieuwe MainLauncher voor Android SplashScreen
     [Activity(Theme = "@style/MyTheme.Splash" ,Label = "MAPapp", Icon = "@drawable/icon", MainLauncher = true, NoHistory = true)]
     public class SplashActivity : AppCompatActivity
     {
