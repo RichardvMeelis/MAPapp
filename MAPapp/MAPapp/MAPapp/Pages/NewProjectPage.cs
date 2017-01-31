@@ -38,8 +38,7 @@ namespace MAPapp {
         private async void B_Clicked(object sender, EventArgs e)
         {
             b.IsEnabled = false;
-            //VraagSam
-            //Toevoegen van een nieuw project aan de test data (Tijdelijk/niet helemaal compleet)
+           //Nieuw project toevoegen aan de database
             ContactDataBase.createProject(ContactDataBase.currentUserName, ContactDataBase.currentToken, nameEntry.Text, descriptionEntry.Text, start.Date);
             await Navigation.PushAsync(new ProjectsPage((List<Project>)ContactDataBase.GetProjects(ContactDataBase.currentUserName, ContactDataBase.currentToken)), false);
 

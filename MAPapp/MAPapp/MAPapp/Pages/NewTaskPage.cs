@@ -20,7 +20,7 @@ namespace MAPapp {
         //Project waaraan de taak wordt toegevoegd 
         Project saved;
         Project project;
-        Button b;
+        Button addTask;
         public NewTaskPage(Project f)
         {
             project = f;
@@ -33,23 +33,23 @@ namespace MAPapp {
 
             //Er wordt een nieuwe scrollview gemaakt en de gemaakt elementen worden toegevoegd
             ScrollView scroll = new ScrollView() { Content = new StackLayout { Children = { new Label { Text = Globals.taaknaam, TextColor = GeneralSettings.textColor }, nameEntry, new Label { Text = Globals.beschrijving, TextColor = GeneralSettings.textColor}, descriptionEntry, new Label { Text = Globals.jobsize, TextColor = GeneralSettings.textColor }, jobSizeEntry, new Label { Text = Globals.ubv, TextColor = GeneralSettings.textColor }, userBusinessValueEntry, new Label { Text = Globals.timecrit, TextColor = GeneralSettings.textColor }, timeCriticalityEntry, new Label { Text = Globals.rroe, TextColor = GeneralSettings.textColor}, rroeValueEntry, new Label { Text = Globals.uncertainty, TextColor = GeneralSettings.textColor }, uncertaintyEntry } } };
-            b = new Button() { Text = Globals.knopaanmaken, HorizontalOptions = LayoutOptions.Center, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor };
-            b.Clicked += B_Clicked;
+            addTask = new Button() { Text = Globals.knopaanmaken, HorizontalOptions = LayoutOptions.Center, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor };
+            addTask.Clicked += AddTask;
             Content = new StackLayout
             {
                 Margin = GeneralSettings.pageMargin,
                 Children = {
-                    scroll, b
+                    scroll, addTask
                 }
             };
         }
 
-        private async void B_Clicked(object sender, EventArgs e)
+        private async void AddTask(object sender, EventArgs e)
         {
-            b.IsEnabled = false;
+            addTask.IsEnabled = false;
             int projectID;
-            //VraagSam
-            //Toevoegen van een nieuw project aan de test data (Tijdelijk/niet helemaal compleet)
+           
+          //De nieuwe taak toevoegen aan project in de database
             try
             {
                 projectID = saved.projectid;
@@ -82,13 +82,13 @@ namespace MAPapp {
                 {
                     Navigation.RemovePage(Navigation.NavigationStack[2]);
                 }
-                b.IsEnabled = true;
+                addTask.IsEnabled = true;
             }
             //Opvangen error
             catch
             {
                await DisplayAlert(Globals.taakallerttitel,Globals.taakallertmessage,"ok");
-                b.IsEnabled = true;
+                addTask.IsEnabled = true;
 
             }
         }
