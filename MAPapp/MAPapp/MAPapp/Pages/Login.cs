@@ -118,7 +118,7 @@ namespace MAPapp {
                 var filename = Path.Combine(documents, "MySettings.txt");
                 File.WriteAllText(filename, this.rememberMe.IsToggled.ToString());
                 string s1 = (string)ContactDataBase.SingIn(userName.Text, password.Text);
-
+                
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     
@@ -126,6 +126,9 @@ namespace MAPapp {
                     {
                         ContactDataBase.currentToken = s1;
                         ContactDataBase.currentUserName = userName.Text;
+                        
+                        //Zet de currentUser in de ContactDateBase klasse
+                        ContactDataBase.currentUser = (User)ContactDataBase.GetUserInfo(ContactDataBase.currentUserName, ContactDataBase.currentToken);
                         Application.Current.MainPage = new NavigationPage(new HomePage()) {BarBackgroundColor = GeneralSettings.mainColor,BarTextColor = GeneralSettings.btextColor  };
                     }
                     else

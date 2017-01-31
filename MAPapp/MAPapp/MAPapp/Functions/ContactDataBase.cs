@@ -84,6 +84,7 @@ namespace MAPapp {
         private static String getJsonData(String username,  String command, String token = null, String password = null, String fName = null, String lName = null, String joincode = null, int projectId = 0, int sprintID= 0, int taskid = 0, string taskName = null, string taskDescription = null, int jspoints = 0, int rroePoints = 0, int timeCriticality = 0, int Ucvalue = 0, int ubvValue = 0, string projectName = null, string projectDescription = null, DateTime startDate = new DateTime(), string nieuwpasword = null, string sprintname = null, int sprintDuration = 0, int sprintTarget = 0, string nieuwUserName = null)
         {
             string url = CreateURL(username,nieuwUserName, password, nieuwpasword, command, token, fName, lName, joincode, projectId, sprintID, taskid, taskName, taskDescription, jspoints, rroePoints, timeCriticality, Ucvalue, ubvValue,projectName,projectDescription,startDate,sprintname,sprintDuration,sprintTarget);
+            System.Diagnostics.Debug.WriteLine(url);
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.UserAgent = "ae30f0ddf72d";
             request.Proxy = null;

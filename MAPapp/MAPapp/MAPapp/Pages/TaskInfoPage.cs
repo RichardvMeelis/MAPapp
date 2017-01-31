@@ -72,8 +72,7 @@ namespace MAPapp
         {
             int projectID = t.projectid;
             try
-            {
-                ContactDataBase.completeTask(ContactDataBase.currentUserName, ContactDataBase.currentToken, t.taskid, t.projectid);
+            {         
                 List<Project> projects = (List<Project>)ContactDataBase.GetProjects(ContactDataBase.currentUserName, ContactDataBase.currentToken);
                 foreach (Project project in projects)
                 {
@@ -97,7 +96,9 @@ namespace MAPapp
                         await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(project), new SprintPage(project.CurrentSprint, project.Tasks, project), new NewSprintPage(project), new burndown(project) }, Title = project.projectname });
                     }
                 }
-                //Haal de oude pagina weg
+
+               
+                // Het verwijderen van de oude pages in de stack
                 for (int counter = 1; counter <= 2; counter++)
                 {
 
@@ -112,7 +113,7 @@ namespace MAPapp
         }
         //Join task
         private void JointTask_Clicked(object sender, EventArgs e)
-        {
+        {      
             if (t.lastname == null && t.firstname == null)
             {
                 t.firstname = ContactDataBase.currentUser.firstname;
@@ -121,6 +122,7 @@ namespace MAPapp
                 refreshPage();
 
             }
+            
         }
     }
 }
