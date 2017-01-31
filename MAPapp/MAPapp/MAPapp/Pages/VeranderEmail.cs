@@ -29,12 +29,14 @@ namespace MAPapp
                 Children = {new Label { Text = Globals.VEnieuweEmail_Label, TextColor=GeneralSettings.textColor }, nieuwEmail, new Label {Text = Globals.VEherhaalnieuwEmail_Label, TextColor = GeneralSettings.textColor }, nieuwEmail1, new Label {Text = Globals.VEwachtwoord_Label, TextColor = GeneralSettings.textColor }, wachtwoord, change_W8, Error }
 			};
 		}
+
         private void Textaangepast(object sender, TextChangedEventArgs e)
         {
             if (nieuwEmail.Text != null && nieuwEmail1.Text != null && wachtwoord.Text != null && nieuwEmail.Text == nieuwEmail1.Text && wachtwoord.Text.Length >= 6) change_W8.IsEnabled = true;
             else change_W8.IsEnabled = false;
 
         }
+
         private void butonclicked(object sender, EventArgs e)
         {
             change_W8.IsEnabled = false;

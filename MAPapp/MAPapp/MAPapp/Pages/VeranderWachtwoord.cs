@@ -10,8 +10,8 @@ namespace MAPapp
 	public class VeranderWachtwoord : ContentPage
 	{
         Entry oudwachtwoord = new Entry() { Placeholder = Globals.VWhuidigwachtwoord_Entery, IsPassword= true, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor }, 
-            nieuwWachtwoord= new Entry() {Placeholder=Globals.VWnieuwwachtwoord_Entery, IsPassword=true, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor }, 
-            nieuwwachtwoord2 = new Entry() {Placeholder=Globals.VWherhaalnieuwwachtwoord_Entery , IsPassword= true, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor } ;
+              nieuwWachtwoord= new Entry() {Placeholder=Globals.VWnieuwwachtwoord_Entery, IsPassword=true, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor }, 
+              nieuwwachtwoord2 = new Entry() {Placeholder=Globals.VWherhaalnieuwwachtwoord_Entery , IsPassword= true, TextColor = GeneralSettings.textColor, BackgroundColor = GeneralSettings.entryColor } ;
         Button change = new Button() { Text = Globals.VWverander , IsEnabled = false, BackgroundColor = GeneralSettings.mainColor, TextColor = GeneralSettings.btextColor };
         Label warning = new Label {Text=null ,TextColor=Color.Red };
 
@@ -27,7 +27,6 @@ namespace MAPapp
             {
                 Children = { new Label { Text = Globals.VWhuidigwachtwoord_Label , TextColor=GeneralSettings.textColor }, oudwachtwoord, new Label() {Text=Globals.VWnieuwwachtwoord_Label, TextColor=GeneralSettings.textColor}, nieuwWachtwoord, new Label() {Text=Globals.VWherhaalnieuwwachtwoord_Label, TextColor = GeneralSettings.textColor }, nieuwwachtwoord2, change, warning }
 			};
-
 		}
 
         private void textveranderd(object sender, TextChangedEventArgs e)
@@ -47,7 +46,6 @@ namespace MAPapp
             {
                 warning.Text = Globals.VWerror;
             }
-
         }
     }
 }
