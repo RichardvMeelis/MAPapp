@@ -75,9 +75,7 @@ namespace MAPapp
         {
             int projectID = t.projectid;
             try
-            {
-                // saved.Tasks.Add(new Task(new DateTime(), nameEntry.Text, descriptionEntry.Text, int.Parse(jobSizeEntry.Text), int.Parse(userBusinessValueEntry.Text), 0, null, int.Parse(timeCriticalityEntry.Text), int.Parse(rroeValueEntry.Text), int.Parse(userBusinessValueEntry.Text)));
-                ContactDataBase.completeTask(ContactDataBase.currentUserName, ContactDataBase.currentToken, t.taskid, t.projectid);
+            {         
                 List<Project> projects = (List<Project>)ContactDataBase.GetProjects(ContactDataBase.currentUserName, ContactDataBase.currentToken);
                 foreach (Project project in projects)
                 {
@@ -102,10 +100,7 @@ namespace MAPapp
                     }
                 }
 
-                ////////////////
-                //        Project ding = null;
-                //      ding.projectid = 1;
-                ///////////////////
+               
                 // Het verwijderen van de oude pages in de stack
                 for (int counter = 1; counter <= 2; counter++)
                 {
@@ -122,7 +117,7 @@ namespace MAPapp
             }
         }
         private void JointTask_Clicked(object sender, EventArgs e)
-        {
+        {      
             if (t.lastname == null && t.firstname == null)
             {
                 t.firstname = ContactDataBase.currentUser.firstname;
@@ -131,6 +126,7 @@ namespace MAPapp
                 refreshPage();
 
             }
+            
         }
     }
 }

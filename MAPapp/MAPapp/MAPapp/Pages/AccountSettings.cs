@@ -17,8 +17,7 @@ namespace MAPapp
             BackgroundColor = GeneralSettings.backgroundColor;
             Title = "Mijn Account";
          
-            //Zet de currentUser in de ContactDateBase klasse
-            ContactDataBase.currentUser =  (User)ContactDataBase.GetUserInfo(ContactDataBase.currentUserName, ContactDataBase.currentToken);
+           
             Button logOut = new Button() { Text = Globals.aclogout , TextColor = GeneralSettings.btextColor, BackgroundColor = GeneralSettings.mainColor};
             logOut.Clicked += LogOut;
                 // het creëren van een Grid
