@@ -119,8 +119,12 @@ namespace MAPapp
                 f.CurrentSprint.Sprinttasks = tasks2;
                 
             }
+            var page1 = new ProjectInfoPage(f);
+            var page2 = new SprintPage(f.CurrentSprint, f.Tasks, f);
+            var page3 = new NewSprintPage(f);
+            var page4 = new burndown(f);
             //Push de nieuwe pagina op de stack
-            await Navigation.PushAsync(new TabbedPage() { Children = { new ProjectInfoPage(f), new SprintPage(f.CurrentSprint, f.Tasks, f), new NewSprintPage(f),new burndown(f) }, Title = f.projectname , BackgroundColor = GeneralSettings.backgroundColor});
+            await Navigation.PushAsync(new TabbedPage() { Children = { page1, page2,page3,page4 }, Title = f.projectname , BackgroundColor = GeneralSettings.backgroundColor,CurrentPage = page2});
 
             //Verweider de oude pagina's uit de stack
             for (int counter = 1; counter <= 2; counter++)
